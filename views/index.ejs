@@ -1214,7 +1214,7 @@ function loadServantProfile(servantURL) {
   // load command cards
   for (let key in a.cc) {
     document.getElementById('pf-' + key + '-bot').src = "assets/card-" + a.cc[key] + "-bot.png";
-    document.getElementById('pf-' + key + '-servant').src = "assets/ccart/" + a.info.servantName + ".png";
+    document.getElementById('pf-' + key + '-servant').src = "assets/ccart/" + a.info.cardURL + ".png";
     document.getElementById('pf-' + key + '-mid').src = "assets/card-" + a.cc[key] + "-mid.png";
     document.getElementById('pf-' + key + '-top').src = "assets/card-" + a.cc[key] + "-top.png";
   }

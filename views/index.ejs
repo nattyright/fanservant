@@ -1195,7 +1195,7 @@ function loadServantProfile(servantURL) {
 
   // load noble phantasm
   document.getElementById('pf-np-bot').src = "assets/card-np-" + a.np.type + ".png";
-  document.getElementById('pf-np-servant').src = "assets/ccart/" + a.info.servantName + ".png";
+  document.getElementById('pf-np-servant').src = "assets/ccart/" + a.info.cardURL + ".png";
   document.getElementById('pf-np-mid').src = "assets/card-" + a.np.type + "-mid.png";
   document.getElementById('pf-np-top').src = "assets/card-" + a.np.type + "-top.png";
   for (let key in a.np) {

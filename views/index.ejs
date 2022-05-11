@@ -1161,11 +1161,8 @@ function loadServantProfile(servantURL) {
   document.getElementById('pf-charagraph-base').src = "assets/charagraph/base_servant.png";
   document.getElementById('pf-cardURL').src = "assets/cardart/" + a.info.cardURL + ".png";
   document.getElementById('pf-charagraph-frame').src = "assets/charagraph/charagraph_servant_0" + a.info.servantRarity.toString() + ".png";
-  if (a.info.servantRarity >= 4) {
-    document.getElementById('pf-charagraph-class').src = "assets/charagraph/class" + a.info.servantClass + "gold_charagraph" + ".png";
-  } else {
-    document.getElementById('pf-charagraph-class').src = "assets/charagraph/class" + a.info.servantClass + "silver_charagraph" + ".png";
-  }
+  document.getElementById('pf-charagraph-class').src = "assets/charagraph/class" + a.info.servantClass + a.info.servantRarity.toString() + "_charagraph" + ".png";
+
   
 
   // load servant name, servant class

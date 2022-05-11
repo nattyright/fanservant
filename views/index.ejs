@@ -21,8 +21,8 @@
     margin-top: -10px;
 
   background-image: linear-gradient(#96abe3, #1a329c);
-  background-image: url("public/assets/profile-banner.png"),
-                    url("public/assets/profile-bg.png");
+  background-image: url("assets/profile-banner.png"),
+                    url("assets/profile-bg.png");
   background-position: top, top;
   background-repeat: no-repeat, repeat;
   background-size: 100% 68px, cover;
@@ -177,7 +177,7 @@
 
 }
 .ol-nav-left-bt {
-    background-image: url("public/assets/button-top-base-blue.png");
+    background-image: url("assets/button-top-base-blue.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 118px;
@@ -213,19 +213,19 @@
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 #ol-nav-right-bt1 {
-    background-image: url("public/assets/button-filter-base-blue.png");
+    background-image: url("assets/button-filter-base-blue.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 86px;
 }
 #ol-nav-right-bt2 {
-    background-image: url("public/assets/button-select-base-blue.png");
+    background-image: url("assets/button-select-base-blue.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 136px;
 }
 #ol-nav-right-bt3 {
-    background-image: url("public/assets/button-descend.png");
+    background-image: url("assets/button-descend.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 42px;
@@ -752,12 +752,12 @@
         <div id="origin-list-bot">
             <% servantList.forEach(servant => { %>
             <div class="ol-icon"> 
-                <img class='ol-icon-base' src="public/assets/charaicon/card<%=servant.info.servantRarity%>.png">
-                <img class='ol-icon-servant' id='ol-<%=servant.info.cardURL%>' src="public/assets/charaiconart/<%=servant.info.cardURL%>.png">
-                <img class='ol-icon-frame' src="public/assets/charaicon/card<%=servant.info.servantRarity%>frame.png">
-                <img class='ol-icon-type' src="public/assets/charaicon/servant<%=servant.info.servantRarity%>.png">
-                <img class='ol-icon-class' src="public/assets/charaicon/class<%=servant.info.servantClass.toLowerCase()%><%=servant.info.servantRarity%>.png">
-                <img class='ol-icon-star' src="public/assets/charaicon/star<%=servant.info.servantRarity%>.png">
+                <img class='ol-icon-base' src="assets/charaicon/card<%=servant.info.servantRarity%>.png">
+                <img class='ol-icon-servant' id='ol-<%=servant.info.cardURL%>' src="assets/charaiconart/<%=servant.info.cardURL%>.png">
+                <img class='ol-icon-frame' src="assets/charaicon/card<%=servant.info.servantRarity%>frame.png">
+                <img class='ol-icon-type' src="assets/charaicon/servant<%=servant.info.servantRarity%>.png">
+                <img class='ol-icon-class' src="assets/charaicon/class<%=servant.info.servantClass.toLowerCase()%><%=servant.info.servantRarity%>.png">
+                <img class='ol-icon-star' src="assets/charaicon/star<%=servant.info.servantRarity%>.png">
             </div>
             <% }) %>
 
@@ -798,7 +798,7 @@
         <div id="profile-content">
             <div class="profile-content active" data-slide="0">
 
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="pskill-title">Skills</div>
                 <div class="panel-text pskill-panel">
                     <div class="pskill-tip">These skills can be used anytime during battle.</div>
@@ -850,11 +850,11 @@
                             </td></tr>
                     </table>
                 </div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
 
 
 
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="cskill-title">Class Skills</div>
                 <div class="panel-text cskill-panel">
                     <div class="cskill-tip">These skills automatically go into effect in battle.</div>
@@ -899,11 +899,11 @@
                             </td></tr>
                     </table>
                 </div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
 
 
 
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="np-title">Noble Phantasm</div>
                 <div class="np-type">
                     <img class='pf-np-bot' id="pf-np-bot" src="">
@@ -927,11 +927,11 @@
                     </table>
                     <div class="np-text" id="pf-np-desc"></div>
                 </div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
 
 
 
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="cc-title">Command Card</div>
                 <div class="panel-text cc">
                     <table class="np-table">
@@ -968,11 +968,11 @@
                             </td></tr>
                     </table>
                 </div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
 
             </div>
             <div class="profile-content" data-slide="1">
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Parameters</div>
                 <div class="panel-text profile-panel" id="pf-parameter">
                     <table id="param-table">
@@ -987,32 +987,32 @@
                             <td>NP</td><td><img class="pf-param-img" id="pf-np-img" src=""></td><td><span id="pf-np"></span></td></tr>
                     </table>
                 </div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
 
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Profile 1</div>
                 <div class="panel-text profile-panel" id="pf-profile1"></div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Profile 2</div>
                 <div class="panel-text profile-panel" id="pf-profile2"></div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Profile 3</div>
                 <div class="panel-text profile-panel" id="pf-profile3"></div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Profile 4</div>
                 <div class="panel-text profile-panel" id="pf-profile4"></div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Profile 5</div>
                 <div class="panel-text profile-panel" id="pf-profile5"></div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="public/assets/profile-infopanel-top.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Profile 6</div>
                 <div class="panel-text profile-panel" id="pf-profile6"></div>  
-                <img class="panel-img" src="public/assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
 
                 
             </div>
@@ -1158,10 +1158,10 @@ function loadServantProfile(servantURL) {
   a = servants[servantURL];
 
   // load card art
-  document.getElementById('pf-charagraph-base').src = "public/assets/charagraph/base_servant.png";
-  document.getElementById('pf-cardURL').src = "public/assets/cardart/" + a.info.cardURL + ".png";
-  document.getElementById('pf-charagraph-frame').src = "public/assets/charagraph/charagraph_servant_0" + a.info.servantRarity.toString() + ".png";
-  document.getElementById('pf-charagraph-class').src = "public/assets/charagraph/class" + a.info.servantClass.toLowerCase() + a.info.servantRarity.toString() + "_charagraph" + ".png";
+  document.getElementById('pf-charagraph-base').src = "assets/charagraph/base_servant.png";
+  document.getElementById('pf-cardURL').src = "assets/cardart/" + a.info.cardURL + ".png";
+  document.getElementById('pf-charagraph-frame').src = "assets/charagraph/charagraph_servant_0" + a.info.servantRarity.toString() + ".png";
+  document.getElementById('pf-charagraph-class').src = "assets/charagraph/class" + a.info.servantClass.toLowerCase() + a.info.servantRarity.toString() + "_charagraph" + ".png";
 
   
 
@@ -1194,35 +1194,35 @@ function loadServantProfile(servantURL) {
   }
 
   // load noble phantasm
-  document.getElementById('pf-np-bot').src = "public/assets/card-np-" + a.np.type + ".png";
-  document.getElementById('pf-np-servant').src = "public/assets/ccart/" + a.info.servantName + ".png";
-  document.getElementById('pf-np-mid').src = "public/assets/card-" + a.np.type + "-mid.png";
-  document.getElementById('pf-np-top').src = "public/assets/card-" + a.np.type + "-top.png";
+  document.getElementById('pf-np-bot').src = "assets/card-np-" + a.np.type + ".png";
+  document.getElementById('pf-np-servant').src = "assets/ccart/" + a.info.servantName + ".png";
+  document.getElementById('pf-np-mid').src = "assets/card-" + a.np.type + "-mid.png";
+  document.getElementById('pf-np-top').src = "assets/card-" + a.np.type + "-top.png";
   for (let key in a.np) {
     if (key != "type" && key != "gauge") { document.getElementById('pf-np-' + key).innerHTML = a.np[key]; }
   } 
-  document.getElementById('pf-np-gauge-1').src = "public/assets/np-gauge-1.png";
-  document.getElementById('pf-np-gauge-2').src = "public/assets/np-gauge-0.png";
-  document.getElementById('pf-np-gauge-3').src = "public/assets/np-gauge-0.png";
+  document.getElementById('pf-np-gauge-1').src = "assets/np-gauge-1.png";
+  document.getElementById('pf-np-gauge-2').src = "assets/np-gauge-0.png";
+  document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-0.png";
   if (a.np.gauge > 1) {
-    document.getElementById('pf-np-gauge-2').src = "public/assets/np-gauge-2.png";
+    document.getElementById('pf-np-gauge-2').src = "assets/np-gauge-2.png";
   }
   if (a.np.gauge == 5) {
-    document.getElementById('pf-np-gauge-3').src = "public/assets/np-gauge-3.png";
+    document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-3.png";
   }
 
   // load command cards
   for (let key in a.cc) {
-    document.getElementById('pf-' + key + '-bot').src = "public/assets/card-" + a.cc[key] + "-bot.png";
-    document.getElementById('pf-' + key + '-servant').src = "public/assets/ccart/" + a.info.servantName + ".png";
-    document.getElementById('pf-' + key + '-mid').src = "public/assets/card-" + a.cc[key] + "-mid.png";
-    document.getElementById('pf-' + key + '-top').src = "public/assets/card-" + a.cc[key] + "-top.png";
+    document.getElementById('pf-' + key + '-bot').src = "assets/card-" + a.cc[key] + "-bot.png";
+    document.getElementById('pf-' + key + '-servant').src = "assets/ccart/" + a.info.servantName + ".png";
+    document.getElementById('pf-' + key + '-mid').src = "assets/card-" + a.cc[key] + "-mid.png";
+    document.getElementById('pf-' + key + '-top').src = "assets/card-" + a.cc[key] + "-top.png";
   }
 
   // load params
   for (let key in a.param) {
     document.getElementById('pf-' + key).innerHTML = a.param[key];
-    document.getElementById('pf-' + key + '-img').src = "public/assets/param-" + a.param[key] + '.png';
+    document.getElementById('pf-' + key + '-img').src = "assets/param-" + a.param[key] + '.png';
   }
 
   // load profiles
@@ -1235,10 +1235,10 @@ function loadServantProfile(servantURL) {
   var count = 0;
   for (let key in a.voice) {
     var voicetemp = '<div class="voice-img" data-slide="1' + count.toString() + '">' + 
-                    '<img class="panel-img" src="public/assets/profile-voicepanel-top.png">' + 
+                    '<img class="panel-img" src="assets/profile-voicepanel-top.png">' + 
                     '<div class="voice-title">My Room</div>' + 
                     '<div class="panel-text voice-panel" id="pf-' + key + '">' + a.voice[key].name + '</div>' + 
-                    '<img class="panel-img" src="public/assets/profile-voicepanel-bot.png"></div>' + 
+                    '<img class="panel-img" src="assets/profile-voicepanel-bot.png"></div>' + 
                     '<div class="voice-text" data-slide="1' + count.toString() + '">' + a.voice[key].desc + '</div>';
     count++;
 

@@ -68,7 +68,7 @@ router.post('/editprofile', urlencodedParser, function(req, res) {
 });
 
 
-app.listen(8080, function() {
+app.listen(4321, function() {
     console.log('server is running');
 });
 

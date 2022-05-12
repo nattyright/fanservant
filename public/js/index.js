@@ -35,6 +35,9 @@
     $(".profile-nav").removeClass("active");
     $(this).addClass("active");
 
+    $(".profile-nav").css('background-image','url(../assets/button-profile-nav.png)');
+    $(".profile-nav.active").css('background-image','url(../assets/button-profile-nav-red.png)');
+
     if (current === next) {
       return false;
     } else {

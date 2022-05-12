@@ -503,14 +503,16 @@ body:before {
 
 .voice-img {
     margin-bottom: -4px;
+    margin-left: 21px;
     cursor: pointer;
+    width: 470px;
 }
 .voice-title {
-    margin-top: -66px;
+    margin-top: -60px;
 }
 .panel-text.voice-panel {
-    padding: 22px 10px 3px 66px;
-    margin-bottom: -7px;
+    padding: 17px 10px 1px 66px;
+    margin-bottom: -8px;
     margin-top: -16px;
     font-size: 23px;
 }

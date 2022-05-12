@@ -515,6 +515,8 @@ body:before {
 
 .panel-text.profile-panel {
     padding: 22px 10px 5px 10px;
+    white-space: pre-wrap;
+}
 }
 #param-table {
     width: 100%;

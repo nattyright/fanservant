@@ -209,6 +209,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     width: 136px;
+    letter-spacing: -2px;
 }
 #ol-nav-right-bt3 {
     background-image: url("../assets/button-descend.png");

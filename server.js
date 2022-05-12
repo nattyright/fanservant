@@ -11,10 +11,22 @@ mongoose.connect('mongodb+srv://grail-kun:kalzei77@grail-kun.j25p1.mongodb.net/f
 //mongoose.connect(MONGODB_URI);
 
 
+const infoSchema = {
+    cardURL: String,
+    cardartURL: String,
+    ccartURL: String,
+    oliconURL: String,
+    servantName: String,
+    servantClass: String,
+    servantRarity: String,
+    time: Date
+}
+
+
 const servantSchema = {
     _id: String,
     password: String,
-    info: Object,
+    info: infoSchema,
     status: Object,
     pskill: Object,
     cskill: Object,
@@ -57,7 +69,8 @@ var jsonParser = bodyParser.json()
 
 // render index .ejs file
 app.get('/', (req, res) => {
-    Servants.find({_id: {'$ne':"_empty"}}, {info: 1}, function(err, servants) {
+    Servants.find({_id: {'$ne':"_empty"}}, {info: 1}, {sort: {"info.time": 1}}, function(err, servants) {
+        console.log(servants);
         res.render('index', {
             servantList: servants,
         });
@@ -81,24 +94,36 @@ router.post('/editprofile', urlencodedParser, async function(req, res) {
     try {
         var result = JSON.parse(req.body.result);
         var mode = req.body.mode;
-        var pw = JSON.stringify(await Servants.findOne({_id: result._id}, {password: 1}));
-        var id = JSON.stringify(await Servants.findOne({_id: result._id}, {_id: 1}));
+        var queryResult = await Servants.findOne({_id: result._id}, {password: 1, _id: 1, info: 1});
+        var pw = null;
+        var id = null;
+        var info = null;
+        
+        if (queryResult != null) {
+            pw = JSON.parse(JSON.stringify(queryResult)).password;
+            id = JSON.parse(JSON.stringify(queryResult))._id;
+            info = JSON.parse(JSON.stringify(queryResult)).info;
+        }
+        
 
         if (result._id == "_empty" || result._id == "" || result._id == null ||
-
+            // illegal ID
             /^[a-z]+$/.test(result._id) == false) {
             res.end("illegal");
 
-        } else if (result.password != JSON.parse(pw).password) {
-
+        } else if (queryResult != null && result.password != pw) {
+            // wrong password on EXISTING sheets
             res.end("password");
 
-        } else if (mode == "create" && JSON.parse(id)._id == result._id) {
-
+        } else if (mode == "create" && queryResult != null && id == result._id) {
+            // duplicate ID on NEW sheets (existing sheet shares same ID)
             res.end("dupid");
 
         } else {
 
+            if (result.info.time == 0) {
+                result.info.time = info.time;
+            }
             await Servants.updateOne({_id: result._id}, result, {upsert: true});
             res.end("yes");
             

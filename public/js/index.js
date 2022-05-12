@@ -400,11 +400,17 @@ $(document).ready(function() {
         result["_id"] = result.info.cardURL;
         //console.log(result);
 
+
+        // check whether we're editing an existing sheet or creating a new sheet
         let mode = "edit";
         if ($("#edit-page").hasClass("create")) {
             mode = "create";
+            $("edit-page").removeClass("create");
+            result.info["time"] = Date.now();
+        } else {
+            result.info["time"] = 0;
         }
-        $("edit-page").removeClass("create");
+        
 
         $.post("http://localhost:4321/editprofile",{result: JSON.stringify(result), mode: mode}, function(data){
             if(data === 'yes') {

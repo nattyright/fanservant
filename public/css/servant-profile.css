@@ -575,6 +575,7 @@ body:before {
     z-index: 39999;
     padding-top: 25px;
     font-size: 25px;
+    white-space: pre-wrap;
 }
 
 

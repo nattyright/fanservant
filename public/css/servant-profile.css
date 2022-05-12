@@ -3,6 +3,11 @@
     src: url('../assets/Optima.ttf'); /*URL to font*/
 }
 
+@font-face {
+    font-family: 'Matisse'; /*a name to be used later*/
+    src: url('../assets/MatissePro.otf'); /*URL to font*/
+}
+
 ::-webkit-scrollbar {
     width: 22px;
 }
@@ -173,7 +178,35 @@ body:before {
 
     bottom: 1.4%;
     left: 122px;
+}
+#pf-info-servantClass,
+#pf-info-servantName {
+    position: absolute;
+    z-index: 500;
+    color: white;
+    font-family: Matisse;
+    
+    text-shadow:
+        -1px -1px 0 black,  
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black;
+}
+#pf-info-servantClass {
+    font-size: 26px;
+    letter-spacing: 1px;
 
+    left: 50%;
+    top: 84.8%;
+    transform: translate(-50%, -50%);
+}
+#pf-info-servantName {
+    font-size: 13px;
+    letter-spacing: 0;
+
+    left: 50%;
+    top: 88.8%;
+    transform: translate(-50%, -50%);
 }
 
 

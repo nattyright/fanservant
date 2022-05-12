@@ -109,6 +109,8 @@ function loadServantProfile(a) {
   //document.getElementById('pf-cardURL').src = "assets/cardart/" + a.info.cardURL + ".png";
   document.getElementById('pf-charagraph-frame').src = "assets/charagraph/charagraph_servant_0" + a.info.servantRarity.toString() + ".png";
   document.getElementById('pf-charagraph-class').src = "assets/charagraph/class" + a.info.servantClass.toLowerCase() + a.info.servantRarity.toString() + "_charagraph" + ".png";
+  document.getElementById('pf-info-servantClass').innerHTML = a.info.servantClass;
+  document.getElementById('pf-info-servantName').innerHTML = a.info.servantName;
 
   
 

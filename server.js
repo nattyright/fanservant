@@ -12,6 +12,8 @@ mongoose.connect('mongodb+srv://grail-kun:kalzei77@grail-kun.j25p1.mongodb.net/f
 
 
 const servantSchema = {
+    _id: String,
+    password: String,
     info: Object,
     status: Object,
     pskill: Object,
@@ -26,7 +28,7 @@ const servantSchema = {
     gallery: Object
 };
 
-const Servant = mongoose.model('Servant', servantSchema);
+const Servants = mongoose.model('Servants', servantSchema);
 
 
 // serve up static CSS & asset files in 'public' folder
@@ -42,30 +44,53 @@ var jsonParser = bodyParser.json()
 
 // render index .ejs file
 app.get('/', (req, res) => {
-
-    Servant.find({}, function(err, servants) {
-
-        // servant dictionary for quicker lookup
-        var servantDictTemp = {};
-        servants.forEach(servant => {
-            servantDictTemp[servant.info.cardURL] = servant;
-        });
-
+    Servants.find({_id: {'$ne':"_empty"}}, {info: 1}, function(err, servants) {
         res.render('index', {
             servantList: servants,
-            servantDict: servantDictTemp
         });
     });
+})
 
+
+// handle get request on loading servant profile
+app.get('/loadprofile', async function(req, res) {
+    try {
+        var result = await Servants.findOne({_id: req._parsedUrl.query});
+        res.end(JSON.stringify(result));
+    } catch (err) {
+        res.end("error");
+    }
 })
 
 
 
-router.post('/editprofile', urlencodedParser, function(req, res) {
-    var user_name = req.body.user;
-    console.log(user_name);
-    console.log(req.body);
+router.post('/editprofile', urlencodedParser, async function(req, res) {
+    try {
+        var result = JSON.parse(req.body.result);
+        var pw = JSON.stringify(await Servants.findOne({_id: result._id}, {password: 1}));
+
+        if (result._id == "_empty" || result._id == "" || result._id == null ||
+
+            /^[a-z]+$/.test(result._id) == false) {
+            res.end("illegal");
+
+        } else if (result.password != JSON.parse(pw).password) {
+
+            res.end("password");
+
+        }else {
+
+            await Servants.updateOne({_id: result._id}, result, {upsert: true});
+            res.end("yes");
+            
+        }
+
+        
+    } catch (err) {
+        res.end("error");
+    }
 });
+
 
 
 app.listen(4321, function() {

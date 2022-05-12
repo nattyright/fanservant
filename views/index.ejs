@@ -295,25 +295,42 @@
     <div id="edit-page" class=""> 
  
           <div>
-              <label for="edit-cardURL">Unique Servant Name (All Lowercase, No Spaces)</label><br>
-              <input type="text" id="edit-cardURL" name="cardURL" value="all-lowercase-no-spaces"><br>
+              <label for="edit-info-cardURL">Unique Servant Name (All Lowercase, No Spaces)</label><br>
+              <input type="text" id="edit-info-cardURL" name="edit-info-cardURL" value=""><br>
           </div>
 
           <div class="flex-break"></div>
 
           <div>
-              <label for="edit-servantName"></label>Servant Name<br>
-              <input type="text" id="edit-servantName" name="edit-servantName" value=""><br>
+              <label for="edit-info-cardartURL"></label>Card Art URL (For best results: 300x500. OR same ratio.)<br>
+              <input type="text" id="edit-info-cardartURL" name="edit-info-cardartURL" value=""><br>
+          </div>
+          <div class="flex-break"></div>
+          <div>
+              <label for="edit-info-ccartURL"></label>Command Card Art URL (For best results: 135x165, chin rests at 95 pixel mark from the top. OR same ratio.)<br>
+              <input type="text" id="edit-info-ccartURL" name="edit-info-ccartURL" value=""><br>
+          </div>
+          <div class="flex-break"></div>
+          <div>
+              <label for="edit-info-oliconURL"></label>Origin List Icon URL (For best results: SQUARE images only.)<br>
+              <input type="text" id="edit-info-oliconURL" name="edit-info-oliconURL" value=""><br>
+          </div>
+
+          <div class="flex-break"></div>
+
+          <div>
+              <label for="edit-info-servantName"></label>Servant Name<br>
+              <input type="text" id="edit-info-servantName" name="edit-info-servantName" value=""><br>
           </div>
           <div>
-              <label for="edit-servantClass"></label>Servant Class<br>
-              <select id="edit-servantClass" name="edit-servantClass">
+              <label for="edit-info-servantClass"></label>Servant Class<br>
+              <select id="edit-info-servantClass" name="edit-info-servantClass">
                   <option value="Saber">Saber</option><option value="Archer">Archer</option><option value="Lancer">Lancer</option><option value="Rider">Rider</option><option value="Caster">Caster</option><option value="Assassin">Assassin</option><option value="Berserker">Berserker</option><option value="Avenger">Avenger</option><option value="Ruler">Ruler</option><option value="Alter Ego">Alter Ego</option><option value="Foreigner">Foreigner</option><option value="Moon Cancer">Moon Cancer</option><option value="Pretender">Pretender</option><option value="Shielder">Shielder</option>
               </select><br>
           </div>
           <div>
-              <label for="edit-servantRarity">Servant Rarity</label><br>
-              <select id="edit-servantRarity" name="edit-servantRarity">
+              <label for="edit-info-servantRarity">Servant Rarity</label><br>
+              <select id="edit-info-servantRarity" name="edit-info-servantRarity">
                   <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
               </select><br>
           </div>
@@ -486,9 +503,9 @@
           <div>
           <label for="edit-np-type">Type</label><br>
           <select id="edit-np-type" name="edit-np-type">
-              <option value="Buster">Buster</option>
-              <option value="Arts">Arts</option>
-              <option value="Quick">Quick</option>
+              <option value="buster">Buster</option>
+              <option value="arts">Arts</option>
+              <option value="quick">Quick</option>
           </select><br>
           </div>
           <div>
@@ -518,11 +535,6 @@
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
           </select><br>
           </div>
           <div>
@@ -537,41 +549,41 @@
           <div>
           <label for="edit-cc-cc1">Card 1</label><br>
           <select id="edit-cc-cc1" name="edit-cc-cc1">
-              <option value="Buster">Buster</option>
-              <option value="Arts">Arts</option>
-              <option value="Quick">Quick</option>
+              <option value="buster">Buster</option>
+              <option value="arts">Arts</option>
+              <option value="quick">Quick</option>
           </select><br>
           </div>
           <div>
           <label for="edit-cc-cc2">Card 2</label><br>
           <select id="edit-cc-cc2" name="edit-cc-cc2">
-              <option value="Buster">Buster</option>
-              <option value="Arts">Arts</option>
-              <option value="Quick">Quick</option>
+              <option value="buster">Buster</option>
+              <option value="arts">Arts</option>
+              <option value="quick">Quick</option>
           </select><br>
           </div>
           <div>
           <label for="edit-cc-cc3">Card 3</label><br>
           <select id="edit-cc-cc3" name="edit-cc-cc3">
-              <option value="Buster">Buster</option>
-              <option value="Arts">Arts</option>
-              <option value="Quick">Quick</option>
+              <option value="buster">Buster</option>
+              <option value="arts">Arts</option>
+              <option value="quick">Quick</option>
           </select><br>
           </div>
           <div>
           <label for="edit-cc-cc4">Card 4</label><br>
           <select id="edit-cc-cc4" name="edit-cc-cc4">
-              <option value="Buster">Buster</option>
-              <option value="Arts">Arts</option>
-              <option value="Quick">Quick</option>
+              <option value="buster">Buster</option>
+              <option value="arts">Arts</option>
+              <option value="quick">Quick</option>
           </select><br>
           </div>
           <div>
           <label for="edit-cc-cc5">Card 5</label><br>
           <select id="edit-cc-cc5" name="edit-cc-cc5">
-              <option value="Buster">Buster</option>
-              <option value="Arts">Arts</option>
-              <option value="Quick">Quick</option>
+              <option value="buster">Buster</option>
+              <option value="arts">Arts</option>
+              <option value="quick">Quick</option>
           </select><br>
           </div>
 
@@ -683,35 +695,28 @@
           <div class="flex-break"></div>
           <div>Voice</div>
           <div class="flex-break"></div>
+          <div id="edit-voice"></div>
+          <div id="edit-voice-add">Add Voice</div>
 
-          <div>
-          <label for="edit-voice-voice1-name">Voice 1 Title</label><br>
-          <input type="text" id="edit-voice-voice1-name" name="edit-voice-voice1-name" value=""><br>
-          <label for="edit-voice-voice1-desc">Voice 1 Dialogue</label><br>
-          <textarea id="edit-voice-voice1-desc" name="edit-voice-voice1-desc" rows="5" cols="30"></textarea>
-          </div>
-          <div class="flex-break"></div>
 
           <div class="flex-break"></div>
           <div>Gallery</div>
           <div class="flex-break"></div>
+          <div id="edit-gallery"></div>
+          <div id="edit-gallery-add">Add Image</div>
 
-          <div>
-          <label for="edit-gallery-image1-name">Image 1 Title</label><br>
-          <input type="text" id="edit-gallery-image1" name="edit-gallery-image1" value=""><br>
-          <label for="edit-gallery-image1-url">Image 1 URL</label><br>
-          <input type="text" id="edit-gallery-image1-url" name="edit-gallery-image1-url" value=""><br>
-          </div>
 
           <div class="flex-break"></div>
           <div>
-            <input id="submit" type="button" value="Submit" />
-        </div>
+          <label for="edit-password" id="edit-password-label">Password (save this, as you will need to input this password to edit this page in the future)</label><br>
+          <input type="text" id="edit-password" name="edit-password" value=""><br>
+          </div>
+          <div class="flex-break"></div>
+
+          <div><input id="submit" type="button" value="Submit" /></div>
           
 
-          <div>
-            <input id="edit-page-cancel" type="button" value="Cancel" />
-        </div>
+          <div><input id="edit-page-cancel" type="button" value="Cancel" /></div>
     </div>
 
 
@@ -753,7 +758,7 @@
             <% servantList.forEach(servant => { %>
             <div class="ol-icon"> 
                 <img class='ol-icon-base' src="assets/charaicon/card<%=servant.info.servantRarity%>.png">
-                <img class='ol-icon-servant' id='ol-<%=servant.info.cardURL%>' src="assets/charaiconart/<%=servant.info.cardURL%>.png">
+                <img class='ol-icon-servant' id='ol-<%=servant.info.cardURL%>' src="<%=servant.info.oliconURL%>">
                 <img class='ol-icon-frame' src="assets/charaicon/card<%=servant.info.servantRarity%>frame.png">
                 <img class='ol-icon-type' src="assets/charaicon/servant<%=servant.info.servantRarity%>.png">
                 <img class='ol-icon-class' src="assets/charaicon/class<%=servant.info.servantClass.toLowerCase()%><%=servant.info.servantRarity%>.png">
@@ -770,8 +775,8 @@
 
     <div id="col-left" style="flex: 5.5%">
         <div id="button-close-profile" style="flex: 25%"><span>Close</span></div>
-        <div id="button-edit-page" style="flex: 25%"><span>Lock</span></div>
-        <div style="flex: 25%"><span>Select</span></div>
+        <div id="button-edit-page" style="flex: 25%"><span>Edit</span></div>
+        <div id="button-create-page" style="flex: 25%"><span>Create</span></div>
         <div style="flex: 25%"><span>Favorite</span></div>
     </div>
 
@@ -788,6 +793,7 @@
         <div id="profile-name">
             <div id="pf-servantName"></div>
             <div id="pf-servantClass"></div>
+            <div id="pf-servantID" style="display:none"></div>
         </div>
         <div id="profile-nav">
             <div style="flex: 25%" class="profile-nav active" data-slide="0">Status</div>
@@ -1035,237 +1041,6 @@
 
 
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script type="text/javascript">
-
-
-// edit page toggle
-  $("#edit-page-cancel").on("click", function (e) {
-    $("#edit-page").removeClass("active");
-  });
-  $("#button-edit-page").on("click", function (e) {
-    if ($("#origin-list").hasClass("active")) {
-        alert("Please go to a Servant profile page first!");
-    } else {
-        $("#edit-page").addClass("active");
-    }
-  });
-
-
-
-// edit page submit POST request
-
-
-$(document).ready(function() {
-    var user,pass;
-    $("#submit").click(function(){
-        var xxx = $("#edit-page").innerHTML;
-        user=$("#user").val();
-        pass=$("#password").val();
-        $.post("http://localhost:8080/editprofile",{user: user,password: pass, xxx: xxx}, function(data){
-            if(data === 'yes') {
-                alert("login success");
-              }
-        });
-    });
-});
-
-
-
-// origin list toggle
-  $("#button-close-profile").on("click", function (e) {
-    if ($("#origin-list").hasClass("active")) {
-        $("#origin-list").removeClass("active");
-    } else {
-        $("#origin-list").addClass("active");
-    }
-  });
-  $("#button-close-origin-list").on("click", function (e) {
-    $("#origin-list").removeClass("active");
-  });
-  $("#button-servant-icon").on("click", function (e) {
-    $("#origin-list").removeClass("active");
-  });
-
-
-// profile tabs
-  $(".profile-nav").on("click", function (e) {
-    e.preventDefault();
-    // get current slide
-    var current = $(".profile-nav.active").data("slide"),
-      // get button data-slide
-      next = $(this).data("slide");
-
-    $(".profile-nav").removeClass("active");
-    $(this).addClass("active");
-
-    if (current === next) {
-      return false;
-    } else {
-      $("#profile-content")
-        .find(".profile-content[data-slide=" + next + "]")
-        .addClass("active");
-
-      $("#profile-content")
-        .find(".profile-content[data-slide=" + current + "]")
-        .removeClass("active");
-    }
-  });
-
-// voiceovers 
-function bindVoiceoverPanels() {
-    $(".voice-img").on("click", function (e) {
-    e.preventDefault();
-    // get current slide
-    var current = $(this).data("slide");
-    $(this).addClass("active");
-
-
-    $("#profile-content-voiceover")
-      .find(".voice-text[data-slide=" + current + "]")
-      .addClass("active");
-  });
-
-  $(".voice-text").on("click", function (e) {
-    e.preventDefault();
-    // get current slide
-    var current = $(this).data("slide");
-    $(this).removeClass("active");
-
-    $("#profile-content-voiceover")
-      .find(".voice-img[data-slide=" + current + "]")
-      .removeClass("active");
-  });
-}
-
-function changeGalleryImage(newSrc) {
-    document.getElementById("pf-gallery-img").src = newSrc;
-}
-  
-
-$(".ol-icon").on("click", function (e) {
-    const servantURL = $(this).find(".ol-icon-servant").attr("id").split("-")[1];
-    loadServantProfile(servantURL);
-    $("#origin-list").removeClass("active");
-    
-  });
-
-
-
-
-var servants = <%- JSON.stringify(servantDict) %>
-
-function loadServantProfile(servantURL) {
-  a = servants[servantURL];
-
-  // load card art
-  document.getElementById('pf-charagraph-base').src = "assets/charagraph/base_servant.png";
-  document.getElementById('pf-cardURL').src = "assets/cardart/" + a.info.cardURL + ".png";
-  document.getElementById('pf-charagraph-frame').src = "assets/charagraph/charagraph_servant_0" + a.info.servantRarity.toString() + ".png";
-  document.getElementById('pf-charagraph-class').src = "assets/charagraph/class" + a.info.servantClass.toLowerCase() + a.info.servantRarity.toString() + "_charagraph" + ".png";
-
-  
-
-  // load servant name, servant class
-  document.getElementById('pf-servantName').innerHTML = a.info.servantName;
-  document.getElementById('pf-servantClass').innerHTML = a.info.servantClass;
-
-  // load personal skills
-  for (let skill in a.pskill) {
-    for (let key in a.pskill[skill]) {
-        if (key != "iconURL") {
-            document.getElementById('pf-pskill-' + skill + '-' + key).innerHTML = a.pskill[skill][key];
-        } else {
-            document.getElementById('pf-pskill-' + skill + '-' + key).src = a.pskill[skill][key];
-        }
-        
-    }
-  }
-
-  // load class skills
-  for (let skill in a.cskill) {
-    for (let key in a.cskill[skill]) {
-        if (key != "iconURL") {
-            document.getElementById('pf-cskill-' + skill + '-' + key).innerHTML = a.pskill[skill][key];
-        } else {
-            document.getElementById('pf-cskill-' + skill + '-' + key).src = a.cskill[skill][key];
-        }
-        
-    }
-  }
-
-  // load noble phantasm
-  document.getElementById('pf-np-bot').src = "assets/card-np-" + a.np.type + ".png";
-  document.getElementById('pf-np-servant').src = "assets/ccart/" + a.info.cardURL + ".png";
-  document.getElementById('pf-np-mid').src = "assets/card-" + a.np.type + "-mid.png";
-  document.getElementById('pf-np-top').src = "assets/card-" + a.np.type + "-top.png";
-  for (let key in a.np) {
-    if (key != "type" && key != "gauge") { document.getElementById('pf-np-' + key).innerHTML = a.np[key]; }
-  } 
-  document.getElementById('pf-np-gauge-1').src = "assets/np-gauge-1.png";
-  document.getElementById('pf-np-gauge-2').src = "assets/np-gauge-0.png";
-  document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-0.png";
-  if (a.np.gauge > 1) {
-    document.getElementById('pf-np-gauge-2').src = "assets/np-gauge-2.png";
-  }
-  if (a.np.gauge == 5) {
-    document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-3.png";
-  }
-
-  // load command cards
-  for (let key in a.cc) {
-    document.getElementById('pf-cc-' + key + '-bot').src = "assets/card-" + a.cc[key] + "-bot.png";
-    document.getElementById('pf-cc-' + key + '-servant').src = "assets/ccart/" + a.info.cardURL + ".png";
-    document.getElementById('pf-cc-' + key + '-mid').src = "assets/card-" + a.cc[key] + "-mid.png";
-    document.getElementById('pf-cc-' + key + '-top').src = "assets/card-" + a.cc[key] + "-top.png";
-  }
-
-  // load params
-  for (let key in a.param) {
-    document.getElementById('pf-param-' + key).innerHTML = a.param[key];
-    document.getElementById('pf-param-' + key + '-img').src = "assets/param-" + a.param[key] + '.png';
-  }
-
-  // load profiles
-  for (let key in a.profile) {
-    document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];
-  }
-
-  // load voiceovers
-  var voiceHTML = "";
-  var count = 0;
-  for (let key in a.voice) {
-    var voicetemp = '<div class="voice-img" data-slide="1' + count.toString() + '">' + 
-                    '<img class="panel-img" src="assets/profile-voicepanel-top.png">' + 
-                    '<div class="voice-title">My Room</div>' + 
-                    '<div class="panel-text voice-panel" id="pf-voice-' + key + '">' + a.voice[key].name + '</div>' + 
-                    '<img class="panel-img" src="assets/profile-voicepanel-bot.png"></div>' + 
-                    '<div class="voice-text" data-slide="1' + count.toString() + '">' + a.voice[key].desc + '</div>';
-    count++;
-
-
-    voiceHTML += voicetemp;
-  }
-  document.getElementById('profile-content-voiceover').innerHTML = voiceHTML;
-  bindVoiceoverPanels();
-
-
-  // load gallery
-  var galleryHTML = "<ul>";
-  for (let key in a.gallery) {
-    var gallerytemp =   '<li><a class="gallery-link" href="javascript:" onclick="changeGalleryImage(' + "'" + a.gallery[key].url + "'" + ');">' + a.gallery[key].name + '</a></li>';
-    galleryHTML += gallerytemp;
-  }
-  galleryHTML += "</ul>";
-  document.getElementById('pf-gallery-nav').innerHTML = galleryHTML;
-  changeGalleryImage(a.gallery.image1.url)
-
-
-
-}
-
-
-</script>
-
-
+<script src='js/index.js'></script>
 </body>
 </html>

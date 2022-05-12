@@ -111,13 +111,13 @@ router.post('/editprofile', urlencodedParser, async function(req, res) {
             /^[a-z]+$/.test(result._id) == false) {
             res.end("illegal");
 
-        } else if (queryResult != null && result.password != pw) {
-            // wrong password on EXISTING sheets
-            res.end("password");
-
         } else if (mode == "create" && queryResult != null && id == result._id) {
             // duplicate ID on NEW sheets (existing sheet shares same ID)
             res.end("dupid");
+
+        } else if (queryResult != null && result.password != pw) {
+            // wrong password on EXISTING sheets
+            res.end("password");
 
         } else {
 

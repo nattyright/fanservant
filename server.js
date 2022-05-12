@@ -70,7 +70,6 @@ var jsonParser = bodyParser.json()
 // render index .ejs file
 app.get('/', (req, res) => {
     Servants.find({_id: {'$ne':"_empty"}}, {info: 1}, {sort: {"info.time": 1}}, function(err, servants) {
-        console.log(servants);
         res.render('index', {
             servantList: servants,
         });

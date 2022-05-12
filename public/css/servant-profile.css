@@ -366,11 +366,21 @@ body:before {
     padding: 5px 10px 5px 10px;
 }
 .pskill-tip,
-.cskill-tip {
-    color: teal;
+.cskill-tip,
+.voice-tip {
+    --border-blue: black;
+    color: #46dee3;
     margin-top: 5px;
     font-size: 15px;
     padding-left: 120px;
+    text-shadow:
+        -1px -1px 0 var(--border-blue),  
+        1px -1px 0 var(--border-blue),
+        -1px 1px 0 var(--border-blue),
+        1px 1px 0 var(--border-blue);
+}
+.voice-tip {
+    margin-left: 50px;
 }
 .pskill-l,
 .cskill-l {
@@ -497,6 +507,13 @@ body:before {
 
 .pf-param-img {
     width: 100%;
+}
+
+
+
+.pf-profile-fc {
+    font-size: 30px;
+    padding-left: 15px !important;
 }
 
 

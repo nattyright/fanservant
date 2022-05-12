@@ -173,7 +173,10 @@ function loadServantProfile(a) {
   // load params
   for (let key in a.param) {
     document.getElementById('pf-param-' + key).innerHTML = a.param[key];
-    document.getElementById('pf-param-' + key + '-img').src = "assets/param-" + a.param[key] + '.png';
+    if (a.param[key] == "X") {
+        document.getElementById('pf-param-' + key).innerHTML = "?";
+    }
+    document.getElementById('pf-param-' + key + '-img').src = "assets/param-" + a.param[key].slice(0,1) + '.png';
   }
 
   // load profiles
@@ -182,7 +185,7 @@ function loadServantProfile(a) {
   }
 
   // load voiceovers
-  var voiceHTML = "";
+  var voiceHTML = '<div class="voice-tip">Tap an entry to play a voice.</div>';
   var count = 0;
   for (let key in a.voice) {
     var voicetemp = '<div class="voice-img" data-slide="1' + count.toString() + '">' + 

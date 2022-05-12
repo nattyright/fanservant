@@ -19,130 +19,7 @@
 
 <style>
 
-#edit-page {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 39999;
-  position: absolute;
-  margin-top: -10px;
-  background-color: rgba(15, 25, 40, 0.9);
-  overflow-y: auto;
-
-  color: lightgray;
-  font-size: 18px;
-  font-family: Calibri;
-
-  display: none;
-}
-#edit-page.active {
-  display: block;
-    
-}
-#edit-page-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  margin: 20px auto;
-  width: 94%;
-}
-.flex-break {
-    flex-basis: 100%;
-    height: 0;
-}
-.edit-title {
-  margin-top: 25px !important;
-  margin-bottom: -15px !important;
-  margin-right: 10px;
-  margin-left: 10px;
-
-  font-size: 23px;
-  font-family: Optima;
-  text-decoration: underline;
-}
-.one-row-item {
-  width: 100%;
-}
-.two-row-item {
-  width: 50%;
-}
-.three-row-item {
-    width: 33%;
-}
-#edit-page div {
-  margin-top: 10px;
-  text-align: center;
-}
-#edit-page input {
-  width: 90%;
-  max-width: 500px;
-}
-#edit-page select {
-  width: 90%;
-  text-align: center;
-}
-#edit-page textarea {
-  min-width: 19em;
-  max-width: 19em;
-}
-.two-row-item textarea {
-  min-width: 25em !important;
-  max-width: 25em !important;
-}
-#edit-voice textarea {
-  min-height: 4em !important;
-  max-height: 4em !important;
-  min-width: 47em !important;
-  max-width: 47em !important;
-}
-#edit-gallery input {
-  width: 600px;
-}
-.edit-cd {
-  width: 40px;
-}
-.edit-lv,
-.edit-rank {
-  width: 80px;
-}
-#edit-voice-add,
-#edit-gallery-add {
-  background-color: seagreen;
-  padding: 5px 10px;
-  color: white;
-  cursor: pointer;
-}
-#edit-page input,
-#edit-page textarea,
-#edit-page select {
-  background-color: rgba(20, 30, 40, 0.8);
-  border: 1px solid dimgray;
-  color: #e6e6e6;
-  font-size: 16px;
-  font-family: Calibri !important;
-}
-#edit-password {
-  width: 200px !important;
-}
-#edit-page-cancel,
-#submit {
-  width: 200px !important;
-  margin: 20px 100px;
-  font-weight: 700;
-  font-size: 20px;
-  cursor: pointer;
-}
-#edit-page-cancel {
-  color: coral !important;
-}
-#submit {
-  color: #789cff !important;
-}
-
-
 </style>
-
 
 
 </head>
@@ -193,6 +70,11 @@
                   <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
               </select><br>
           </div>
+
+          <div class="flex-break"></div>
+
+          <div class="one-row-item edit-title">FGO Skill Icons</div>
+          <div><a style="color:white;" href="https://fategrandorder.fandom.com/wiki/Category:Icons" target=”_blank”>https://fategrandorder.fandom.com/wiki/Category:Icons</a></div>
 
 
           <div class="flex-break"></div>
@@ -454,67 +336,115 @@
           <label for="edit-param-str">STR</label><br>
           <select id="edit-param-str" name="edit-param-str">
               <option value="EX">EX</option>
+              <option value="A+">A+</option>
+              <option value="B+">B+</option>
+              <option value="C+">C+</option>
               <option value="A">A</option>
               <option value="B">B</option>
+              <option value="D+">D+</option>
               <option value="C">C</option>
               <option value="D">D</option>
+              <option value="E+">E+</option>
               <option value="E">E</option>
+              <option value="X">?</option>
           </select><br>
           </div>
           <div>
           <label for="edit-param-end">END</label><br>
           <select id="edit-param-end" name="edit-param-end">
               <option value="EX">EX</option>
+              <option value="A+">A+</option>
+              <option value="B+">B+</option>
+              <option value="C+">C+</option>
               <option value="A">A</option>
               <option value="B">B</option>
+              <option value="D+">D+</option>
               <option value="C">C</option>
               <option value="D">D</option>
+              <option value="E+">E+</option>
               <option value="E">E</option>
+              <option value="X">?</option>
           </select><br>
           </div>
           <div>
           <label for="edit-param-agi">AGI</label><br>
           <select id="edit-param-agi" name="edit-param-agi">
               <option value="EX">EX</option>
+              <option value="A+">A+</option>
+              <option value="B+">B+</option>
+              <option value="C+">C+</option>
               <option value="A">A</option>
               <option value="B">B</option>
+              <option value="D+">D+</option>
               <option value="C">C</option>
               <option value="D">D</option>
+              <option value="E+">E+</option>
               <option value="E">E</option>
+              <option value="X">?</option>
           </select><br>
           </div>
           <div>
           <label for="edit-param-man">MAN</label><br>
           <select id="edit-param-man" name="edit-param-man">
               <option value="EX">EX</option>
+              <option value="A+">A+</option>
+              <option value="B+">B+</option>
+              <option value="C+">C+</option>
               <option value="A">A</option>
               <option value="B">B</option>
+              <option value="D+">D+</option>
               <option value="C">C</option>
               <option value="D">D</option>
+              <option value="E+">E+</option>
               <option value="E">E</option>
+              <option value="X">?</option>
           </select><br>
           </div>
           <div>
           <label for="edit-param-luk">LUK</label><br>
           <select id="edit-param-luk" name="edit-param-luk">
               <option value="EX">EX</option>
+              <option value="A+">A+</option>
+              <option value="B+">B+</option>
+              <option value="C+">C+</option>
               <option value="A">A</option>
               <option value="B">B</option>
+              <option value="D+">D+</option>
               <option value="C">C</option>
               <option value="D">D</option>
+              <option value="E+">E+</option>
               <option value="E">E</option>
+              <option value="X">?</option>
           </select><br>
           </div>
           <div>
           <label for="edit-param-np">NP</label><br>
           <select id="edit-param-np" name="edit-param-np">
               <option value="EX">EX</option>
+              <option value="A+">A+</option>
+              <option value="B+">B+</option>
+              <option value="C+">C+</option>
               <option value="A">A</option>
               <option value="B">B</option>
+              <option value="D+">D+</option>
               <option value="C">C</option>
               <option value="D">D</option>
+              <option value="E+">E+</option>
               <option value="E">E</option>
+              <option value="X">?</option>
           </select><br>
+          </div>
+
+
+          <div class="flex-break"></div>
+          <div class="one-row-item">
+          <label class="edit-title" for="edit-profile-fc">Face Claim</label><br>
+          <input type="text" id="edit-profile-fc" name="edit-profile-fc" value=""><br>
+          </div>
+          <div class="flex-break"></div>
+          <div class="one-row-item">
+          <label class="edit-title" for="edit-profile-charinfo">Character Info</label><br>
+          <textarea id="edit-profile-charinfo" name="edit-profile-charinfo" rows="5" cols="30"></textarea>
           </div>
 
           <div class="flex-break"></div>
@@ -845,6 +775,16 @@
 
             </div>
             <div class="profile-content" data-slide="1">
+
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
+                <div class="profile-title">Face Claim/</div>
+                <div class="panel-text profile-panel pf-profile-fc">FC: <span id="pf-profile-fc"></span></div>  
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <img class="panel-img" src="assets/profile-infopanel-top.png">
+                <div class="profile-title">Character Info</div>
+                <div class="panel-text profile-panel" id="pf-profile-charinfo"></div>  
+                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+
                 <img class="panel-img" src="assets/profile-infopanel-top.png">
                 <div class="profile-title">Parameters</div>
                 <div class="panel-text profile-panel" id="pf-parameter">

@@ -37,7 +37,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://localhost:4321");
+  res.setHeader("Access-Control-Allow-Origin", "https://profile.fatechan.top");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"

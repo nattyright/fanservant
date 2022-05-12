@@ -34,6 +34,19 @@ const Servants = mongoose.model('Servants', servantSchema);
 // serve up static CSS & asset files in 'public' folder
 app.use(express.static(__dirname + '/public'));
 
+
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://localhost:4321");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+
+
 // use router for POST requests
 app.use("/",router);
 // parse application/x-www-form-urlencoded

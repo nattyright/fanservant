@@ -86,7 +86,7 @@ function changeGalleryImage(newSrc) {
 $(".ol-icon").on("click", async function (e) {
     let servantURL = $(this).find(".ol-icon-servant").attr("id").split("-")[1];
 
-    await $.get("http://localhost:4321/loadprofile", servantURL, function(data, status) {
+    await $.get("/loadprofile", servantURL, function(data, status) {
         if(status === 'success') {
             loadServantProfile(JSON.parse(data));
         } else {
@@ -315,7 +315,7 @@ async function populateEditPage(servantURL) {
 
     let a = {};
 
-    await $.get("http://localhost:4321/loadprofile", servantURL, function(data, status) {
+    await $.get("/loadprofile", servantURL, function(data, status) {
         if(status === 'success') {
             a = JSON.parse(data);
         } else {
@@ -412,7 +412,7 @@ $(document).ready(function() {
         }
         
 
-        $.post("http://localhost:4321/editprofile",{result: JSON.stringify(result), mode: mode}, function(data){
+        $.post("/editprofile",{result: JSON.stringify(result), mode: mode}, function(data){
             if(data === 'yes') {
                 alert("Profile updated.");
             } else if (data === 'error') {

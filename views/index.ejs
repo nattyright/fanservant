@@ -1,285 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta property="og:title" content="Fate/Starry Night Character Compendium" />
-    <meta property="og:description" content="There's no story skip button here.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta property="og:title" content="Fate/Starry Night Character Compendium" />
+  <meta property="og:description" content="There's no story skip button here.">
 
-    <title>FateRP Character Compendium</title>
+  <title>FateRP Character Compendium</title>
 
-<link rel="stylesheet" href="css/servant-profile.css">
+  <script src="https://kit.fontawesome.com/fbb57351e0.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="css/servant-profile.css">
+  <link rel="stylesheet" href="css/origin-list.css">
+  <link rel="stylesheet" href="css/edit-page.css">
 
 <style>
 
-#origin-list {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 9999;
-    position: absolute;
-    margin-top: -10px;
+#edit-page {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 39999;
+  position: absolute;
+  margin-top: -10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
 
-  background-image: linear-gradient(#96abe3, #1a329c);
-  background-image: url("assets/profile-banner.png"),
-                    url("assets/profile-bg.png");
-  background-position: top, top;
-  background-repeat: no-repeat, repeat;
-  background-size: 100% 68px, cover;
+  color: white;
+  font-size: 18px;
+  font-family: Calibri;
 
   display: none;
 }
-#origin-list.active {
-    display: block;
-}
-
-
-#origin-list-top {
-    height: 13%;
-}
-#origin-list-mid {
-    height: 10%;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.1), rgba(0,0,0,0.1), rgba(0,0,0,0));
-}
-#origin-list-bot {
-    height: 74.7%;
-    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1), rgba(255,255,255,0));
-}
-#origin-list-bot2 {
-    height: 1.5%;
-    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1), rgba(255,255,255,0));
-}
-
-
-
-#origin-list-bot {
-    margin: 0 22px 0 70px;
-    padding: 0.8% 20px 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
-
-}
-.ol-icon {
-    position: relative;
-    width: 104px;
-    height: 120px;
-    margin: 0 8px 0 0;
-    cursor: pointer;
-}
-.ol-icon-base {
-    position: absolute;
-    z-index: 1;
-    width: inherit;
-
-    object-fit: contain;
-}
-.ol-icon-servant {
-    position: absolute;
-    z-index: 5;
-    width: 90%;
-
-    left: 5px;
-    top: 8px;
-}
-.ol-icon-frame {
-    position: absolute;
-    z-index: 10;
-    width: inherit;
-
-    object-fit: contain;
-}
-.ol-icon-class {
-    position: absolute;
-    z-index: 20;
-    width: 30%;
-
-    top: 2px;
-    left: 2px;
-}
-.ol-icon-type {
-    position: absolute;
-    z-index: 15;
-    width: 92%;
-
-    top: 100px;
-    left: 4px;
-}
-.ol-icon-star {
-    position: absolute;
-    z-index: 20;
-    width: 50%;
-
-    top: 81px;
-    right: 8px;
-}
-
-
-
-#ol-title {
-    margin-right: 20px;
-
-    color: white;
-    font-size: 40px;
-    font-style: italic;
-    letter-spacing: -2px;
-    line-height: 55px;
-    text-align: right;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-    opacity: 0.9;
-}
-#ol-caption {
-    margin-right: 20px;
-
-    color: white;
-    font-size: 10px;
-    font-style: italic;
-    letter-spacing: 10px;
-    line-height: 2px;
-    text-align: right;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-    opacity: 0.7;
-}
-#ol-tip {
-    --border-blue: #074ca6;
-    --border-width:  2px;
-
-    width: 320px;
-    margin-left: 25%;
-    margin-top: -42px;
-
-    color: white;
-    font-size: 22px;
-    letter-spacing: -1px;
-    line-height: 20px;
-    text-align: center;
-    text-shadow:
-        -1px -1px 0 var(--border-blue),  
-        1px -1px 0 var(--border-blue),
-        -1px 1px 0 var(--border-blue),
-        1px 1px 0 var(--border-blue);
-
-    opacity: 0.9; 
-}
-
-
-
-#origin-list-mid {
-    display: flex;
-    justify-content: space-between;
-}
-#ol-nav-left,
-#ol-nav-right {
-    display: flex;
-    margin: 2px 8px 0 8px;
-
-}
-.ol-nav-left-bt {
-    background-image: url("assets/button-top-base-blue.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 118px;
-    margin-right: 5px;
-
-    color: white;
-    font-family: Arial;
-    text-align: center;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-.ol-nav-left-bt div:first-child {
-    margin-top: 8px;
-    font-size: 16px;
-}
-#ol-nav-left-title1 {
-    margin-top: 5px;
-    font-size: 19px;
-}
-#ol-nav-left-title2 {
-}
-#ol-nav-left-title3 {
-    font-family: Arial Narrow;
-}
-.ol-nav-left-bt div:last-child {
-    margin-top: -2px;
-    font-size: 19px;
-}
-.ol-nav-right-bt {
-    margin-top: 3px;
-
-    color: white;
-    text-align: center;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-#ol-nav-right-bt1 {
-    background-image: url("assets/button-filter-base-blue.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 86px;
-}
-#ol-nav-right-bt2 {
-    background-image: url("assets/button-select-base-blue.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 136px;
-}
-#ol-nav-right-bt3 {
-    background-image: url("assets/button-descend.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 42px;
-    margin-top: 7px;
-}
-.ol-nav-right-bt div {
-    margin-top: 12px;
-    font-size: 21px;
-}
-#ol-nav-right div:nth-child(2) div {
-    margin-top: 9px;
-    font-size: 24px;
-}
-#ol-nav-right div:last-child div {
-    margin-top: -7px;
-    font-size: 14px;
-    font-family: Arial Narrow;
-    letter-spacing: -1.5px;
-    opacity: 0.9;
-    color: #b3b3b3;
-    text-shadow: -2px 1px black, 1px 2px black, 2px 1px black, 1px -2px black;
-}
-
-
-
-
-
-
-
-
-#edit-page {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 39999;
-    position: absolute;
-    margin-top: -10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    overflow-y: auto;
-
-    color: white;
-
-    display: none;
-}
 #edit-page.active {
-    display: block;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: block;
+    
+}
+#edit-page-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin: 20px auto;
+  width: 94%;
 }
 .flex-break {
     flex-basis: 100%;
     height: 0;
 }
+.edit-title {
+  margin-top: 25px !important;
+  margin-bottom: -15px !important;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  font-size: 23px;
+  font-family: Optima;
+  text-decoration: underline;
+}
+.one-row-item {
+  width: 100%;
+}
+.two-row-item {
+  width: 50%;
+}
+.three-row-item {
+    width: 33%;
+}
+#edit-page div {
+  margin-top: 10px;
+  text-align: center;
+}
+#edit-page input {
+  width: 90%;
+  max-width: 500px;
+}
+#edit-page select {
+  width: 90%;
+  text-align: center;
+}
+#edit-page textarea {
+  min-width: 19em;
+  max-width: 19em;
+}
+.two-row-item textarea {
+  min-width: 30em !important;
+  max-width: 30em !important;
+}
+#edit-voice textarea {
+  min-height: 2em !important;
+  max-height: 3em !important;
+  min-width: 60em !important;
+  max-width: 60em !important;
+}
+#edit-gallery input {
+  width: 600px;
+}
+.edit-cd {
+  width: 40px;
+}
+.edit-lv,
+.edit-rank {
+  width: 80px;
+}
+#edit-password {
+  width: 200px !important;
+}
+#edit-page-cancel,
+#submit {
+  width: 200px !important;
+  margin: 20px 100px;
+  font-weight: 700;
+  font-size: 20px;
+}
+#edit-page-cancel {
+  color: red;
+}
+#submit {
+  color: blue;
+}
+
 
 
 </style>
@@ -293,42 +133,42 @@
 <div class='flex-container'>
 
     <div id="edit-page" class=""> 
- 
-          <div>
-              <label for="edit-info-cardURL">Unique Servant Name (All Lowercase, No Spaces)</label><br>
+      <div id="edit-page-wrapper">
+          <div class="one-row-item">
+              <label for="edit-info-cardURL">Unique Servant Name (All lowercase, no spaces. This is the ID we use to identify your Servant.)</label><br>
               <input type="text" id="edit-info-cardURL" name="edit-info-cardURL" value=""><br>
           </div>
 
           <div class="flex-break"></div>
 
-          <div>
+          <div  class="one-row-item">
               <label for="edit-info-cardartURL"></label>Card Art URL (For best results: 300x500. OR same ratio.)<br>
               <input type="text" id="edit-info-cardartURL" name="edit-info-cardartURL" value=""><br>
           </div>
           <div class="flex-break"></div>
-          <div>
+          <div class="one-row-item">
               <label for="edit-info-ccartURL"></label>Command Card Art URL (For best results: 135x165, chin rests at 95 pixel mark from the top. OR same ratio.)<br>
               <input type="text" id="edit-info-ccartURL" name="edit-info-ccartURL" value=""><br>
           </div>
           <div class="flex-break"></div>
-          <div>
+          <div class="one-row-item">
               <label for="edit-info-oliconURL"></label>Origin List Icon URL (For best results: SQUARE images only.)<br>
               <input type="text" id="edit-info-oliconURL" name="edit-info-oliconURL" value=""><br>
           </div>
 
           <div class="flex-break"></div>
 
-          <div>
+          <div class="three-row-item edit-title">
               <label for="edit-info-servantName"></label>Servant Name<br>
               <input type="text" id="edit-info-servantName" name="edit-info-servantName" value=""><br>
           </div>
-          <div>
+          <div class="three-row-item edit-title">
               <label for="edit-info-servantClass"></label>Servant Class<br>
               <select id="edit-info-servantClass" name="edit-info-servantClass">
                   <option value="Saber">Saber</option><option value="Archer">Archer</option><option value="Lancer">Lancer</option><option value="Rider">Rider</option><option value="Caster">Caster</option><option value="Assassin">Assassin</option><option value="Berserker">Berserker</option><option value="Avenger">Avenger</option><option value="Ruler">Ruler</option><option value="Alter Ego">Alter Ego</option><option value="Foreigner">Foreigner</option><option value="Moon Cancer">Moon Cancer</option><option value="Pretender">Pretender</option><option value="Shielder">Shielder</option>
               </select><br>
           </div>
-          <div>
+          <div class="three-row-item edit-title">
               <label for="edit-info-servantRarity">Servant Rarity</label><br>
               <select id="edit-info-servantRarity" name="edit-info-servantRarity">
                   <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
@@ -337,26 +177,26 @@
 
 
           <div class="flex-break"></div>
-          <div>Personal Skill 1</div>
+          <div class="one-row-item edit-title">Personal Skill 1</div>
           <div class="flex-break"></div>
           <div>
           <label for="edit-pskill-skill1-name">Name</label><br>
           <input type="text" id="edit-pskill-skill1-name" name="edit-pskill-skill1-name" value=""><br>
           </div>
-          <div>
+          <div class="edit-rank">
           <label for="edit-pskill-skill1-rank">Rank</label><br>
           <select id="edit-pskill-skill1-rank" name="edit-pskill-skill1-rank">
               <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
           </select><br>
           </div>
-          <div>
-          <label for="edit-pskill-skill1-level">Level</label><br>
+          <div class="edit-lv">
+          <label for="edit-pskill-skill1-level">Lv</label><br>
           <select id="edit-pskill-skill1-level" name="edit-pskill-skill1-">
               <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
           </select><br>
           </div>
-          <div>
-          <label for="edit-pskill-skill1-cd">Cooldown</label><br>
+          <div class="edit-cd">
+          <label for="edit-pskill-skill1-cd">CD</label><br>
           <input type="text" id="edit-pskill-skill1-cd" name="edit-pskill-skill1-cd" value=""><br>
           </div>
           <div>
@@ -368,26 +208,26 @@
           <textarea id="edit-pskill-skill1-desc" name="edit-pskill-skill1-desc" rows="5" cols="30"></textarea>
           </div>
           <div class="flex-break"></div>
-          <div>Personal Skill 2</div>
+          <div class="one-row-item edit-title">Personal Skill 2</div>
           <div class="flex-break"></div>
           <div>
           <label for="edit-pskill-skill2-name">Name</label><br>
           <input type="text" id="edit-pskill-skill2-name" name="edit-pskill-skill2-name" value=""><br>
           </div>
-          <div>
+          <div class="edit-rank">
           <label for="edit-pskill-skill2-rank">Rank</label><br>
           <select id="edit-pskill-skill2-rank" name="edit-pskill-skill2-rank">
               <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
           </select><br>
           </div>
-          <div>
-          <label for="edit-pskill-skill2-level">Level</label><br>
+          <div class="edit-lv">
+          <label for="edit-pskill-skill2-level">Lv</label><br>
           <select id="edit-pskill-skill2-level" name="edit-pskill-skill2-">
               <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
           </select><br>
           </div>
-          <div>
-          <label for="edit-pskill-skill2-cd">Cooldown</label><br>
+          <div class="edit-cd">
+          <label for="edit-pskill-skill2-cd">CD</label><br>
           <input type="text" id="edit-pskill-skill2-cd" name="edit-pskill-skill2-cd" value=""><br>
           </div>
           <div>
@@ -399,26 +239,26 @@
           <textarea id="edit-pskill-skill2-desc" name="edit-pskill-skill2-desc" rows="5" cols="30"></textarea>
           </div>
           <div class="flex-break"></div>
-          <div>Personal Skill 3</div>
+          <div class="one-row-item edit-title">Personal Skill 3</div>
           <div class="flex-break"></div>
           <div>
           <label for="edit-pskill-skill3-name">Name</label><br>
           <input type="text" id="edit-pskill-skill3-name" name="edit-pskill-skill3-name" value=""><br>
           </div>
-          <div>
+          <div class="edit-rank">
           <label for="edit-pskill-skill3-rank">Rank</label><br>
           <select id="edit-pskill-skill3-rank" name="edit-pskill-skill3-rank">
               <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
           </select><br>
           </div>
-          <div>
-          <label for="edit-pskill-skill3-level">Level</label><br>
+          <div class="edit-lv">
+          <label for="edit-pskill-skill3-level">Lv</label><br>
           <select id="edit-pskill-skill3-level" name="edit-pskill-skill3-">
               <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
           </select><br>
           </div>
-          <div>
-          <label for="edit-pskill-skill3-cd">Cooldown</label><br>
+          <div class="edit-cd">
+          <label for="edit-pskill-skill3-cd">CD</label><br>
           <input type="text" id="edit-pskill-skill3-cd" name="edit-pskill-skill3-cd" value=""><br>
           </div>
           <div>
@@ -432,13 +272,13 @@
           
 
           <div class="flex-break"></div>
-          <div>Class Skill 1</div>
+          <div class="one-row-item edit-title">Class Skill 1</div>
           <div class="flex-break"></div>
           <div>
           <label for="edit-cskill-skill1-name">Name</label><br>
           <input type="text" id="edit-cskill-skill1-name" name="edit-cskill-skill1-name" value=""><br>
           </div>
-          <div>
+          <div class="edit-rank">
           <label for="edit-cskill-skill1-rank">Rank</label><br>
           <select id="edit-cskill-skill1-rank" name="edit-cskill-skill1-rank">
               <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
@@ -453,13 +293,13 @@
           <textarea id="edit-cskill-skill1-desc" name="edit-cskill-skill1-desc" rows="5" cols="30"></textarea>
           </div>
           <div class="flex-break"></div>
-          <div>Class Skill 2</div>
+          <div class="one-row-item edit-title">Class Skill 2</div>
           <div class="flex-break"></div>
           <div>
           <label for="edit-cskill-skill2-name">Name</label><br>
           <input type="text" id="edit-cskill-skill2-name" name="edit-cskill-skill2-name" value=""><br>
           </div>
-          <div>
+          <div class="edit-rank">
           <label for="edit-cskill-skill2-rank">Rank</label><br>
           <select id="edit-cskill-skill2-rank" name="edit-cskill-skill2-rank">
               <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
@@ -474,13 +314,13 @@
           <textarea id="edit-cskill-skill2-desc" name="edit-cskill-skill2-desc" rows="5" cols="30"></textarea>
           </div>
           <div class="flex-break"></div>
-          <div>Class Skill 3</div>
+          <div class="one-row-item edit-title">Class Skill 3</div>
           <div class="flex-break"></div>
           <div>
           <label for="edit-cskill-skill3-name">Name</label><br>
           <input type="text" id="edit-cskill-skill3-name" name="edit-cskill-skill3-name" value=""><br>
           </div>
-          <div>
+          <div class="edit-rank">
           <label for="edit-cskill-skill3-rank">Rank</label><br>
           <select id="edit-cskill-skill3-rank" name="edit-cskill-skill3-rank">
               <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
@@ -497,7 +337,7 @@
 
 
           <div class="flex-break"></div>
-          <div>Noble Phantasm</div>
+          <div class="one-row-item edit-title">Noble Phantasm</div>
           <div class="flex-break"></div>
 
           <div>
@@ -512,7 +352,7 @@
           <label for="edit-np-name">Name</label><br>
           <input type="text" id="edit-np-name" name="edit-np-name" value=""><br>
           </div>
-          <div>
+          <div class="edit-rank">
           <label for="edit-np-rank">Rank</label><br>
           <select id="edit-np-rank" name="edit-np-rank">
               <option value="EX">EX</option>
@@ -527,8 +367,8 @@
           <label for="edit-np-class">Class</label><br>
           <input type="text" id="edit-np-class" name="edit-np-class" value=""><br>
           </div>
-          <div>
-          <label for="edit-np-level">Level</label><br>
+          <div class="edit-lv">
+          <label for="edit-np-level">Lv</label><br>
           <select id="edit-np-level" name="edit-np-level">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -543,8 +383,8 @@
           </div>
 
           <div class="flex-break"></div>
-          <div>Command Cards</div>
-          <div class="flex-break"></div>
+          <div class="edit-title">Command Cards</div>
+
 
           <div>
           <label for="edit-cc-cc1">Card 1</label><br>
@@ -588,8 +428,8 @@
           </div>
 
           <div class="flex-break"></div>
-          <div>Parameters</div>
-          <div class="flex-break"></div>
+          <div class="edit-title">Parameters</div>
+
 
           <div>
           <label for="edit-param-str">STR</label><br>
@@ -659,51 +499,53 @@
           </div>
 
           <div class="flex-break"></div>
-          <div>Profiles</div>
+          <div class="one-row-item edit-title">Profiles</div>
           <div class="flex-break"></div>
-          <div>
+          <div class="two-row-item">
           <label for="edit-profile-profile1">Profile 1</label><br>
           <textarea id="edit-profile-profile1" name="edit-profile-profile1" rows="5" cols="30"></textarea>
           </div>
-          <div class="flex-break"></div>
-          <div>
+
+          <div class="two-row-item">
           <label for="edit-profile-profile2">Profile 2</label><br>
           <textarea id="edit-profile-profile2" name="edit-profile-profile2" rows="5" cols="30"></textarea>
           </div>
           <div class="flex-break"></div>
-          <div>
+          <div class="two-row-item">
           <label for="edit-profile-profile3">Profile 3</label><br>
           <textarea id="edit-profile-profile3" name="edit-profile-profile3" rows="5" cols="30"></textarea>
           </div>
-          <div class="flex-break"></div>
-          <div>
+
+          <div class="two-row-item">
           <label for="edit-profile-profile4">Profile 4</label><br>
           <textarea id="edit-profile-profile4" name="edit-profile-profile4" rows="5" cols="30"></textarea>
           </div>
           <div class="flex-break"></div>
-          <div>
+          <div class="two-row-item">
           <label for="edit-profile-profile5">Profile 5</label><br>
           <textarea id="edit-profile-profile5" name="edit-profile-profile5" rows="5" cols="30"></textarea>
           </div>
-          <div class="flex-break"></div>
-          <div>
+
+          <div class="two-row-item">
           <label for="edit-profile-profile6">Profile 6</label><br>
           <textarea id="edit-profile-profile6" name="edit-profile-profile6" rows="5" cols="30"></textarea>
           </div>
           
 
           <div class="flex-break"></div>
-          <div>Voice</div>
+          <div class="one-row-item edit-title">Voice</div>
           <div class="flex-break"></div>
           <div id="edit-voice"></div>
-          <div id="edit-voice-add">Add Voice</div>
+          <div class="flex-break"></div>
+          <div id="edit-voice-add">Add New Voice</div>
 
 
           <div class="flex-break"></div>
-          <div>Gallery</div>
+          <div class="one-row-item edit-title">Gallery</div>
           <div class="flex-break"></div>
           <div id="edit-gallery"></div>
-          <div id="edit-gallery-add">Add Image</div>
+          <div class="flex-break"></div>
+          <div id="edit-gallery-add">Add New Image</div>
 
 
           <div class="flex-break"></div>
@@ -717,6 +559,8 @@
           
 
           <div><input id="edit-page-cancel" type="button" value="Cancel" /></div>
+    
+      </div>
     </div>
 
 
@@ -775,8 +619,12 @@
 
     <div id="col-left" style="flex: 5.5%">
         <div id="button-close-profile" style="flex: 25%"><span>Close</span></div>
-        <div id="button-edit-page" style="flex: 25%"><span>Edit</span></div>
-        <div id="button-create-page" style="flex: 25%"><span>Create</span></div>
+        <div id="button-edit-page" style="flex: 25%">
+          <i class="fa-solid fa-pen-to-square"></i><span>Edit</span>
+        </div>
+        <div id="button-create-page" style="flex: 25%">
+          <i class="fa-solid fa-wand-magic-sparkles"></i><span>Create</span>
+        </div>
         <div style="flex: 25%"><span>Favorite</span></div>
     </div>
 

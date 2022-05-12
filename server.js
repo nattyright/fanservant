@@ -67,7 +67,9 @@ app.get('/loadprofile', async function(req, res) {
 router.post('/editprofile', urlencodedParser, async function(req, res) {
     try {
         var result = JSON.parse(req.body.result);
+        var mode = req.body.mode;
         var pw = JSON.stringify(await Servants.findOne({_id: result._id}, {password: 1}));
+        var id = JSON.stringify(await Servants.findOne({_id: result._id}, {_id: 1}));
 
         if (result._id == "_empty" || result._id == "" || result._id == null ||
 
@@ -78,7 +80,11 @@ router.post('/editprofile', urlencodedParser, async function(req, res) {
 
             res.end("password");
 
-        }else {
+        } else if (mode == "create" && JSON.parse(id)._id == result._id) {
+
+            res.end("dupid");
+
+        } else {
 
             await Servants.updateOne({_id: result._id}, result, {upsert: true});
             res.end("yes");

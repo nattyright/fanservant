@@ -110,7 +110,7 @@ body:before {
     cursor: pointer;
 }
 #col-left > div span {
-    margin: 36px 0px 0px -18px;
+    margin: 35px 0px 0px -18px;
 }
 #col-left > div:first-child {
     background-image: url("../assets/button-side-close-short.png");
@@ -128,6 +128,12 @@ body:before {
     letter-spacing: -0.5px;
     text-shadow: -1px 0 var(--text-shadow), 0 1px var(--text-shadow), 1px 0 var(--text-shadow), 0 -1px var(--text-shadow);
 }
+#col-left i {
+  position: absolute;
+  margin: 13px 0 0 -15px;
+  font-size: 20px;
+}
+
 
 
 

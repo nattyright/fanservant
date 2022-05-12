@@ -245,7 +245,7 @@ $("#button-edit-page").on("click", function (e) {
     } else {
         populateEditPage($("#pf-servantID").html());
         $("#edit-info-cardURL").attr("readonly", true);
-        $("#edit-password-label").text("Input the password you created for this page in order to submit your edit");
+        $("#edit-password-label").text("To submit your edit, input the password you created for this page.");
         $("#edit-page").addClass("active");
     }
 });
@@ -255,6 +255,7 @@ $("#button-create-page").on("click", function (e) {
         populateEditPage('_empty');
         $("#edit-info-cardURL").attr("readonly", false);
         $("#edit-page").addClass("active");
+        $("#edit-page").addClass("create");
     } else {
         alert("Please go back to Spirit Origin List first!");
     }
@@ -396,7 +397,13 @@ $(document).ready(function() {
         result["_id"] = result.info.cardURL;
         //console.log(result);
 
-        $.post("http://localhost:4321/editprofile",{result: JSON.stringify(result)}, function(data){
+        let mode = "edit";
+        if ($("#edit-page").hasClass("create")) {
+            mode = "create";
+        }
+        $("edit-page").removeClass("create");
+
+        $.post("http://localhost:4321/editprofile",{result: JSON.stringify(result), mode: mode}, function(data){
             if(data === 'yes') {
                 alert("Profile updated.");
             } else if (data === 'error') {
@@ -405,6 +412,8 @@ $(document).ready(function() {
                 alert("Invalid Servant ID!");
             } else if (data === 'password') {
                 alert("Invalid Password!");
+            } else if (data === 'dupid') {
+                alert("Servant ID already in use!");
             }
         });
     });

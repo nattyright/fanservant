@@ -578,6 +578,7 @@ body:before {
 .pf-profile-sheet {
     font-size: 30px;
     padding-left: 15px !important;
+    overflow-wrap: anywhere;
 }
 .pf-profile-sheet {
     margin-top: 0px !important;

@@ -192,6 +192,7 @@ function loadServantProfile(a) {
 
   // load params
   for (let key in a.param) {
+    document.getElementById('pf-param-' + key).style.color = "white";
     document.getElementById('pf-param-' + key).innerHTML = a.param[key];
     if (a.param[key] == "X") {
         document.getElementById('pf-param-' + key).innerHTML = "?";

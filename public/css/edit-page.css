@@ -106,9 +106,10 @@
   width: 200px !important;
 }
 #edit-page-cancel,
-#submit {
+#submit,
+#delete {
   width: 200px !important;
-  margin: 20px 100px;
+  margin: 20px 20px;
   font-weight: 700;
   font-size: 20px;
   cursor: pointer;
@@ -118,4 +119,7 @@
 }
 #submit {
   color: #789cff !important;
+}
+#delete {
+  color: red !important;
 }

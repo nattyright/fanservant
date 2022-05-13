@@ -143,6 +143,38 @@ app.get('/loadprofile', async function(req, res) {
 
 
 
+
+router.post('/deleteprofile', urlencodedParser, async function(req, res) {
+    try {
+        var id_to_delete = req.body.id;
+        var pw_to_delete = req.body.pw;
+        var queryResult = await Servants.findOne({_id: id_to_delete}, {password: 1, _id: 1});
+        var pw = null;
+        
+        if (queryResult != null) {
+            pw = JSON.parse(JSON.stringify(queryResult)).password;
+        }
+
+        if (queryResult == null || id_to_delete == "_empty" ) {
+            res.end("illegal");
+
+        } else if (pw_to_delete != pw) {
+            // wrong password on EXISTING sheets
+            res.end("password");
+
+        } else {
+            await Servants.deleteOne({_id: id_to_delete});
+            res.end("yes");
+            
+        }
+    } catch (err) {
+        res.end("error");
+    }
+});
+
+
+
+
 router.post('/editprofile', urlencodedParser, async function(req, res) {
     try {
         var result = JSON.parse(req.body.result);

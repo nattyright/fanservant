@@ -267,6 +267,7 @@ $("#edit-page-cancel").on("click", function (e) {
     // clear input fields
     $(":input").each(function (index, element) {
         if ($(this).attr("id") != "submit" && 
+            $(this).attr("id") != "delete" && 
             $(this).attr("id") != "edit-page-cancel") {
             $(this).val("");
         }
@@ -360,6 +361,7 @@ async function populateEditPage(servantURL) {
 
     $(":input").each(function (index, element) {
         if ($(this).attr("id") != "submit" && 
+            $(this).attr("id") != "delete" && 
             $(this).attr("id") != "edit-page-cancel" && 
             $(this).attr("id") != "edit-password") {
             let keys = $(this).attr("id").split("-");
@@ -405,6 +407,28 @@ async function populateEditPage(servantURL) {
 
 
 
+// edit page delete POST request
+$(document).ready(function() {
+
+    $("#delete").click(function(){
+        let id = $("#edit-info-cardURL").val();
+        let pw = $("#edit-password").val();
+
+        $.post("/deleteprofile", {id: id, pw: pw}, function(data){
+            if(data === 'yes') {
+                alert("Profile deleted.");
+            } else if (data === 'error') {
+                alert("Deletion failed! Try again.");
+            } else if (data === 'illegal') {
+                alert("Invalid Servant ID!");
+            } else if (data === 'password') {
+                alert("Invalid Password!");
+            } 
+        });
+    });
+});
+
+
 // edit page submit POST request
 $(document).ready(function() {
     var user,pass;
@@ -414,6 +438,7 @@ $(document).ready(function() {
 
         $(":input").each(function() {
             if ($(this).attr("id") != "submit" && 
+                $(this).attr("id") != "delete" &&
                 $(this).attr("id") != "edit-page-cancel") {
                 // [id, val]
                 keys.push([$(this).attr("id").replace("edit-", ""), $(this).val()]);

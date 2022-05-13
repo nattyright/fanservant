@@ -205,6 +205,10 @@ router.post('/editprofile', urlencodedParser, async function(req, res) {
             // wrong password on EXISTING sheets
             res.end("password");
 
+        } else if (queryResult == null && result.password == "") {
+            // cannot set empty password
+            res.end("password");
+
         } else {
 
             if (result.info.time == 0) {

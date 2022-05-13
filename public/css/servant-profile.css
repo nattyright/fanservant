@@ -178,7 +178,7 @@ body:before {
     height: var(--charagraph-class-dim) !important;
     width: var(--charagraph-class-dim) !important;
 
-    bottom: -10px;
+    bottom: 12px;
     left: 127px;
 }
 #pf-info-servantClass,

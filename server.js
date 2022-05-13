@@ -19,6 +19,7 @@ const infoSchema = {
     servantName: String,
     servantClass: String,
     servantRarity: String,
+    summonedStatus: String,
     time: Date
 }
 

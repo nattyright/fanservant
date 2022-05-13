@@ -310,6 +310,7 @@
         <div id="origin-list-bot">
             <% servantList.forEach(servant => { %>
             <div class="ol-icon"> 
+                <img class='ol-icon-summonedStatus' src="assets/charaicon/_<%=servant.info.summonedStatus%>.png">
                 <img class='ol-icon-base' src="assets/charaicon/card<%=servant.info.servantRarity%>.png">
                 <img class='ol-icon-servant' id='ol-<%=servant.info.cardURL%>' src="<%=servant.info.oliconURL%>">
                 <img class='ol-icon-frame' src="assets/charaicon/card<%=servant.info.servantRarity%>frame.png">

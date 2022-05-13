@@ -435,6 +435,7 @@ $(document).ready(function() {
     $("#submit").click(function(){
 
         let keys = [];
+        let unfilled_fields_count = 0;
 
         $(":input").each(function() {
             if ($(this).attr("id") != "submit" && 
@@ -451,6 +452,12 @@ $(document).ready(function() {
                 let lastPart = parts.pop();
                 let leaf = parts.reduce((acc, part) => acc[part] || (acc[part] = {}), root);
                 leaf[lastPart] = item[1]; //item[1] holds the val()
+
+                // count unfilled fields to determine whether servant is summoned
+                if (item[1] == "") {
+                    unfilled_fields_count += 1;
+                }
+
                 return root;
             }, Object.create(null));
 
@@ -469,7 +476,15 @@ $(document).ready(function() {
         } else {
             result.info["time"] = 0;
         }
-        
+
+
+        // checked whether we have too many unfilled fields 
+        // if too many (> 10), servant is unsummoned
+        if (unfilled_fields_count > 10) {
+            result.info["summonedStatus"] = "unsummoned";
+        } else {
+            result.info["summonedStatus"] = "summoned";
+        }
 
         $.post("/editprofile",{result: JSON.stringify(result), mode: mode}, function(data){
             if(data === 'yes') {

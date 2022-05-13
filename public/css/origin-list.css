@@ -53,6 +53,13 @@
     margin: 0 8px 0 0;
     cursor: pointer;
 }
+.ol-icon-summonedStatus {
+    position: absolute;
+    z-index: 50;
+    width: inherit;
+
+    object-fit: contain;
+}
 .ol-icon-base {
     position: absolute;
     z-index: 1;

@@ -54,7 +54,7 @@ body:before {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px 10px 35px 10px;
+  padding: 10px 10px 15px 10px;
 
 
   display: flex;
@@ -278,7 +278,7 @@ body:before {
 
 
 #profile-content {
-    height: 375px;
+    height: 400px;
     overflow-y: auto;
     margin: 5px 0px 0px 10px;
     padding: 0 8px 0 4px;
@@ -632,12 +632,12 @@ body:before {
 }
 #pf-gallery-img-wrapper {
     position: absolute;
-    left: 10px;
+    left: 50%;
     top: 20px;
+  transform: translate(-60%, 0%);
 }
 #pf-gallery-img {
-    width: 390px;
-    height: 345px;
+    height: 370px;
     object-fit: contain;
 }
 #pf-gallery-nav {

@@ -146,7 +146,7 @@ function loadServantProfile(a) {
   for (let skill in a.cskill) {
     for (let key in a.cskill[skill]) {
         if (key != "iconURL") {
-            document.getElementById('pf-cskill-' + skill + '-' + key).innerHTML = a.pskill[skill][key];
+            document.getElementById('pf-cskill-' + skill + '-' + key).innerHTML = a.cskill[skill][key];
         } else {
             document.getElementById('pf-cskill-' + skill + '-' + key).src = a.cskill[skill][key];
         }

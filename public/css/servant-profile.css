@@ -476,6 +476,7 @@ body:before {
 }
 .pskill-r,
 .cskill-r {
+    vertical-align: top;
 }
 .pskill-name,
 .cskill-name {

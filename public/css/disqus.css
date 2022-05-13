@@ -1,0 +1,21 @@
+#disqus_thread {
+  position: absolute;
+  z-index: 5000;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  display: none;
+}
+
+#disqus_thread_toggle {
+  position: absolute;
+  z-index: 5001;
+  bottom: 0;
+  right: 0;
+  height: 20px;
+  width: 400px;
+  cursor: pointer;
+
+  color: white;
+  text-align: center;
+}

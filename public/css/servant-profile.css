@@ -54,8 +54,7 @@ body:before {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px;
-  padding-bottom: 22px;
+  padding: 10px 10px 35px 10px;
 
 
   display: flex;
@@ -120,7 +119,7 @@ body:before {
 #col-left > div:first-child {
     background-image: url("../assets/button-side-close-short.png");
     margin-bottom: 76px;
-    margin-left: -5px;
+    margin-left: -10px;
     width: 65px;
     height: 65px;
 }
@@ -149,10 +148,11 @@ body:before {
 }
 #col-mid > img {
     display: flex;
-    width: 100%;
-    max-height: 500px;
-    object-fit: contain;
+    width: 300px;
+    height: 512px;
+    margin-left: -2px;
 
+    object-fit: contain;
 }
 #pf-charagraph-base {
     position: absolute;
@@ -172,19 +172,23 @@ body:before {
     object-fit: contain;
 }
 #pf-charagraph-class {
+    --charagraph-class-dim: 48px;
     position: absolute;
     z-index: 20;
-    width: 46px !important;
+    height: var(--charagraph-class-dim) !important;
+    width: var(--charagraph-class-dim) !important;
 
-    bottom: 1.4%;
-    left: 122px;
+    bottom: -10px;
+    left: 127px;
 }
 #pf-info-servantClass,
-#pf-info-servantName {
+#pf-info-servantName,
+#pf-info-servantClass-underline {
     position: absolute;
     z-index: 500;
     color: white;
     font-family: Matisse;
+    margin-left: 3px;
     
     text-shadow:
         -1px -1px 0 black,  
@@ -197,15 +201,30 @@ body:before {
     letter-spacing: 1px;
 
     left: 50%;
-    top: 84.8%;
+    bottom: 8px;
     transform: translate(-50%, -50%);
+}
+#pf-info-servantClass-underline {
+    width: 200px;
+    height: 2px;
+    background-image: linear-gradient(to right, 
+                                        transparent, 
+                                        white, white, white, white, white, 
+                                        transparent);
+
+    box-shadow: 0px 0px 2px 0px black;
+
+    left: 50%;
+    bottom: 44px;
+    transform: translate(-50%, -50%);
+    z-index: 499;
 }
 #pf-info-servantName {
     font-size: 13px;
     letter-spacing: 0;
 
     left: 50%;
-    top: 88.8%;
+    bottom: 14px;
     transform: translate(-50%, -50%);
 }
 
@@ -216,16 +235,17 @@ body:before {
 #profile-name {
     height: 55px;
     color: white;
-    padding-right: 30px;
+    padding-right: 22px;
     text-align: right;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 #pf-servantName {
-    font-size: 40px;
-    line-height: 35px;
+    font-size: 50px;
+    line-height: 28px;
 }
 #pf-servantClass {
-    font-size: 15px;
+    font-size: 18px;
+    line-height: 32px;
     letter-spacing: -0.3px;
 }
 
@@ -321,7 +341,7 @@ body:before {
 
     background-color: rgba(28, 28, 28, 0.87);
     margin: -15px 0 -0.2px 4px;
-    padding: 25px 8px 5px 170px;
+    padding: 25px 2px 5px 170px;
     border-left: 1px solid #d1d1d1;
     border-right: 1px solid #d1d1d1;
     box-shadow: 0px 0px 3px 0px black;
@@ -414,6 +434,7 @@ body:before {
 }
 .voice-tip {
     margin-left: 50px;
+    margin-top: -2px;
 }
 .pskill-l,
 .cskill-l {
@@ -423,15 +444,15 @@ body:before {
     vertical-align: top;
 }
 .pskill-num {
-    color: steelblue;
+    color: #7ca6cf;
     font-size: 15px;
 }
 .cskill-num {
-    color: lightseagreen;
+    color: #6bb3a3;
     font-size: 15px;
 }
 .pskill-cd {
-    color: lightseagreen;
+    color: #6bb1b3;
     font-size: 12px;
     margin-top: -10px;
 }
@@ -443,27 +464,34 @@ body:before {
 .pskill-m,
 .cskill-m {
     margin-left: -20px;
-    width: 80px;
+    width: 85px;
+    vertical-align: top;
+    padding-top: 25px;
 }
 .pskill-m img,
 .cskill-m img {
-
-    width: 90%;
+    width: 72px;
     object-fit: contain;
+    border: 2px solid rgba(109, 109, 109, 0.3);
+    border-radius: 7px;
+}
+.pf-skill-icon-cover {
+    position: absolute;
+    width: 72px;
 }
 .pskill-r,
 .cskill-r {
-
 }
 .pskill-name,
 .cskill-name {
-    font-size: 19px;
+    font-size: 22px;
 }
 .pskill-description,
 .cskill-description {
     font-size: 16px;
     margin-top: -20px;
 }
+
 
 
 
@@ -517,6 +545,10 @@ body:before {
     padding: 22px 10px 5px 10px;
     white-space: pre-wrap;
 }
+
+#pf-parameter,
+#pf-fc-sheet {
+    white-space: normal;
 }
 #param-table {
     width: 100%;
@@ -541,35 +573,50 @@ body:before {
  }
 
 .pf-param-img {
+    margin-top: 5px;
     width: 100%;
 }
 
 
 
-.pf-profile-fc {
+.pf-profile-fc,
+.pf-profile-sheet {
     font-size: 30px;
     padding-left: 15px !important;
 }
+.pf-profile-sheet {
+    margin-top: 0px !important;
+}
+#pf-profile-fc {
+    padding-left: 70px;
+}
+#pf-profile-sheet {
+}
+#pf-profile-sheet a {
+    padding-left: 30px;
+    color: white;
+}
+
 
 
 
 .voice-img {
     margin-bottom: -4px;
-    margin-left: 21px;
     cursor: pointer;
-    width: 470px;
+    max-width: 510px;
+
 }
 .voice-title {
-    margin-top: -60px;
+    margin-top: -63px;
 }
 .panel-text.voice-panel {
-    padding: 17px 10px 1px 66px;
-    margin-bottom: -8px;
+    padding: 19px 10px 3px 66px;
+    margin-bottom: -7px;
     margin-top: -16px;
     font-size: 23px;
 }
 .panel-img {
-    width: 100%;
+    max-width: 510px;
 }
 .voice-text {
     z-index: 39999;

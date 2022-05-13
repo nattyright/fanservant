@@ -69,9 +69,63 @@ var jsonParser = bodyParser.json()
 
 // render index .ejs file
 app.get('/', (req, res) => {
+
+    var names_class = ['Saber',
+                       'Archer',
+                       'Lancer',
+                       'Rider',
+                       'Caster',
+                       'Assassin',
+                       'Berserker',
+                       'Avenger',
+                       'Ruler',
+                       'Alter Ego',
+                       'Foreigner',
+                       'Moon Cancer',
+                       'Shielder'];
+    var names_skill = name_npgauge = ['1', '2', '3'];
+    var names_skillrank = names_nprank = ['EX', 'A', 'B', 'C', 'D', 'E'];
+    var names_skilllv = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+    var names_cc = names_rarity = names_nplv = ['1', '2', '3', '4', '5'];
+    var names_cardtype = ['Buster', 'Arts', 'Quick'];
+    var names_param = ['STR', 'END', 'AGI', 'MAN', 'LUK', 'NP'];
+    var names_paramrank = [ {name: 'EX', value: 'O'},
+                            {name: 'A+', value: 'A+'},
+                            {name: 'B+', value: 'B+'},
+                            {name: 'C+', value: 'C+'},
+                            {name: 'A', value: 'A'},
+                            {name: 'B', value: 'B'},
+                            {name: 'D+', value: 'D+'},
+                            {name: 'C', value: 'C'},
+                            {name: 'D', value: 'D'},
+                            {name: 'E+', value: 'E+'},
+                            {name: 'E', value: 'E'},
+                            {name: '?', value: 'X'}];
+    var names_profile = ['1', '2', '3', '4', '5', '6'];
+
+    var html_panel = {
+        mid_top: '<img class="panel-img" src="assets/profile-infopanel-top-mid.png">',
+        long_top: '<img class="panel-img" src="assets/profile-infopanel-top-long.png">',
+        short_top: '<img class="panel-img" src="assets/profile-infopanel-top-short.png">',
+        mid_bot: '<img class="panel-img" src="assets/profile-infopanel-bot.png">' 
+    }
+
     Servants.find({_id: {'$ne':"_empty"}}, {info: 1}, {sort: {"info.time": 1}}, function(err, servants) {
         res.render('index', {
-            servantList: servants,
+            servantList    : servants,
+            names_class    : names_class,
+            names_rarity   : names_rarity,
+            names_skill    : names_skill,
+            names_skillrank: names_skillrank,
+            names_skilllv  : names_skilllv,
+            names_nprank   : names_nprank,
+            names_nplv     : names_nplv,
+            names_cc       : names_cc,
+            names_cardtype : names_cardtype,
+            names_profile  : names_profile,
+            names_param    : names_param,
+            names_paramrank: names_paramrank,
+            html_panel     : html_panel
         });
     });
 })

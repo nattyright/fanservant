@@ -163,6 +163,15 @@ function loadServantProfile(a) {
     if (key != "type" && key != "gauge" && key != "level") { document.getElementById('pf-np-' + key).innerHTML = a.np[key]; }
     if (key == "level") { document.getElementById('pf-np-' + key).innerHTML = a.np[key] + "/5"; }
   } 
+  // get text next to NP gauge
+  let npgauagetext = "MAX 100%";
+  if (["2", "3", "4"].includes(a.np.level)) {
+    npgauagetext = "MAX 200%";
+  } else if (a.np.level == "5") {
+    npgauagetext = "MAX 300%";
+  }
+  document.getElementById('pf-np-gaugetext').innerHTML = npgauagetext;
+
   document.getElementById('pf-np-gauge-1').src = "assets/np-gauge-1.png";
   document.getElementById('pf-np-gauge-2').src = "assets/np-gauge-0.png";
   document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-0.png";
@@ -186,6 +195,9 @@ function loadServantProfile(a) {
     document.getElementById('pf-param-' + key).innerHTML = a.param[key];
     if (a.param[key] == "X") {
         document.getElementById('pf-param-' + key).innerHTML = "?";
+    } else if (a.param[key] == "O") {
+        document.getElementById('pf-param-' + key).innerHTML = "EX";
+        document.getElementById('pf-param-' + key).style.color = "gold";
     }
     document.getElementById('pf-param-' + key + '-img').src = "assets/param-" + a.param[key].slice(0,1) + '.png';
   }
@@ -194,6 +206,14 @@ function loadServantProfile(a) {
   for (let key in a.profile) {
     document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];
   }
+  // turn character sheet URL into a hyperlink instead of the full URL
+  let sheetLink = document.createElement("a");
+  sheetLink.setAttribute('href', a.profile.sheet);
+  sheetLink.setAttribute('target', '_blank');
+  sheetLink.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i>';
+  document.getElementById('pf-profile-sheet').innerHTML = '';
+  document.getElementById('pf-profile-sheet').appendChild(sheetLink);
+
 
   // load voiceovers
   var voiceHTML = '<div class="voice-tip">Tap an entry to play a voice.</div>';

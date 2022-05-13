@@ -3,43 +3,26 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
   <meta property="og:title" content="Fate/Starry Night Character Compendium" />
-  <meta property="og:description" content="There's no story skip button here.">
+
+  <meta property="og:description" content="TFate Grand Order fan servant generator with a mock FGO servant profile UI. All assets belong to Lasengle, Typemoon, Nasu Kinoko, and artists. All Servant data belong to their respective creators. Personal use only!.">
+  <meta name="description" content="Fate Grand Order fan servant generator with a mock FGO servant profile UI. All assets belong to Lasengle, Typemoon, Nasu Kinoko, and artists. All Servant data belong to their respective creators. Personal use only!">
+  
   <meta name="google-site-verification" content="oBjSHH7uh3kTsqNz1qTra8nMygRSy_yYAWGecxlIPPI" />
 
   <title>FGO Fan Servant Generator</title>
-  <meta name="description" content="Fate Grand Order fan servant generator with a mock FGO servant profile UI. All assets belong to Lasengle, Typemoon, Nasu Kinoko, and artists. All Servant data belong to their respective creators. Personal use only!">
+  
 
   <script src="https://kit.fontawesome.com/fbb57351e0.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/servant-profile.css">
   <link rel="stylesheet" href="css/origin-list.css">
   <link rel="stylesheet" href="css/edit-page.css">
+  <link rel="stylesheet" href="css/disqus.css">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 <style>
-
-#disqus_thread {
-  position: absolute;
-  z-index: 5000;
-  right: 0;
-  bottom: 0;
-  width: 400px;
-  display: none;
-}
-
-#disqus_thread_toggle {
-  position: absolute;
-  z-index: 5001;
-  bottom: 0;
-  right: 0;
-  height: 20px;
-  width: 400px;
-  cursor: pointer;
-
-  color: white;
-  text-align: center;
-}
 
 </style>
 
@@ -61,7 +44,7 @@
           <div class="flex-break"></div>
 
           <div  class="one-row-item">
-              <label for="edit-info-cardartURL"></label>Card Art URL (For best results: 300x500. OR same ratio.)<br>
+              <label for="edit-info-cardartURL"></label>Card Art URL (For best results: 300x512. OR same ratio.)<br>
               <input type="text" id="edit-info-cardartURL" name="edit-info-cardartURL" value=""><br>
           </div>
           <div class="flex-break"></div>
@@ -84,13 +67,17 @@
           <div class="three-row-item edit-title">
               <label for="edit-info-servantClass"></label>Servant Class<br>
               <select id="edit-info-servantClass" name="edit-info-servantClass">
-                  <option value="Saber">Saber</option><option value="Archer">Archer</option><option value="Lancer">Lancer</option><option value="Rider">Rider</option><option value="Caster">Caster</option><option value="Assassin">Assassin</option><option value="Berserker">Berserker</option><option value="Avenger">Avenger</option><option value="Ruler">Ruler</option><option value="Alter Ego">Alter Ego</option><option value="Foreigner">Foreigner</option><option value="Moon Cancer">Moon Cancer</option><option value="Shielder">Shielder</option>
+                <% names_class.forEach(function(name) { %>
+                  <option value="<%= name %>"><%= name %></option>
+                <% }); %>
               </select><br>
           </div>
           <div class="three-row-item edit-title">
               <label for="edit-info-servantRarity">Servant Rarity</label><br>
               <select id="edit-info-servantRarity" name="edit-info-servantRarity">
-                  <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                <% names_rarity.forEach(function(rarity) { %>
+                  <option value="<%= rarity %>"><%= rarity %></option>
+                <% }); %>
               </select><br>
           </div>
 
@@ -99,166 +86,69 @@
           <div class="one-row-item edit-title">FGO Skill Icons</div>
           <div><a style="color:white;" href="https://fategrandorder.fandom.com/wiki/Category:Icons" target=”_blank”>https://fategrandorder.fandom.com/wiki/Category:Icons</a></div>
 
+            <% names_skill.forEach(function(name) { %>
+              <div class="flex-break"></div>
+              <div class="one-row-item edit-title">Personal Skill <%= name %></div>
+              <div class="flex-break"></div>
+              <div>
+              <label for="edit-pskill-skill<%= name %>-name">Name</label><br>
+              <input type="text" id="edit-pskill-skill<%= name %>-name" name="edit-pskill-skill<%= name %>-name" value=""><br>
+              </div>
+              <div class="edit-rank">
+              <label for="edit-pskill-skill<%= name %>-rank">Rank</label><br>
+              <select id="edit-pskill-skill<%= name %>-rank" name="edit-pskill-skill<%= name %>-rank">
+                <% names_skillrank.forEach(function(rank) { %>
+                  <option value="<%= rank %>"><%= rank %></option>
+                <% }); %>
+              </select><br>
+              </div>
+              <div class="edit-lv">
+              <label for="edit-pskill-skill<%= name %>-level">Lv</label><br>
+              <select id="edit-pskill-skill<%= name %>-level" name="edit-pskill-skill<%= name %>-">
+                <% names_skilllv.forEach(function(lv) { %>
+                  <option value="<%= lv %>"><%= lv %></option>
+                <% }); %>
+              </select><br>
+              </div>
+              <div class="edit-cd">
+              <label for="edit-pskill-skill<%= name %>-cd">CD</label><br>
+              <input type="text" id="edit-pskill-skill<%= name %>-cd" name="edit-pskill-skill<%= name %>-cd" value=""><br>
+              </div>
+              <div>
+              <label for="edit-pskill-skill<%= name %>-iconURL">Icon URL</label><br>
+              <input type="text" id="edit-pskill-skill<%= name %>-iconURL" name="edit-pskill-skill<%= name %>-iconURL" value=""><br>
+              </div>
+              <div>
+              <label for="edit-pskill-skill<%= name %>-desc">Effect</label><br>
+              <textarea id="edit-pskill-skill<%= name %>-desc" name="edit-pskill-skill<%= name %>-desc" rows="5" cols="30"></textarea>
+              </div>
+            <% }); %>
 
-          <div class="flex-break"></div>
-          <div class="one-row-item edit-title">Personal Skill 1</div>
-          <div class="flex-break"></div>
-          <div>
-          <label for="edit-pskill-skill1-name">Name</label><br>
-          <input type="text" id="edit-pskill-skill1-name" name="edit-pskill-skill1-name" value=""><br>
-          </div>
-          <div class="edit-rank">
-          <label for="edit-pskill-skill1-rank">Rank</label><br>
-          <select id="edit-pskill-skill1-rank" name="edit-pskill-skill1-rank">
-              <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
-          </select><br>
-          </div>
-          <div class="edit-lv">
-          <label for="edit-pskill-skill1-level">Lv</label><br>
-          <select id="edit-pskill-skill1-level" name="edit-pskill-skill1-">
-              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
-          </select><br>
-          </div>
-          <div class="edit-cd">
-          <label for="edit-pskill-skill1-cd">CD</label><br>
-          <input type="text" id="edit-pskill-skill1-cd" name="edit-pskill-skill1-cd" value=""><br>
-          </div>
-          <div>
-          <label for="edit-pskill-skill1-iconURL">Icon URL</label><br>
-          <input type="text" id="edit-pskill-skill1-iconURL" name="edit-pskill-skill1-iconURL" value=""><br>
-          </div>
-          <div>
-          <label for="edit-pskill-skill1-desc">Effect</label><br>
-          <textarea id="edit-pskill-skill1-desc" name="edit-pskill-skill1-desc" rows="5" cols="30"></textarea>
-          </div>
-          <div class="flex-break"></div>
-          <div class="one-row-item edit-title">Personal Skill 2</div>
-          <div class="flex-break"></div>
-          <div>
-          <label for="edit-pskill-skill2-name">Name</label><br>
-          <input type="text" id="edit-pskill-skill2-name" name="edit-pskill-skill2-name" value=""><br>
-          </div>
-          <div class="edit-rank">
-          <label for="edit-pskill-skill2-rank">Rank</label><br>
-          <select id="edit-pskill-skill2-rank" name="edit-pskill-skill2-rank">
-              <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
-          </select><br>
-          </div>
-          <div class="edit-lv">
-          <label for="edit-pskill-skill2-level">Lv</label><br>
-          <select id="edit-pskill-skill2-level" name="edit-pskill-skill2-">
-              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
-          </select><br>
-          </div>
-          <div class="edit-cd">
-          <label for="edit-pskill-skill2-cd">CD</label><br>
-          <input type="text" id="edit-pskill-skill2-cd" name="edit-pskill-skill2-cd" value=""><br>
-          </div>
-          <div>
-          <label for="edit-pskill-skill2-iconURL">Icon URL</label><br>
-          <input type="text" id="edit-pskill-skill2-iconURL" name="edit-pskill-skill2-iconURL" value=""><br>
-          </div>
-          <div>
-          <label for="edit-pskill-skill2-desc">Effect</label><br>
-          <textarea id="edit-pskill-skill2-desc" name="edit-pskill-skill2-desc" rows="5" cols="30"></textarea>
-          </div>
-          <div class="flex-break"></div>
-          <div class="one-row-item edit-title">Personal Skill 3</div>
-          <div class="flex-break"></div>
-          <div>
-          <label for="edit-pskill-skill3-name">Name</label><br>
-          <input type="text" id="edit-pskill-skill3-name" name="edit-pskill-skill3-name" value=""><br>
-          </div>
-          <div class="edit-rank">
-          <label for="edit-pskill-skill3-rank">Rank</label><br>
-          <select id="edit-pskill-skill3-rank" name="edit-pskill-skill3-rank">
-              <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
-          </select><br>
-          </div>
-          <div class="edit-lv">
-          <label for="edit-pskill-skill3-level">Lv</label><br>
-          <select id="edit-pskill-skill3-level" name="edit-pskill-skill3-">
-              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
-          </select><br>
-          </div>
-          <div class="edit-cd">
-          <label for="edit-pskill-skill3-cd">CD</label><br>
-          <input type="text" id="edit-pskill-skill3-cd" name="edit-pskill-skill3-cd" value=""><br>
-          </div>
-          <div>
-          <label for="edit-pskill-skill3-iconURL">Icon URL</label><br>
-          <input type="text" id="edit-pskill-skill3-iconURL" name="edit-pskill-skill3-iconURL" value=""><br>
-          </div>
-          <div>
-          <label for="edit-pskill-skill3-desc">Effect</label><br>
-          <textarea id="edit-pskill-skill3-desc" name="edit-pskill-skill3-desc" rows="5" cols="30"></textarea>
-          </div>
-          
-
-          <div class="flex-break"></div>
-          <div class="one-row-item edit-title">Class Skill 1</div>
-          <div class="flex-break"></div>
-          <div>
-          <label for="edit-cskill-skill1-name">Name</label><br>
-          <input type="text" id="edit-cskill-skill1-name" name="edit-cskill-skill1-name" value=""><br>
-          </div>
-          <div class="edit-rank">
-          <label for="edit-cskill-skill1-rank">Rank</label><br>
-          <select id="edit-cskill-skill1-rank" name="edit-cskill-skill1-rank">
-              <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-cskill-skill1-iconURL">Icon URL</label><br>
-          <input type="text" id="edit-cskill-skill1-iconURL" name="edit-cskill-skill1-iconURL" value=""><br>
-          </div>
-          <div>
-          <label for="edit-cskill-skill1-desc">Effect</label><br>
-          <textarea id="edit-cskill-skill1-desc" name="edit-cskill-skill1-desc" rows="5" cols="30"></textarea>
-          </div>
-          <div class="flex-break"></div>
-          <div class="one-row-item edit-title">Class Skill 2</div>
-          <div class="flex-break"></div>
-          <div>
-          <label for="edit-cskill-skill2-name">Name</label><br>
-          <input type="text" id="edit-cskill-skill2-name" name="edit-cskill-skill2-name" value=""><br>
-          </div>
-          <div class="edit-rank">
-          <label for="edit-cskill-skill2-rank">Rank</label><br>
-          <select id="edit-cskill-skill2-rank" name="edit-cskill-skill2-rank">
-              <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-cskill-skill2-iconURL">Icon URL</label><br>
-          <input type="text" id="edit-cskill-skill2-iconURL" name="edit-cskill-skill2-iconURL" value=""><br>
-          </div>
-          <div>
-          <label for="edit-cskill-skill2-desc">Effect</label><br>
-          <textarea id="edit-cskill-skill2-desc" name="edit-cskill-skill2-desc" rows="5" cols="30"></textarea>
-          </div>
-          <div class="flex-break"></div>
-          <div class="one-row-item edit-title">Class Skill 3</div>
-          <div class="flex-break"></div>
-          <div>
-          <label for="edit-cskill-skill3-name">Name</label><br>
-          <input type="text" id="edit-cskill-skill3-name" name="edit-cskill-skill3-name" value=""><br>
-          </div>
-          <div class="edit-rank">
-          <label for="edit-cskill-skill3-rank">Rank</label><br>
-          <select id="edit-cskill-skill3-rank" name="edit-cskill-skill3-rank">
-              <option value="EX">EX</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-cskill-skill3-iconURL">Icon URL</label><br>
-          <input type="text" id="edit-cskill-skill3-iconURL" name="edit-cskill-skill3-iconURL" value=""><br>
-          </div>
-          <div>
-          <label for="edit-cskill-skill3-desc">Effect</label><br>
-          <textarea id="edit-cskill-skill3-desc" name="edit-cskill-skill3-desc" rows="5" cols="30"></textarea>
-          </div>
-
+            <% names_skill.forEach(function(name) { %>
+              <div class="flex-break"></div>
+              <div class="one-row-item edit-title">Class Skill <%= name %></div>
+              <div class="flex-break"></div>
+              <div>
+              <label for="edit-cskill-skill<%= name %>-name">Name</label><br>
+              <input type="text" id="edit-cskill-skill<%= name %>-name" name="edit-cskill-skill<%= name %>-name" value=""><br>
+              </div>
+              <div class="edit-rank">
+              <label for="edit-cskill-skill<%= name %>-rank">Rank</label><br>
+              <select id="edit-cskill-skill<%= name %>-rank" name="edit-cskill-skill<%= name %>-rank">
+                <% names_skillrank.forEach(function(rank) { %>
+                  <option value="<%= rank %>"><%= rank %></option>
+                <% }); %>
+              </select><br>
+              </div>
+              <div>
+              <label for="edit-cskill-skill<%= name %>-iconURL">Icon URL</label><br>
+              <input type="text" id="edit-cskill-skill<%= name %>-iconURL" name="edit-cskill-skill<%= name %>-iconURL" value=""><br>
+              </div>
+              <div>
+              <label for="edit-cskill-skill<%= name %>-desc">Effect</label><br>
+              <textarea id="edit-cskill-skill<%= name %>-desc" name="edit-cskill-skill<%= name %>-desc" rows="5" cols="30"></textarea>
+              </div>
+            <% }); %>
 
           <div class="flex-break"></div>
           <div class="one-row-item edit-title">Noble Phantasm</div>
@@ -279,12 +169,9 @@
           <div class="edit-rank">
           <label for="edit-np-rank">Rank</label><br>
           <select id="edit-np-rank" name="edit-np-rank">
-              <option value="EX">EX</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E">E</option>
+            <% names_nprank.forEach(function(rank) { %>
+              <option value="<%= rank %>"><%= rank %></option>
+            <% }); %>
           </select><br>
           </div>
           <div>
@@ -294,11 +181,9 @@
           <div class="edit-lv">
           <label for="edit-np-level">Lv</label><br>
           <select id="edit-np-level" name="edit-np-level">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+            <% names_nplv.forEach(function(lv) { %>
+              <option value="<%= lv %>"><%= lv %></option>
+            <% }); %>
           </select><br>
           </div>
           <div>
@@ -308,161 +193,39 @@
 
           <div class="flex-break"></div>
           <div class="edit-title">Command Cards</div>
-
-
-          <div>
-          <label for="edit-cc-cc1">Card 1</label><br>
-          <select id="edit-cc-cc1" name="edit-cc-cc1">
-              <option value="buster">Buster</option>
-              <option value="arts">Arts</option>
-              <option value="quick">Quick</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-cc-cc2">Card 2</label><br>
-          <select id="edit-cc-cc2" name="edit-cc-cc2">
-              <option value="buster">Buster</option>
-              <option value="arts">Arts</option>
-              <option value="quick">Quick</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-cc-cc3">Card 3</label><br>
-          <select id="edit-cc-cc3" name="edit-cc-cc3">
-              <option value="buster">Buster</option>
-              <option value="arts">Arts</option>
-              <option value="quick">Quick</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-cc-cc4">Card 4</label><br>
-          <select id="edit-cc-cc4" name="edit-cc-cc4">
-              <option value="buster">Buster</option>
-              <option value="arts">Arts</option>
-              <option value="quick">Quick</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-cc-cc5">Card 5</label><br>
-          <select id="edit-cc-cc5" name="edit-cc-cc5">
-              <option value="buster">Buster</option>
-              <option value="arts">Arts</option>
-              <option value="quick">Quick</option>
-          </select><br>
-          </div>
+          <% names_cc.forEach(function(name) { %>
+            <div>
+            <label for="edit-cc-cc<%= name %>">Card <%= name %></label><br>
+            <select id="edit-cc-cc<%= name %>" name="edit-cc-cc<%= name %>">
+              <% names_cardtype.forEach(function(type) { %>
+                  <option value="<%= type.toLowerCase() %>"><%= type %></option>
+                <% }); %>
+            </select><br>
+            </div>
+          <% }); %>
 
           <div class="flex-break"></div>
           <div class="edit-title">Parameters</div>
-
-
-          <div>
-          <label for="edit-param-str">STR</label><br>
-          <select id="edit-param-str" name="edit-param-str">
-              <option value="EX">EX</option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="C+">C+</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="D+">D+</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E+">E+</option>
-              <option value="E">E</option>
-              <option value="X">?</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-param-end">END</label><br>
-          <select id="edit-param-end" name="edit-param-end">
-              <option value="EX">EX</option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="C+">C+</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="D+">D+</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E+">E+</option>
-              <option value="E">E</option>
-              <option value="X">?</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-param-agi">AGI</label><br>
-          <select id="edit-param-agi" name="edit-param-agi">
-              <option value="EX">EX</option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="C+">C+</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="D+">D+</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E+">E+</option>
-              <option value="E">E</option>
-              <option value="X">?</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-param-man">MAN</label><br>
-          <select id="edit-param-man" name="edit-param-man">
-              <option value="EX">EX</option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="C+">C+</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="D+">D+</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E+">E+</option>
-              <option value="E">E</option>
-              <option value="X">?</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-param-luk">LUK</label><br>
-          <select id="edit-param-luk" name="edit-param-luk">
-              <option value="EX">EX</option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="C+">C+</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="D+">D+</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E+">E+</option>
-              <option value="E">E</option>
-              <option value="X">?</option>
-          </select><br>
-          </div>
-          <div>
-          <label for="edit-param-np">NP</label><br>
-          <select id="edit-param-np" name="edit-param-np">
-              <option value="EX">EX</option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="C+">C+</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="D+">D+</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E+">E+</option>
-              <option value="E">E</option>
-              <option value="X">?</option>
-          </select><br>
-          </div>
-
+            <% names_param.forEach(function(param) { %>
+              <div>
+                <label for="edit-param-<%= param.toLowerCase() %>"><%= param %></label><br>
+                <select id="edit-param-<%= param.toLowerCase() %>" name="edit-param-<%= param.toLowerCase() %>">
+                  <% names_paramrank.forEach(function(rank) { %>
+                    <option value="<%= rank.value %>"><%= rank.name %></option>
+                  <% }); %>
+                </select><br>
+              </div>
+            <% }); %>
 
           <div class="flex-break"></div>
           <div class="one-row-item">
           <label class="edit-title" for="edit-profile-fc">Face Claim</label><br>
           <input type="text" id="edit-profile-fc" name="edit-profile-fc" value=""><br>
+          </div>
+          <div class="flex-break"></div>
+          <div class="one-row-item">
+          <label class="edit-title" for="edit-profile-sheet">Character Sheet URL</label><br>
+          <input type="text" id="edit-profile-sheet" name="edit-profile-sheet" value=""><br>
           </div>
           <div class="flex-break"></div>
           <div class="one-row-item">
@@ -473,37 +236,13 @@
           <div class="flex-break"></div>
           <div class="one-row-item edit-title">Profiles</div>
           <div class="flex-break"></div>
-          <div class="two-row-item">
-          <label for="edit-profile-profile1">Profile 1</label><br>
-          <textarea id="edit-profile-profile1" name="edit-profile-profile1" rows="5" cols="30"></textarea>
-          </div>
-
-          <div class="two-row-item">
-          <label for="edit-profile-profile2">Profile 2</label><br>
-          <textarea id="edit-profile-profile2" name="edit-profile-profile2" rows="5" cols="30"></textarea>
-          </div>
-          <div class="flex-break"></div>
-          <div class="two-row-item">
-          <label for="edit-profile-profile3">Profile 3</label><br>
-          <textarea id="edit-profile-profile3" name="edit-profile-profile3" rows="5" cols="30"></textarea>
-          </div>
-
-          <div class="two-row-item">
-          <label for="edit-profile-profile4">Profile 4</label><br>
-          <textarea id="edit-profile-profile4" name="edit-profile-profile4" rows="5" cols="30"></textarea>
-          </div>
-          <div class="flex-break"></div>
-          <div class="two-row-item">
-          <label for="edit-profile-profile5">Profile 5</label><br>
-          <textarea id="edit-profile-profile5" name="edit-profile-profile5" rows="5" cols="30"></textarea>
-          </div>
-
-          <div class="two-row-item">
-          <label for="edit-profile-profile6">Profile 6</label><br>
-          <textarea id="edit-profile-profile6" name="edit-profile-profile6" rows="5" cols="30"></textarea>
-          </div>
+          <% names_profile.forEach(function(name) { %>
+            <div class="two-row-item">
+              <label for="edit-profile-profile<%= name %>">Profile <%= name %></label><br>
+              <textarea id="edit-profile-profile<%= name %>" name="edit-profile-profile<%= name %>" rows="5" cols="30"></textarea>
+            </div>
+          <% }); %>
           
-
           <div class="flex-break"></div>
           <div class="one-row-item edit-title">Voice</div>
           <div class="flex-break"></div>
@@ -541,7 +280,6 @@
             <div id="ol-title">Spirit Origin List</div>
             <div id="ol-caption">Card</div>
             <div id="ol-tip">By tapping the icon, you can check the details of your selection.</div>
-            
         </div>
         <div id="origin-list-mid">
             <div id="ol-nav-left">
@@ -581,11 +319,8 @@
                 <img class='ol-icon-star' src="assets/charaicon/star<%=servant.info.servantRarity%>.png">
             </div>
             <% }) %>
-
-
         </div>
         <div id="origin-list-bot2"></div>
-        
     </div>
 
 
@@ -607,8 +342,8 @@
         <img id="pf-charagraph-frame" src="">
         <img id="pf-charagraph-class" src="">
         <div id="pf-info-servantClass"></div>
+        <div id="pf-info-servantClass-underline"></div>
         <div id="pf-info-servantName"></div>
-        
     </div>
 
 
@@ -625,114 +360,61 @@
             <div style="flex: 25%" class="profile-nav" data-slide="3">Voice</div>
         </div>
         <div id="profile-content">
+
             <div class="profile-content active" data-slide="0">
 
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
+                <%- html_panel.short_top %>
                 <div class="pskill-title">Skills</div>
                 <div class="panel-text pskill-panel">
                     <div class="pskill-tip">These skills can be used anytime during battle.</div>
                     <table class="pskill-table">
+                      <% names_skill.forEach(function(name) { %>
                         <tr><td class="pskill-l">
-                                <p class="pskill-num">SKILL 1</p>
+                                <p class="pskill-num">SKILL <%= name %></p>
                                 <p class="pskill-cd">Cooldown</p>
-                                <p class="pskill-cd-num" id="pf-pskill-skill1-cd"></p>
+                                <p class="pskill-cd-num" id="pf-pskill-skill<%= name %>-cd"></p>
                             </td>
                             <td class="pskill-m">
-                                <img id="pf-pskill-skill1-iconURL" src="">
+                              <img class="pf-skill-icon-cover" src="assets/skill-icon-cover.png">
+                              <img id="pf-pskill-skill<%= name %>-iconURL" src="">
                             </td>
                             <td class="pskill-r">
                                 <p class="pskill-name">
-                                    <span id="pf-pskill-skill1-name"></span> 
-                                    <span id="pf-pskill-skill1-rank"></span> Lv. 
-                                    <span id="pf-pskill-skill1-level"></span></p>
-                                <p class="pskill-description" id="pf-pskill-skill1-desc"></p>
+                                    <span id="pf-pskill-skill<%= name %>-name"></span> 
+                                    <span id="pf-pskill-skill<%= name %>-rank"></span> Lv. 
+                                    <span id="pf-pskill-skill<%= name %>-level"></span></p>
+                                <p class="pskill-description" id="pf-pskill-skill<%= name %>-desc"></p>
                             </td></tr>
-                        <tr><td class="pskill-l">
-                                <p class="pskill-num">SKILL 2</p>
-                                <p class="pskill-cd">Cooldown</p>
-                                <p class="pskill-cd-num" id="pf-pskill-skill2-cd"></p>
-                            </td>
-                            <td class="pskill-m">
-                                <img id="pf-pskill-skill2-iconURL" src="">
-                            </td>
-                            <td class="pskill-r">
-                                <p class="pskill-name">
-                                    <span id="pf-pskill-skill2-name"></span> 
-                                    <span id="pf-pskill-skill2-rank"></span> Lv. 
-                                    <span id="pf-pskill-skill2-level"></span></p>
-                                <p class="pskill-description" id="pf-pskill-skill2-desc"></p>
-                            </td></tr>
-                        <tr><td class="pskill-l">
-                                <p class="pskill-num">SKILL 3</p>
-                                <p class="pskill-cd">Cooldown</p>
-                                <p class="pskill-cd-num" id="pf-pskill-skill3-cd"></p>
-                            </td>
-                            <td class="pskill-m">
-                                <img id="pf-pskill-skill3-iconURL" src="">
-                            </td>
-                            <td class="pskill-r">
-                                <p class="pskill-name">
-                                    <span id="pf-pskill-skill3-name"></span> 
-                                    <span id="pf-pskill-skill3-rank"></span> Lv. 
-                                    <span id="pf-pskill-skill3-level"></span></p>
-                                <p class="pskill-description" id="pf-pskill-skill3-desc"></p>
-                            </td></tr>
+                      <% }); %>
                     </table>
                 </div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <%- html_panel.mid_bot %>
 
-
-
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
+                <%- html_panel.short_top %>
                 <div class="cskill-title">Class Skills</div>
                 <div class="panel-text cskill-panel">
                     <div class="cskill-tip">These skills automatically go into effect in battle.</div>
                     <table class="cskill-table">
+                      <% names_skill.forEach(function(name) { %>
                         <tr><td class="cskill-l">
-                                <p class="cskill-num">SKILL 1</p>
+                                <p class="cskill-num">SKILL <%= name %></p>
                             </td>
                             <td class="cskill-m">
-                                <img id="pf-cskill-skill1-iconURL" src="">
+                              <img class="pf-skill-icon-cover" src="assets/skill-icon-cover.png">
+                              <img id="pf-cskill-skill<%= name %>-iconURL" src="">
                             </td>
                             <td class="cskill-r">
                                 <p class="cskill-name">
-                                    <span id="pf-cskill-skill1-name"></span> 
-                                    <span id="pf-cskill-skill1-rank"></span> Lv. 
-                                <p class="cskill-description" id="pf-cskill-skill1-desc"></p>
+                                    <span id="pf-cskill-skill<%= name %>-name"></span> 
+                                    <span id="pf-cskill-skill<%= name %>-rank"></span> Lv. 
+                                <p class="cskill-description" id="pf-cskill-skill<%= name %>-desc"></p>
                             </td></tr>
-                        <tr><td class="cskill-l">
-                                <p class="cskill-num">SKILL 2</p>
-                            </td>
-                            <td class="cskill-m">
-                                <img id="pf-cskill-skill2-iconURL" src="">
-                            </td>
-                            <td class="cskill-r">
-                                <p class="cskill-name">
-                                    <span id="pf-cskill-skill2-name"></span> 
-                                    <span id="pf-cskill-skill2-rank"></span> Lv. 
-                                    <span id="pf-cskill-skill2-level"></span></p>
-                                <p class="cskill-description" id="pf-cskill-skill2-desc"></p>
-                            </td></tr>
-                        <tr><td class="cskill-l">
-                                <p class="cskill-num">SKILL 3</p>
-                            </td>
-                            <td class="cskill-m">
-                                <img id="pf-cskill-skill3-iconURL" src="">
-                            </td>
-                            <td class="cskill-r">
-                                <p class="cskill-name">
-                                    <span id="pf-cskill-skill3-name"></span> 
-                                    <span id="pf-cskill-skill3-rank"></span> Lv. 
-                                    <span id="pf-cskill-skill3-level"></span></p>
-                                <p class="cskill-description" id="pf-cskill-skill3-desc"></p>
-                            </td></tr>
+                      <% }); %>
                     </table>
                 </div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <%- html_panel.mid_bot %>
 
-
-
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
+                <%- html_panel.mid_top %>
                 <div class="np-title">Noble Phantasm</div>
                 <div class="np-type">
                     <img class='pf-np-bot' id="pf-np-bot" src="">
@@ -756,62 +438,42 @@
                     </table>
                     <div class="np-text" id="pf-np-desc"></div>
                 </div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <%- html_panel.mid_bot %>
 
-
-
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
+                <%- html_panel.mid_top %>
                 <div class="cc-title">Command Card</div>
                 <div class="panel-text cc">
                     <table class="np-table">
                         <tr>
-                            <td class="cc-type" id="pf-cc-cc1" style="flex: 20%">
-                                <img class='pf-cc-bot' id="pf-cc-cc1-bot" src="">
-                                <img class='pf-cc-servant' id="pf-cc-cc1-servant" src="">
-                                <img class='pf-cc-mid' id="pf-cc-cc1-mid" src="">
-                                <img class='pf-cc-top' id="pf-cc-cc1-top" src="">
+                          <% names_cc.forEach(function(name) { %>
+                            <td class="cc-type" id="pf-cc-cc<%= name %>" style="flex: 20%">
+                                <img class='pf-cc-bot' id="pf-cc-cc<%= name %>-bot" src="">
+                                <img class='pf-cc-servant' id="pf-cc-cc<%= name %>-servant" src="">
+                                <img class='pf-cc-mid' id="pf-cc-cc<%= name %>-mid" src="">
+                                <img class='pf-cc-top' id="pf-cc-cc<%= name %>-top" src="">
                             </td>
-                            <td class="cc-type" id="pf-cc-cc2" style="flex: 20%">
-                                <img class='pf-cc-bot' id="pf-cc-cc2-bot" src="">
-                                <img class='pf-cc-servant' id="pf-cc-cc2-servant" src="">
-                                <img class='pf-cc-mid' id="pf-cc-cc2-mid" src="">
-                                <img class='pf-cc-top' id="pf-cc-cc2-top" src="">
-                            </td>
-                            <td class="cc-type" id="pfcc--cc3" style="flex: 20%">
-                                <img class='pf-cc-bot' id="pf-cc-cc3-bot" src="">
-                                <img class='pf-cc-servant' id="pf-cc-cc3-servant" src="">
-                                <img class='pf-cc-mid' id="pf-cc-cc3-mid" src="">
-                                <img class='pf-cc-top' id="pf-cc-cc3-top" src="">
-                            </td>
-                            <td class="cc-type" id="pf-cc-cc4" style="flex: 20%">
-                                <img class='pf-cc-bot' id="pf-cc-cc4-bot" src="">
-                                <img class='pf-cc-servant' id="pf-cc-cc4-servant" src="">
-                                <img class='pf-cc-mid' id="pf-cc-cc4-mid" src="">
-                                <img class='pf-cc-top' id="pf-cc-cc4-top" src="">
-                            </td>
-                            <td class="cc-type" id="pf-cc-cc5" style="flex: 20%">
-                                <img class='pf-cc-bot' id="pf-cc-cc5-bot" src="">
-                                <img class='pf-cc-servant' id="pf-cc-cc5-servant" src="">
-                                <img class='pf-cc-mid' id="pf-cc-cc5-mid" src="">
-                                <img class='pf-cc-top' id="pf-cc-cc5-top" src="">
-                            </td></tr>
+                          <% }); %>
+                            </tr>
                     </table>
                 </div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-
+                <%- html_panel.mid_bot %>
             </div>
-            <div class="profile-content" data-slide="1">
 
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
-                <div class="profile-title">Face Claim/</div>
-                <div class="panel-text profile-panel pf-profile-fc">FC: <span id="pf-profile-fc"></span></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
+            <div class="profile-content" data-slide="1">
+                <%- html_panel.long_top %>
+                <div class="profile-title">Face Claim/Character Sheet</div>
+                <div class="panel-text profile-panel" id="pf-fc-sheet">
+                  <div class="pf-profile-fc">FC: <span id="pf-profile-fc"></span></div>
+                  <div class="pf-profile-sheet">Sheet: <span id="pf-profile-sheet"></span></div>
+                </div> 
+                <%- html_panel.mid_bot %>
+
+                <%- html_panel.mid_top %>
                 <div class="profile-title">Character Info</div>
                 <div class="panel-text profile-panel" id="pf-profile-charinfo"></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <%- html_panel.mid_bot %>
 
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
+                <%- html_panel.mid_top %>
                 <div class="profile-title">Parameters</div>
                 <div class="panel-text profile-panel" id="pf-parameter">
                     <table id="param-table">
@@ -826,46 +488,27 @@
                             <td>NP</td><td><img class="pf-param-img" id="pf-param-np-img" src=""></td><td><span id="pf-param-np"></span></td></tr>
                     </table>
                 </div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
+                <%- html_panel.mid_bot %>
 
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
-                <div class="profile-title">Profile 1</div>
-                <div class="panel-text profile-panel" id="pf-profile-profile1"></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
-                <div class="profile-title">Profile 2</div>
-                <div class="panel-text profile-panel" id="pf-profile-profile2"></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
-                <div class="profile-title">Profile 3</div>
-                <div class="panel-text profile-panel" id="pf-profile-profile3"></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
-                <div class="profile-title">Profile 4</div>
-                <div class="panel-text profile-panel" id="pf-profile-profile4"></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
-                <div class="profile-title">Profile 5</div>
-                <div class="panel-text profile-panel" id="pf-profile-profile5"></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-                <img class="panel-img" src="assets/profile-infopanel-top.png">
-                <div class="profile-title">Profile 6</div>
-                <div class="panel-text profile-panel" id="pf-profile-profile6"></div>  
-                <img class="panel-img" src="assets/profile-infopanel-bot.png">
-
-                
+                <% names_profile.forEach(function(name) { %>
+                  <%- html_panel.mid_top %>
+                  <div class="profile-title">Profile <%= name %></div>
+                  <div class="panel-text profile-panel" id="pf-profile-profile<%= name %>"></div>  
+                  <%- html_panel.mid_bot %>
+                <% }); %>  
             </div>
+
             <div class="profile-content" id="profile-content-gallery" data-slide="2">
                 <div id="pf-gallery-img-wrapper">
                     <img id="pf-gallery-img" src=""></div>
                 <div id="pf-gallery-nav"></div>
             </div>
+
             <div class="profile-content" id="profile-content-voiceover" data-slide="3">
             </div>
+
         </div>
     </div>
-
-
 </div>
 
 

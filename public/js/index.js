@@ -224,7 +224,7 @@ function loadServantProfile(a) {
                     '<img class="panel-img" src="assets/profile-voicepanel-top.png">' + 
                     '<div class="voice-title">My Room</div>' + 
                     '<div class="panel-text voice-panel" id="pf-voice-' + key + '">' + a.voice[key].name + '</div>' + 
-                    '<img class="panel-img" src="assets/profile-voicepanel-bot.png"></div>' + 
+                    '<img class="panel-img panel-img-voice-bot" src="assets/profile-voicepanel-bot.png"></div>' + 
                     '<div class="voice-text" data-slide="1' + count.toString() + '">' + a.voice[key].desc + '</div>';
     count++;
 

@@ -599,6 +599,7 @@ body:before {
     margin-bottom: -4px;
     cursor: pointer;
     max-width: 510px;
+    height: 80px;
 
 }
 .voice-title {
@@ -606,12 +607,13 @@ body:before {
 }
 .panel-text.voice-panel {
     padding: 19px 10px 3px 66px;
-    margin-bottom: -7px;
-    margin-top: -16px;
     font-size: 23px;
 }
 .panel-img {
     max-width: 510px;
+}
+.panel-img-voice-bot {
+    position: absolute;
 }
 .voice-text {
     z-index: 39999;
@@ -627,12 +629,15 @@ body:before {
 }
 #pf-gallery-img-wrapper {
     position: absolute;
-    left: 50%;
+    width: 500px;
+    text-align: center;
+    left: 307px;
     top: 20px;
-  transform: translate(-60%, 0%);
+    transform: translate(-60%, 0%);
 }
 #pf-gallery-img {
-    height: 370px;
+    max-width: 100%;
+    max-height: 370px;
     object-fit: contain;
 }
 #pf-gallery-nav {

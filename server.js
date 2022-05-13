@@ -111,22 +111,31 @@ app.get('/', (req, res) => {
         mid_bot: '<img class="panel-img" src="assets/profile-infopanel-bot.png">' 
     }
 
-    Servants.find({_id: {'$ne':"_empty"}}, {info: 1}, {sort: {"info.time": 1}}, function(err, servants) {
-        res.render('index', {
-            servantList    : servants,
-            names_class    : names_class,
-            names_rarity   : names_rarity,
-            names_skill    : names_skill,
-            names_skillrank: names_skillrank,
-            names_skilllv  : names_skilllv,
-            names_nprank   : names_nprank,
-            names_nplv     : names_nplv,
-            names_cc       : names_cc,
-            names_cardtype : names_cardtype,
-            names_profile  : names_profile,
-            names_param    : names_param,
-            names_paramrank: names_paramrank,
-            html_panel     : html_panel
+
+    var summonedServantCount = 0;
+    Servants.find({_id: {'$ne':"_empty"}, "info.summonedStatus":"summoned"}).count(function(err, count) {
+        summonedServantCount = count;
+    
+
+
+        Servants.find({_id: {'$ne':"_empty"}}, {info: 1}, {sort: {"info.time": 1}}, function(err, servants) {
+            res.render('index', {
+                servantList    : servants,
+                names_class    : names_class,
+                names_rarity   : names_rarity,
+                names_skill    : names_skill,
+                names_skillrank: names_skillrank,
+                names_skilllv  : names_skilllv,
+                names_nprank   : names_nprank,
+                names_nplv     : names_nplv,
+                names_cc       : names_cc,
+                names_cardtype : names_cardtype,
+                names_profile  : names_profile,
+                names_param    : names_param,
+                names_paramrank: names_paramrank,
+                summonedServantCount: summonedServantCount,
+                html_panel     : html_panel
+            });
         });
     });
 })

@@ -62,7 +62,7 @@ function changeGalleryImage(newSrc) {
 
 // load servant profile from origin list
 $(".ol-icon").on("click", async function (e) {
-    let servantURL = $(this).find(".ol-icon-servant").attr("id").split("-")[1];
+    let servantURL = $(this).find(".ol-icon-servant").attr("id").substring(3);
 
     await $.get("/loadprofile", servantURL, function(data, status) {
         if(status === 'success') {

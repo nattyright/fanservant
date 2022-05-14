@@ -111,6 +111,17 @@ app.get('/', (req, res) => {
         mid_bot: '<img class="panel-img" src="assets/profile-infopanel-bot.png">' 
     }
 
+    var bg_images = ['https://i.imgur.com/jgoPAEZ.jpg',
+                     'https://i.imgur.com/5zd1u9x.jpg',
+                     'https://i.imgur.com/vpsAUB4.png',
+                     'https://i.imgur.com/JpdamWO.png',
+                     'https://i.imgur.com/7q4wZ5k.png',
+                     'https://i.imgur.com/OrA8prK.png',
+                     'https://i.imgur.com/OM1fwBJ.jpg',
+                     'https://i.imgur.com/yKRH9H4.jpg',
+                     'https://i.imgur.com/WoMyWsH.jpg'
+                     ]
+
 
     var summonedServantCount = 0;
     Servants.find({_id: {'$ne':"_empty"}, "info.summonedStatus":"summoned"}).count(function(err, count) {
@@ -134,6 +145,7 @@ app.get('/', (req, res) => {
                 names_param    : names_param,
                 names_paramrank: names_paramrank,
                 summonedServantCount: summonedServantCount,
+                bg_images      : bg_images,
                 html_panel     : html_panel
             });
         });

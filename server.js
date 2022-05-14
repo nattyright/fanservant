@@ -202,8 +202,7 @@ router.post('/editprofile', urlencodedParser, async function(req, res) {
         
 
         if (result._id == "_empty" || result._id == "" || result._id == null ||
-            // illegal ID
-            /^[a-z]+$/.test(result._id) == false) {
+            /^[a-z0-9-]+$/.test(result._id) == false) { // illegal ID (lowercase + numbers only) ^[a-z0-9-]*$
             res.end("illegal");
 
         } else if (mode == "create" && queryResult != null && id == result._id) {

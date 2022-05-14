@@ -1,0 +1,241 @@
+<div id="edit-page-wrapper">
+    <div class="one-row-item">
+        <label class="edit-title" for="edit-info-cardURL">Unique Servant Name</label><br>
+        <span>(All lowercase, no spaces. This is the ID we use to identify your Servant.)<br>(e.g. artoria, artoriaarcher, artoriarideraltergivemenaporeeee</span><br>
+        <input type="text" id="edit-info-cardURL" name="edit-info-cardURL" value=""><br>
+    </div>
+
+    <div class="flex-break"></div>
+
+    <div  class="one-row-item">
+        <label class="edit-title" for="edit-info-cardartURL">Card Art URL</label><br>
+        <span>(For best results, crop your image to 300x512px. OR use an image of the same ratio.)</span><br>
+        <input type="text" id="edit-info-cardartURL" name="edit-info-cardartURL" value=""><br>
+    </div>
+    <div class="flex-break"></div>
+    <div class="one-row-item">
+        <label class="edit-title" for="edit-info-ccartURL">Command Card Art URL</label><br>
+        <span>(For best results, crop your image to 135x165, AND make sure the chin rests at 95px from the top.)</span><br>
+        <input type="text" id="edit-info-ccartURL" name="edit-info-ccartURL" value=""><br>
+    </div>
+    <div class="flex-break"></div>
+    <div class="one-row-item">
+        <label class="edit-title"  for="edit-info-oliconURL">Origin List Icon URL</label><br>
+        <span>(For best results: SQUARE images only.)</span><br>
+        <input type="text" id="edit-info-oliconURL" name="edit-info-oliconURL" value=""><br>
+    </div>
+
+    <div class="flex-break"></div>
+
+    <div class="three-row-item edit-title">
+        <label for="edit-info-servantName"></label>Servant Name<br>
+        <input type="text" id="edit-info-servantName" name="edit-info-servantName" value=""><br>
+    </div>
+    <div class="three-row-item edit-title">
+        <label for="edit-info-servantClass"></label>Servant Class<br>
+        <select id="edit-info-servantClass" name="edit-info-servantClass">
+          <% names_class.forEach(function(name) { %>
+            <option value="<%= name %>"><%= name %></option>
+          <% }); %>
+        </select><br>
+    </div>
+    <div class="three-row-item edit-title">
+        <label for="edit-info-servantRarity">Servant Rarity</label><br>
+        <select id="edit-info-servantRarity" name="edit-info-servantRarity">
+          <% names_rarity.forEach(function(rarity) { %>
+            <option value="<%= rarity %>"><%= rarity %></option>
+          <% }); %>
+        </select><br>
+    </div>
+
+    <div class="flex-break"></div>
+
+    <div class="one-row-item edit-title">FGO Skill Icons</div>
+    <div><a style="color:white;" href="https://fategrandorder.fandom.com/wiki/Category:Icons" target=”_blank”>https://fategrandorder.fandom.com/wiki/Category:Icons</a></div>
+
+      <% names_skill.forEach(function(name) { %>
+        <div class="flex-break"></div>
+        <div class="one-row-item edit-title">Personal Skill <%= name %></div>
+        <div class="flex-break"></div>
+        <div>
+        <label for="edit-pskill-skill<%= name %>-name">Name</label><br>
+        <input type="text" id="edit-pskill-skill<%= name %>-name" name="edit-pskill-skill<%= name %>-name" value=""><br>
+        </div>
+        <div class="edit-rank">
+        <label for="edit-pskill-skill<%= name %>-rank">Rank</label><br>
+        <select id="edit-pskill-skill<%= name %>-rank" name="edit-pskill-skill<%= name %>-rank">
+          <% names_skillrank.forEach(function(rank) { %>
+            <option value="<%= rank %>"><%= rank %></option>
+          <% }); %>
+        </select><br>
+        </div>
+        <div class="edit-lv">
+        <label for="edit-pskill-skill<%= name %>-level">Lv</label><br>
+        <select id="edit-pskill-skill<%= name %>-level" name="edit-pskill-skill<%= name %>-">
+          <% names_skilllv.forEach(function(lv) { %>
+            <option value="<%= lv %>"><%= lv %></option>
+          <% }); %>
+        </select><br>
+        </div>
+        <div class="edit-cd">
+        <label for="edit-pskill-skill<%= name %>-cd">CD</label><br>
+        <input type="text" id="edit-pskill-skill<%= name %>-cd" name="edit-pskill-skill<%= name %>-cd" value=""><br>
+        </div>
+        <div>
+        <label for="edit-pskill-skill<%= name %>-iconURL">Icon URL</label><br>
+        <input type="text" id="edit-pskill-skill<%= name %>-iconURL" name="edit-pskill-skill<%= name %>-iconURL" value=""><br>
+        </div>
+        <div>
+        <label for="edit-pskill-skill<%= name %>-desc">Effect</label><br>
+        <textarea id="edit-pskill-skill<%= name %>-desc" name="edit-pskill-skill<%= name %>-desc" rows="5" cols="30"></textarea>
+        </div>
+      <% }); %>
+
+      <% names_skill.forEach(function(name) { %>
+        <div class="flex-break"></div>
+        <div class="one-row-item edit-title">Class Skill <%= name %></div>
+        <div class="flex-break"></div>
+        <div>
+        <label for="edit-cskill-skill<%= name %>-name">Name</label><br>
+        <input type="text" id="edit-cskill-skill<%= name %>-name" name="edit-cskill-skill<%= name %>-name" value=""><br>
+        </div>
+        <div class="edit-rank">
+        <label for="edit-cskill-skill<%= name %>-rank">Rank</label><br>
+        <select id="edit-cskill-skill<%= name %>-rank" name="edit-cskill-skill<%= name %>-rank">
+          <% names_skillrank.forEach(function(rank) { %>
+            <option value="<%= rank %>"><%= rank %></option>
+          <% }); %>
+        </select><br>
+        </div>
+        <div>
+        <label for="edit-cskill-skill<%= name %>-iconURL">Icon URL</label><br>
+        <input type="text" id="edit-cskill-skill<%= name %>-iconURL" name="edit-cskill-skill<%= name %>-iconURL" value=""><br>
+        </div>
+        <div>
+        <label for="edit-cskill-skill<%= name %>-desc">Effect</label><br>
+        <textarea id="edit-cskill-skill<%= name %>-desc" name="edit-cskill-skill<%= name %>-desc" rows="5" cols="30"></textarea>
+        </div>
+      <% }); %>
+
+    <div class="flex-break"></div>
+    <div class="one-row-item edit-title">Noble Phantasm</div>
+    <div class="flex-break"></div>
+
+    <div>
+    <label for="edit-np-type">Type</label><br>
+    <select id="edit-np-type" name="edit-np-type">
+        <option value="buster">Buster</option>
+        <option value="arts">Arts</option>
+        <option value="quick">Quick</option>
+    </select><br>
+    </div>
+    <div>
+    <label for="edit-np-name">Name</label><br>
+    <input type="text" id="edit-np-name" name="edit-np-name" value=""><br>
+    </div>
+    <div class="edit-rank">
+    <label for="edit-np-rank">Rank</label><br>
+    <select id="edit-np-rank" name="edit-np-rank">
+      <% names_nprank.forEach(function(rank) { %>
+        <option value="<%= rank %>"><%= rank %></option>
+      <% }); %>
+    </select><br>
+    </div>
+    <div>
+    <label for="edit-np-class">Class</label><br>
+    <input type="text" id="edit-np-class" name="edit-np-class" value=""><br>
+    </div>
+    <div class="edit-lv">
+    <label for="edit-np-level">Lv</label><br>
+    <select id="edit-np-level" name="edit-np-level">
+      <% names_nplv.forEach(function(lv) { %>
+        <option value="<%= lv %>"><%= lv %></option>
+      <% }); %>
+    </select><br>
+    </div>
+    <div>
+    <label for="edit-np-desc">Effect</label><br>
+    <textarea id="edit-np-desc" name="edit-np-desc" rows="5" cols="30"></textarea>
+    </div>
+
+    <div class="flex-break"></div>
+    <div class="edit-title">Command Cards</div>
+    <% names_cc.forEach(function(name) { %>
+      <div>
+      <label for="edit-cc-cc<%= name %>">Card <%= name %></label><br>
+      <select id="edit-cc-cc<%= name %>" name="edit-cc-cc<%= name %>">
+        <% names_cardtype.forEach(function(type) { %>
+            <option value="<%= type.toLowerCase() %>"><%= type %></option>
+          <% }); %>
+      </select><br>
+      </div>
+    <% }); %>
+
+    <div class="flex-break"></div>
+    <div class="edit-title">Parameters</div>
+      <% names_param.forEach(function(param) { %>
+        <div>
+          <label for="edit-param-<%= param.toLowerCase() %>"><%= param %></label><br>
+          <select id="edit-param-<%= param.toLowerCase() %>" name="edit-param-<%= param.toLowerCase() %>">
+            <% names_paramrank.forEach(function(rank) { %>
+              <option value="<%= rank.value %>"><%= rank.name %></option>
+            <% }); %>
+          </select><br>
+        </div>
+      <% }); %>
+
+    <div class="flex-break"></div>
+    <div class="one-row-item">
+    <label class="edit-title" for="edit-profile-fc">Face Claim</label><br>
+    <span>(who is your FC/what franchise are they from?)</span><br>
+    <input type="text" id="edit-profile-fc" name="edit-profile-fc" value=""><br>
+    </div>
+    <div class="flex-break"></div>
+    <div class="one-row-item">
+    <label class="edit-title" for="edit-profile-sheet">Character Sheet URL</label><br>
+    <input type="text" id="edit-profile-sheet" name="edit-profile-sheet" value=""><br>
+    </div>
+    <div class="flex-break"></div>
+    <div class="one-row-item">
+    <label class="edit-title" for="edit-profile-charinfo">Character Info</label><br>
+    <textarea id="edit-profile-charinfo" name="edit-profile-charinfo" rows="5" cols="30"></textarea>
+    </div>
+
+    <div class="flex-break"></div>
+    <div class="one-row-item edit-title">Profiles</div>
+    <div class="flex-break"></div>
+    <% names_profile.forEach(function(name) { %>
+      <div class="two-row-item">
+        <label for="edit-profile-profile<%= name %>">Profile <%= name %></label><br>
+        <textarea id="edit-profile-profile<%= name %>" name="edit-profile-profile<%= name %>" rows="5" cols="30"></textarea>
+      </div>
+    <% }); %>
+    
+    <div class="flex-break"></div>
+    <div class="one-row-item edit-title">Voice</div>
+    <div class="flex-break"></div>
+    <div id="edit-voice"></div>
+    <div class="flex-break"></div>
+    <div id="edit-voice-add">Add New Voice</div>
+
+
+    <div class="flex-break"></div>
+    <div class="one-row-item edit-title">Gallery</div>
+    <div class="flex-break"></div>
+    <div id="edit-gallery"></div>
+    <div class="flex-break"></div>
+    <div id="edit-gallery-add">Add New Image</div>
+
+
+    <div class="flex-break"></div>
+    <div>
+    <label for="edit-password" id="edit-password-label">Password (Save this, as you will need to input this password to edit this page in the future. Cannot be empty.)</label><br>
+    <input type="text" id="edit-password" name="edit-password" value=""><br>
+    </div>
+    <div class="flex-break"></div>
+
+    <div><input id="delete" type="button" value="Delete" /></div>
+    <div><input id="submit" type="button" value="Submit" /></div>
+    <div><input id="edit-page-cancel" type="button" value="Cancel" /></div>
+
+</div>

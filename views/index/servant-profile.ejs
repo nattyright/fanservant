@@ -1,0 +1,185 @@
+<div id="col-left" style="flex: 5.5%">
+    <div id="button-close-profile" style="flex: 25%"><span>Close</span></div>
+    <div id="button-edit-page" style="flex: 25%">
+      <i class="fa-solid fa-pen-to-square"></i><span>Edit</span>
+    </div>
+    <div id="button-create-page" style="flex: 25%">
+      <i class="fa-solid fa-wand-magic-sparkles"></i><span>Create</span>
+    </div>
+    <div style="flex: 25%"><span>Favorite</span></div>
+</div>
+
+
+<div id="col-mid" style="flex: 32.5%">
+    <img id="pf-charagraph-base" src="">
+    <img id="pf-cardURL" src="">
+    <img id="pf-charagraph-frame" src="">
+    <img id="pf-charagraph-class" src="">
+    <div id="pf-info-servantClass"></div>
+    <div id="pf-info-servantClass-underline"></div>
+    <div id="pf-info-servantName"></div>
+</div>
+
+
+<div id="col-right" style="flex: 62%">
+    <div id="profile-name">
+        <div id="pf-servantName"></div>
+        <div id="pf-servantClass"></div>
+        <div id="pf-servantID" style="display:none"></div>
+    </div>
+    <div id="profile-nav">
+        <div style="flex: 25%" class="profile-nav active" data-slide="0">Status</div>
+        <div style="flex: 25%" class="profile-nav" data-slide="1">Profile</div>
+        <div style="flex: 25%" class="profile-nav" data-slide="2">Gallery</div>
+        <div style="flex: 25%" class="profile-nav" data-slide="3">Voice</div>
+    </div>
+    <div id="profile-content">
+
+        <div class="profile-content active" data-slide="0">
+
+            <%- html_panel.short_top %>
+            <div class="pskill-title">Skills</div>
+            <div class="panel-text pskill-panel">
+                <div class="pskill-tip">These skills can be used anytime during battle.</div>
+                <table class="pskill-table">
+                  <% names_skill.forEach(function(name) { %>
+                    <tr><td class="pskill-l">
+                            <p class="pskill-num">SKILL <%= name %></p>
+                            <p class="pskill-cd">Cooldown</p>
+                            <p class="pskill-cd-num" id="pf-pskill-skill<%= name %>-cd"></p>
+                        </td>
+                        <td class="pskill-m">
+                          <img class="pf-skill-icon-cover" src="assets/skill-icon-cover.png">
+                          <img id="pf-pskill-skill<%= name %>-iconURL" src="">
+                        </td>
+                        <td class="pskill-r">
+                            <p class="pskill-name">
+                                <span id="pf-pskill-skill<%= name %>-name"></span> 
+                                <span id="pf-pskill-skill<%= name %>-rank"></span> Lv. 
+                                <span id="pf-pskill-skill<%= name %>-level"></span></p>
+                            <p class="pskill-description" id="pf-pskill-skill<%= name %>-desc"></p>
+                        </td></tr>
+                  <% }); %>
+                </table>
+            </div>  
+            <%- html_panel.mid_bot %>
+
+            <%- html_panel.short_top %>
+            <div class="cskill-title">Class Skills</div>
+            <div class="panel-text cskill-panel">
+                <div class="cskill-tip">These skills automatically go into effect in battle.</div>
+                <table class="cskill-table">
+                  <% names_skill.forEach(function(name) { %>
+                    <tr><td class="cskill-l">
+                            <p class="cskill-num">SKILL <%= name %></p>
+                        </td>
+                        <td class="cskill-m">
+                          <img class="pf-skill-icon-cover" src="assets/skill-icon-cover.png">
+                          <img id="pf-cskill-skill<%= name %>-iconURL" src="">
+                        </td>
+                        <td class="cskill-r">
+                            <p class="cskill-name">
+                                <span id="pf-cskill-skill<%= name %>-name"></span> 
+                                <span id="pf-cskill-skill<%= name %>-rank"></span>
+                            <p class="cskill-description" id="pf-cskill-skill<%= name %>-desc"></p>
+                        </td></tr>
+                  <% }); %>
+                </table>
+            </div>  
+            <%- html_panel.mid_bot %>
+
+            <%- html_panel.mid_top %>
+            <div class="np-title">Noble Phantasm</div>
+            <div class="np-type">
+                <img class='pf-np-bot' id="pf-np-bot" src="">
+                <img class='pf-np-servant' id="pf-np-servant" src="">
+                <img class='pf-np-mid' id="pf-np-mid" src="">
+                <img class='pf-np-top' id="pf-np-top" src="">
+            </div>
+            <div class="panel-text">
+                <div class="np-name" id="pf-np-name"></div>
+                <table class="np-table">
+                    <tr><td class="np-category">Rank</td><td id="pf-np-rank"></td></tr>
+                    <tr><td class="np-category">Class</td><td id="pf-np-class"></td></tr>
+                    <tr><td class="np-category">NP Lv.</td><td id="pf-np-level"></td></tr>
+                    <tr><td class="np-category">NP Gauge</td><td>
+                        <span id="pf-np-gauge-wrapper">
+                            <img class="pf-np-gauge" id="pf-np-gauge-1" src="">
+                            <img class="pf-np-gauge" id="pf-np-gauge-2" src="">
+                            <img class="pf-np-gauge" id="pf-np-gauge-3" src="">
+                        </span>
+                        <span id="pf-np-gaugetext"></span></td></tr>
+                </table>
+                <div class="np-text" id="pf-np-desc"></div>
+            </div>  
+            <%- html_panel.mid_bot %>
+
+            <%- html_panel.mid_top %>
+            <div class="cc-title">Command Card</div>
+            <div class="panel-text cc">
+                <table class="np-table">
+                    <tr>
+                      <% names_cc.forEach(function(name) { %>
+                        <td class="cc-type" id="pf-cc-cc<%= name %>" style="flex: 20%">
+                            <img class='pf-cc-bot' id="pf-cc-cc<%= name %>-bot" src="">
+                            <img class='pf-cc-servant' id="pf-cc-cc<%= name %>-servant" src="">
+                            <img class='pf-cc-mid' id="pf-cc-cc<%= name %>-mid" src="">
+                            <img class='pf-cc-top' id="pf-cc-cc<%= name %>-top" src="">
+                        </td>
+                      <% }); %>
+                        </tr>
+                </table>
+            </div>  
+            <%- html_panel.mid_bot %>
+        </div>
+
+        <div class="profile-content" data-slide="1">
+            <%- html_panel.long_top %>
+            <div class="profile-title">Face Claim/Character Sheet</div>
+            <div class="panel-text profile-panel" id="pf-fc-sheet">
+              <div class="pf-profile-fc">FC: <span id="pf-profile-fc"></span></div>
+              <div class="pf-profile-sheet">Sheet: <span id="pf-profile-sheet"></span></div>
+            </div> 
+            <%- html_panel.mid_bot %>
+
+            <%- html_panel.mid_top %>
+            <div class="profile-title">Character Info</div>
+            <div class="panel-text profile-panel" id="pf-profile-charinfo"></div>  
+            <%- html_panel.mid_bot %>
+
+            <%- html_panel.mid_top %>
+            <div class="profile-title">Parameters</div>
+            <div class="panel-text profile-panel" id="pf-parameter">
+                <table id="param-table">
+                    <tr>
+                        <td>STR</td><td><img class="pf-param-img" id="pf-param-str-img" src=""></td><td><span id="pf-param-str"></span></td>
+                        <td>END</td><td><img class="pf-param-img" id="pf-param-end-img" src=""></td><td><span id="pf-param-end"></span></td></tr>
+                    <tr>
+                        <td>AGL</td><td><img class="pf-param-img" id="pf-param-agi-img" src=""></td><td><span id="pf-param-agi"></span></td>
+                        <td>MP</td><td><img class="pf-param-img" id="pf-param-man-img" src=""></td><td><span id="pf-param-man"></span></td></tr>
+                    <tr>
+                        <td>LUK</td><td><img class="pf-param-img" id="pf-param-luk-img" src=""></td><td><span id="pf-param-luk"></span></td>
+                        <td>NP</td><td><img class="pf-param-img" id="pf-param-np-img" src=""></td><td><span id="pf-param-np"></span></td></tr>
+                </table>
+            </div>  
+            <%- html_panel.mid_bot %>
+
+            <% names_profile.forEach(function(name) { %>
+              <%- html_panel.mid_top %>
+              <div class="profile-title">Profile <%= name %></div>
+              <div class="panel-text profile-panel" id="pf-profile-profile<%= name %>"></div>  
+              <%- html_panel.mid_bot %>
+            <% }); %>  
+        </div>
+
+        <div class="profile-content" id="profile-content-gallery" data-slide="2">
+            <div id="pf-gallery-img-wrapper">
+                <img id="pf-gallery-img" src=""></div>
+            <div id="pf-gallery-nav"></div>
+        </div>
+
+        <div class="profile-content" id="profile-content-voiceover" data-slide="3">
+        </div>
+
+    </div>
+</div>

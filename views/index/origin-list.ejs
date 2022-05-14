@@ -1,0 +1,47 @@
+<div id="origin-list-top">
+    <div id="ol-title">Spirit Origin List</div>
+    <div id="ol-caption">Card</div>
+    <div id="ol-tip">By tapping the icon, you can check the details of your selection.</div>
+</div>
+<div id="origin-list-mid">
+    <div id="ol-nav-left">
+        <div class="ol-nav-left-bt" id="ol-nav-left-bt1">
+            <div id="ol-nav-left-title1">Servants</div>
+            <div id="ol-nav-left-info1"><%=summonedServantCount%>/<%=servantList.length%></div>
+        </div>
+        <div class="ol-nav-left-bt" id="ol-nav-left-bt2">
+            <div id="ol-nav-left-title2">Craft Essence</div>
+            <div id="ol-nav-left-info2">0/0</div>
+        </div>
+        <div class="ol-nav-left-bt" id="ol-nav-left-bt3">
+            <div id="ol-nav-left-title3">Command Code</div>
+            <div id="ol-nav-left-info3">0/0</div>
+        </div>
+    </div>
+    <div id="ol-nav-right">
+        <div class="ol-nav-right-bt" id="ol-nav-right-bt1">
+            <div>Filter</div>
+        </div>
+        <div class="ol-nav-right-bt" id="ol-nav-right-bt2">
+            <div>Acquisition</div>
+        </div>
+        <div class="ol-nav-right-bt" id="ol-nav-right-bt3">
+            <div>Descend</div>
+        </div>
+    </div>
+</div>
+<div id="origin-list-bot">
+    <% servantList.forEach(servant => { %>
+    <div class="ol-icon"> 
+        <img class='ol-icon-summonedStatus' src="assets/charaicon/_<%=servant.info.summonedStatus%>.png">
+        <img class='ol-icon-base' src="assets/charaicon/card<%=servant.info.servantRarity%>.png">
+        <img class='ol-icon-servant' id='ol-<%=servant.info.cardURL%>' src="<%=servant.info.oliconURL%>">
+        <img class='ol-icon-frame' src="assets/charaicon/card<%=servant.info.servantRarity%>frame.png">
+        <img class='ol-icon-type' src="assets/charaicon/servant<%=servant.info.servantRarity%>.png">
+        <img class='ol-icon-class' src="assets/charaicon/class<%=servant.info.servantClass.toLowerCase()%><%=servant.info.servantRarity%>.png">
+        <img class='ol-icon-star' src="assets/charaicon/star<%=servant.info.servantRarity%>.png">
+    </div>
+    <% }) %>
+</div>
+<div id="origin-list-bot2"></div>
+

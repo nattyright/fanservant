@@ -1,5 +1,5 @@
 /**********************************
- *            edit page           *
+ *           page toggle          *
  **********************************/
 
 
@@ -28,8 +28,8 @@ $("#button-edit-page").on("click", function (e) {
         populateEditPage($("#pf-servantID").html());
         $("#edit-info-cardURL").attr("readonly", true);
         $("#edit-password-label").text("To submit your edit, input the password you created for this page.");
-        $("#edit-page").addClass("active");
         $("#edit-page").removeClass("create");
+        initEditMenu();
     }
 });
 
@@ -38,12 +38,33 @@ $("#button-create-page").on("click", function (e) {
     if ($("#origin-list").hasClass("active")) {
         populateEditPage('_empty');
         $("#edit-info-cardURL").attr("readonly", false);
-        $("#edit-page").addClass("active");
         $("#edit-page").addClass("create");
+        initEditMenu();
     } else {
         alert("Please go back to Spirit Origin List first!");
     }
 });
+
+
+/**********************************
+ *            nav menu            *
+ **********************************/
+function initEditMenu() {
+    $("#edit-page").addClass("active");
+    $(".edit-page-wrapper").hide();
+    $("#edit-wrapper-info").show();
+    $("#edit-nav-info").addClass("active");
+}
+
+$(".edit-nav").on("click", function(e) {
+    $(".edit-page-wrapper").hide();
+    $(".edit-nav").removeClass("active");
+    $(this).addClass("active");
+    $(this).next().toggle();
+});
+
+
+
 
 
 // add new voice line
@@ -76,7 +97,7 @@ $("#edit-gallery-add").on("click", function (e) {
             .find("input")
             .attr("id")
             .split("-")[2]
-            .replace("gallery", "")) + 1;
+            .replace("image", "")) + 1;
     let tempHTML =  '<label for="edit-gallery-image' + count.toString() + '-name">Image ' + count.toString() + ' Title</label><br>' + 
                     '<input type="text" id="edit-gallery-image' + count.toString() + '-name" name="edit-gallery-image' + count.toString() + '-name" value=""><br>' +
                     '<label for="edit-gallery-image' + count.toString() + '-url">Image ' + count.toString() + ' URL</label><br>' + 

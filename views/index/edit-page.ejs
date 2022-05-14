@@ -1,4 +1,7 @@
-<div id="edit-page-wrapper">
+<div id="edit-nav-bottom-border"></div>
+<div class="edit-nav" id="edit-nav-info">Basic Info</div>
+
+<div class="edit-page-wrapper" id="edit-wrapper-info">
     <div class="one-row-item">
         <label class="edit-title" for="edit-info-cardURL">Unique Servant Name</label><br>
         <span>(All lowercase, no spaces. This is the ID we use to identify your Servant.)<br>(e.g. artoria, artoriaarcher, artoriarideraltergivemenaporeeee</span><br>
@@ -12,12 +15,7 @@
         <span>(For best results, crop your image to 300x512px. OR use an image of the same ratio.)</span><br>
         <input type="text" id="edit-info-cardartURL" name="edit-info-cardartURL" value=""><br>
     </div>
-    <div class="flex-break"></div>
-    <div class="one-row-item">
-        <label class="edit-title" for="edit-info-ccartURL">Command Card Art URL</label><br>
-        <span>(For best results, crop your image to 135x165, AND make sure the chin rests at 95px from the top.)</span><br>
-        <input type="text" id="edit-info-ccartURL" name="edit-info-ccartURL" value=""><br>
-    </div>
+    
     <div class="flex-break"></div>
     <div class="one-row-item">
         <label class="edit-title"  for="edit-info-oliconURL">Origin List Icon URL</label><br>
@@ -48,8 +46,13 @@
         </select><br>
     </div>
 
-    <div class="flex-break"></div>
 
+</div>
+<div class="edit-nav" id="edit-nav-status">Servant Status</div>
+<div class="edit-page-wrapper" id="edit-wrapper-status">
+
+
+    <div class="flex-break"></div>
     <div class="one-row-item edit-title">FGO Skill Icons</div>
     <div><a style="color:white;" href="https://fategrandorder.fandom.com/wiki/Category:Icons" target=”_blank”>https://fategrandorder.fandom.com/wiki/Category:Icons</a></div>
 
@@ -159,7 +162,13 @@
     </div>
 
     <div class="flex-break"></div>
-    <div class="edit-title">Command Cards</div>
+    <div class="one-row-item">
+        <label class="edit-title" for="edit-info-ccartURL">Command Card Art URL</label><br>
+        <span>(For best results, crop your image to 135x165, AND make sure the chin rests at 95px from the top.)</span><br>
+        <input type="text" id="edit-info-ccartURL" name="edit-info-ccartURL" value=""><br>
+    </div>
+    <div class="flex-break"></div>
+    <div class="edit-title one-row-item">Command Cards</div>
     <% names_cc.forEach(function(name) { %>
       <div>
       <label for="edit-cc-cc<%= name %>">Card <%= name %></label><br>
@@ -170,6 +179,11 @@
       </select><br>
       </div>
     <% }); %>
+
+</div>
+<div class="edit-nav" id="edit-nav-profile">Servant Profile</div>
+<div class="edit-page-wrapper" id="edit-wrapper-profile">
+
 
     <div class="flex-break"></div>
     <div class="edit-title">Parameters</div>
@@ -211,6 +225,12 @@
       </div>
     <% }); %>
     
+
+</div>
+<div class="edit-nav" id="edit-nav-voice">Voice</div>
+<div class="edit-page-wrapper" id="edit-wrapper-voice">
+
+
     <div class="flex-break"></div>
     <div class="one-row-item edit-title">Voice</div>
     <div class="flex-break"></div>
@@ -219,12 +239,22 @@
     <div id="edit-voice-add">Add New Voice</div>
 
 
+</div>
+<div class="edit-nav" id="edit-nav-gallery">Gallery</div>
+<div class="edit-page-wrapper" id="edit-wrapper-gallery">
+
+
     <div class="flex-break"></div>
     <div class="one-row-item edit-title">Gallery</div>
     <div class="flex-break"></div>
     <div id="edit-gallery"></div>
     <div class="flex-break"></div>
     <div id="edit-gallery-add">Add New Image</div>
+
+
+</div>
+<div class="edit-nav" id="edit-nav-submit">Submit</div>
+<div class="edit-page-wrapper" id="edit-wrapper-submit">
 
 
     <div class="flex-break"></div>

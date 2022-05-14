@@ -294,8 +294,6 @@ body:before {
     display: flex;
     width: 100%;
     object-fit: contain;
-
-    cursor: pointer;
 }
 .voice-text {
     z-index: 1;
@@ -598,14 +596,14 @@ body:before {
 
 
 .voice-img {
-    margin-bottom: -4px;
+    margin-bottom: -1px;
     cursor: pointer;
     max-width: 510px;
     height: 80px;
 
 }
 .voice-title {
-    margin-top: -63px;
+    margin-top: -64px;
 }
 .panel-text.voice-panel {
     padding: 19px 10px 8px 66px;
@@ -619,8 +617,10 @@ body:before {
 }
 .voice-text {
     z-index: 39999;
-    padding-top: 25px;
+    padding: 25px 75px;
     font-size: 25px;
+    line-height: 36px;
+    color: #f3f3f3;
     white-space: pre-wrap;
 }
 

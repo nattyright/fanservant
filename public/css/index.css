@@ -1,21 +1,77 @@
-#disqus_thread {
-  position: absolute;
-  z-index: 5000;
-  right: 0;
-  bottom: 0;
-  width: 400px;
-  display: none;
-}
-
-#disqus_thread_toggle {
+#disqus_thread_toggle,
+#instructions_toggle {
   position: absolute;
   z-index: 5001;
   bottom: 0;
-  right: 0;
   height: 20px;
-  width: 400px;
+  width: 200px;
   cursor: pointer;
 
+  padding: 5px 0;
+  background-color: rgba(15, 25, 40, 0.9);
+  border: 1px solid dimgray;
+  border-bottom: none;
   color: white;
+  line-height: 22px;
   text-align: center;
 }
+#disqus_thread_toggle {
+  right: 0;
+}
+#instructions_toggle {
+  right: 200px;
+}
+#disqus_thread_toggle.active,
+#instructions_toggle.active {
+  background-color: skyblue;
+  color: black;
+  border-color: white;
+}
+
+
+
+#disqus_thread,
+#instructions {
+  position: absolute;
+  z-index: 5000;
+  right: 0;
+  bottom: 30px;
+  width: 382px;
+  overflow-y: auto;
+  max-height: calc(100% - 40px);
+  display: none;
+
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(15, 25, 40, 0.9);
+}
+
+#disqus_thread {
+
+}
+#instructions {
+  color: white;
+  text-align: center;
+  font-family: Calibri;
+}
+
+.instructions-title {
+  font-size: 20px;
+  padding-top: 10px;
+}
+.instructions-content {
+  font-size: 15px;
+}
+.instructions-code {
+
+background-color: rgba(100,20,30,0.5);
+border-radius: 2px;
+margin: 3px;
+padding-top: 5px;
+line-height: 21px;
+font-family: Courier New;
+color: #f99;
+font-weight: 700;
+
+}
+

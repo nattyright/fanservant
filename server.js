@@ -90,6 +90,7 @@ app.get('/', (req, res) => {
     var names_cc = names_rarity = names_nplv = ['1', '2', '3', '4', '5'];
     var names_cardtype = ['Buster', 'Arts', 'Quick'];
     var names_param = ['STR', 'END', 'AGI', 'MAN', 'LUK', 'NP'];
+    /*
     var names_paramrank = [ {name: 'EX', value: 'O'},
                             {name: 'A+', value: 'A+'},
                             {name: 'B+', value: 'B+'},
@@ -102,6 +103,15 @@ app.get('/', (req, res) => {
                             {name: 'E+', value: 'E+'},
                             {name: 'E', value: 'E'},
                             {name: '?', value: 'X'}];
+                            */
+    var names_paramrank = [ {name: 'EX', value: 'O'},
+                            {name: 'A', value: 'A'},
+                            {name: 'B', value: 'B'},
+                            {name: 'C', value: 'C'},
+                            {name: 'D', value: 'D'},
+                            {name: 'E', value: 'E'},
+                            {name: '?', value: 'X'}];
+
     var names_profile = ['1', '2', '3', '4', '5', '6'];
 
     var html_panel = {

@@ -3,7 +3,7 @@
  **********************************/
 
 
-// edit page toggle
+// edit page CANCEL (clear edit page & remove active status)
 $("#edit-page-cancel").on("click", function (e) {
     $("#edit-page").removeClass("active");
 
@@ -19,7 +19,8 @@ $("#edit-page-cancel").on("click", function (e) {
     $("#edit-voice").html("");
     $("#edit-gallery").html("");
 });
-// edit existing profile
+
+// edit existing profile (remove "create" status)
 $("#button-edit-page").on("click", function (e) {
     if ($("#origin-list").hasClass("active")) {
         alert("Please go to a Servant profile page first!");
@@ -28,8 +29,10 @@ $("#button-edit-page").on("click", function (e) {
         $("#edit-info-cardURL").attr("readonly", true);
         $("#edit-password-label").text("To submit your edit, input the password you created for this page.");
         $("#edit-page").addClass("active");
+        $("#edit-page").removeClass("create");
     }
 });
+
 // '''edit''' nonexistent profile aka create new profile
 $("#button-create-page").on("click", function (e) {
     if ($("#origin-list").hasClass("active")) {

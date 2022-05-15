@@ -191,8 +191,8 @@ function loadServantProfile(a) {
       document.getElementById('pf-profile-' + key).removeAttribute('style');
       document.getElementById('pf-profile-profile1').previousElementSibling
                                                     .previousElementSibling
-                                                    .previousElementSibling.removeAttribute('style');
-      document.getElementById('pf-profile-profile1').nextElementSibling.removeAttribute('style');    
+                                                    .previousElementSibling.removeAttribute('src');
+      document.getElementById('pf-profile-profile1').nextElementSibling.removeAttribute('src');    
     }
   }
 

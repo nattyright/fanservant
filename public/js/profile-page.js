@@ -180,19 +180,19 @@ function loadServantProfile(a) {
       document.getElementById('pf-profile-' + key).innerHTML = unlockCondition;
       document.getElementById('pf-profile-' + key).style.color = "gold";
       document.getElementById('pf-profile-' + key).style.borderColor = "#555555";
-      document.getElementById('pf-profile-profile1').previousElementSibling
+      document.getElementById('pf-profile-' + key).previousElementSibling
                                                     .previousElementSibling
                                                     .previousElementSibling.src = 'assets/profile-infopanel-top-mid-locked.png';
-      document.getElementById('pf-profile-profile1').nextElementSibling.src = 'assets/profile-infopanel-bot-locked.png';
+      document.getElementById('pf-profile-' + key).nextElementSibling.src = 'assets/profile-infopanel-bot-locked.png';
 
     } else {
       // unlocked profiles
       document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];  
       document.getElementById('pf-profile-' + key).removeAttribute('style');
-      document.getElementById('pf-profile-profile1').previousElementSibling
+      document.getElementById('pf-profile-' + key).previousElementSibling
                                                     .previousElementSibling
                                                     .previousElementSibling.src = '';
-      document.getElementById('pf-profile-profile1').nextElementSibling.src = 'assets/profile-infopanel-bot.png';    
+      document.getElementById('pf-profile-' + key).nextElementSibling.src = 'assets/profile-infopanel-bot.png';    
     }
   }
 

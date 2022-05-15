@@ -115,6 +115,7 @@ body:before {
 }
 #col-left > div span {
     margin: 35px 0px 0px -18px;
+    width: 50px;
 }
 #col-left > div:first-child {
     background-image: url("../assets/button-side-close-short.png");
@@ -137,7 +138,14 @@ body:before {
   margin: 13px 0 0 -15px;
   font-size: 20px;
 }
-
+#col-left > div:nth-child(4) span {
+    font-size: 13px;
+    line-height: 8px;
+}
+#col-left > div:nth-child(4) span.button-smoltext {
+    font-size: 15px;
+    line-height: 18px;
+}
 
 
 

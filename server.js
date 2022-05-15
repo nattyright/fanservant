@@ -116,6 +116,7 @@ app.get('/', (req, res) => {
 
     var html_panel = {
         mid_top: '<img class="panel-img" src="assets/profile-infopanel-top-mid.png">',
+        mid_top_locked: '<img class="panel-img" src="assets/profile-infopanel-top-mid-locked.png">',
         long_top: '<img class="panel-img" src="assets/profile-infopanel-top-long.png">',
         short_top: '<img class="panel-img" src="assets/profile-infopanel-top-short.png">',
         mid_bot: '<img class="panel-img" src="assets/profile-infopanel-bot.png">' 

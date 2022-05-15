@@ -146,7 +146,7 @@ async function populateEditPageUNLOCK(servantURL) {
 
     // if creating new page, don't read anything
     if (servantURL == "new") {
-        $('.edit-page-wrapper-lock').show();
+        $('.edit-nav').show();
         return;
     }
 
@@ -212,7 +212,7 @@ async function populateEditPageUNLOCK(servantURL) {
     }
     document.getElementById("edit-gallery").innerHTML = tempHTML;
 
-    $('.edit-page-wrapper-lock').show();
+    $('.edit-nav').show();
 }
 
 

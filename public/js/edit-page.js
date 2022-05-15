@@ -172,8 +172,7 @@ async function populateEditPageUNLOCK(servantURL) {
             $(this).attr("id") != "delete" && 
             $(this).attr("id") != "edit-page-cancel" && 
             $(this).attr("id") != "edit-page-unlock" &&
-            $(this).attr("id") != "edit-password" && 
-            !$(this).attr("id").startsWith("edit-status")) {
+            $(this).attr("id") != "edit-password") {
             let keys = $(this).attr("id").split("-");
             let item = a;
             for (let i = 1; i < keys.length; i++) {

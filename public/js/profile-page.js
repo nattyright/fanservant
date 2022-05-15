@@ -151,14 +151,14 @@ function loadServantProfile(a) {
     npgauagetext = "MAX 300%";
   }
   document.getElementById('pf-np-gaugetext').innerHTML = npgauagetext;
-
+  
   document.getElementById('pf-np-gauge-1').src = "assets/np-gauge-1.png";
   document.getElementById('pf-np-gauge-2').src = "assets/np-gauge-0.png";
   document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-0.png";
-  if (a.np.gauge > 1) {
+  if (a.np.level > 1) {
     document.getElementById('pf-np-gauge-2').src = "assets/np-gauge-2.png";
   }
-  if (a.np.gauge == 5) {
+  if (a.np.level == 5) {
     document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-3.png";
   }
 

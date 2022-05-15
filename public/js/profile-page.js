@@ -179,6 +179,7 @@ function loadServantProfile(a) {
       let unlockCondition = a.profile[key].split("]")[1].replace("[", "");
       document.getElementById('pf-profile-' + key).innerHTML = unlockCondition;
       document.getElementById('pf-profile-' + key).style.color = "gold";
+      document.getElementById('pf-profile-' + key).previousSibling.previousSibling.src("sdfsf");
 
     } else {
       // unlocked profiles

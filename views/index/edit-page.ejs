@@ -33,7 +33,7 @@
         <label for="edit-info-servantClass"></label>Servant Class<br>
         <select id="edit-info-servantClass" name="edit-info-servantClass">
           <% names_class.forEach(function(name) { %>
-            <option value="<%= name.str.replace(/\s/g, '').toLowerCase() %>"><%= name %></option>
+            <option value="<%- name.str.replace(/\s/g, '').toLowerCase() %>"><%= name %></option>
           <% }); %>
         </select><br>
     </div>

@@ -187,7 +187,12 @@ function loadServantProfile(a) {
 
     } else {
       // unlocked profiles
-      document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];      
+      document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];  
+      document.getElementById('pf-profile-' + key).removeAttribute();
+      document.getElementById('pf-profile-profile1').previousElementSibling
+                                                    .previousElementSibling
+                                                    .previousElementSibling.removeAttribute();
+      document.getElementById('pf-profile-profile1').nextElementSibling.removeAttribute();    
     }
   }
 

@@ -98,6 +98,17 @@ function loadServantProfile(a) {
   document.getElementById('pf-servantID').innerHTML = a._id;
 
 
+  // load servant status (optional)
+  if ('status' in a) {
+    if (a.status.atk != "") {
+      document.getElementById('pf-status-atk').innerHTML = a.status.atk;
+    }
+    if (a.status.hp != "") {
+      document.getElementById('pf-status-hp').innerHTML = a.status.hp;
+    }
+  }
+  
+  
 
   // load personal skills
   for (let skill in a.pskill) {
@@ -235,7 +246,9 @@ function loadServantProfile(a) {
   }
   galleryHTML += "</ul>";
   document.getElementById('pf-gallery-nav').innerHTML = galleryHTML;
-  changeGalleryImage(a.gallery.image1.url)
+  if ('gallery' in a && 'image1' in a.gallery) {
+    changeGalleryImage(a.gallery.image1.url);
+  }
 
 
 

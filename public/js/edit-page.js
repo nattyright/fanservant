@@ -38,7 +38,7 @@ $("#button-edit-page").on("click", function (e) {
 // '''edit''' nonexistent profile aka create new profile
 $("#button-create-page").on("click", function (e) {
     if ($("#origin-list").hasClass("active")) {
-        populateEditPageUNLOCK('_empty');
+        populateEditPageUNLOCK('new');
         $("#edit-info-cardURL").attr("readonly", false);
         $("#edit-page").addClass("create");
         $("#edit-page-unlock").hide();
@@ -135,11 +135,22 @@ function populateEditPage(servantURL) {
     // popular servant ID field ONLY since profile is locked
     $("#edit-info-cardURL").val(servantURL);
 
+    // hide submit page or you're in for a very fun ride : )))
+    $('.edit-page-wrapper-lock').hide();
+
 }
 
 
 
 async function populateEditPageUNLOCK(servantURL) {
+
+    // if creating new page, don't read anything
+    if (servantURL == "new") {
+        $('.edit-page-wrapper-lock').show();
+        return;
+    }
+
+
     let a = {};
 
     await $.get("/loadprofile", servantURL, function(data, status) {
@@ -161,7 +172,8 @@ async function populateEditPageUNLOCK(servantURL) {
             $(this).attr("id") != "delete" && 
             $(this).attr("id") != "edit-page-cancel" && 
             $(this).attr("id") != "edit-page-unlock" &&
-            $(this).attr("id") != "edit-password") {
+            $(this).attr("id") != "edit-password" && 
+            !$(this).attr("id").startsWith("edit-status")) {
             let keys = $(this).attr("id").split("-");
             let item = a;
             for (let i = 1; i < keys.length; i++) {
@@ -200,6 +212,8 @@ async function populateEditPageUNLOCK(servantURL) {
         count += 1;
     }
     document.getElementById("edit-gallery").innerHTML = tempHTML;
+
+    $('.edit-page-wrapper-lock').show();
 }
 
 
@@ -284,7 +298,6 @@ $(document).ready(function() {
         let result = buildMenuMap(keys);
         // add id
         result["_id"] = result.info.cardURL;
-        //console.log(result);
 
 
         // check whether we're editing an existing sheet or creating a new sheet

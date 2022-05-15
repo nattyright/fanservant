@@ -38,7 +38,7 @@
         <img class='ol-icon-servant' id='ol-<%=servant.info.cardURL%>' src="<%=servant.info.oliconURL%>">
         <img class='ol-icon-frame' src="assets/charaicon/card<%=servant.info.servantRarity%>frame.png">
         <img class='ol-icon-type' src="assets/charaicon/servant<%=servant.info.servantRarity%>.png">
-        <img class='ol-icon-class' src="assets/charaicon/class<%=servant.info.servantClass.toLowerCase()%><%=servant.info.servantRarity%>.png">
+        <img class='ol-icon-class' src="assets/charaicon/class<%=servant.info.servantClass.replace(/\s/g, '').toLowerCase()%><%=servant.info.servantRarity%>.png">
         <img class='ol-icon-star' src="assets/charaicon/star<%=servant.info.servantRarity%>.png">
     </div>
     <% }) %>

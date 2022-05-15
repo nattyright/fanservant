@@ -179,7 +179,7 @@ function loadServantProfile(a) {
       let unlockCondition = a.profile[key].split("]")[1].replace("[", "");
       document.getElementById('pf-profile-' + key).innerHTML = unlockCondition;
       document.getElementById('pf-profile-' + key).style.color = "gold";
-      document.getElementById('pf-profile-' + key).style.border-color = "#555555";
+      document.getElementById('pf-profile-' + key).style.borderColor = "#555555";
       document.getElementById('pf-profile-profile1').previousElementSibling
                                                     .previousElementSibling
                                                     .previousElementSibling.src = 'assets/profile-infopanel-top-mid-locked.png';

@@ -174,8 +174,18 @@ function loadServantProfile(a) {
 
   // load profiles
   for (let key in a.profile) {
-    document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];
+    if (a.profile[key].startsWith("[LOCK]")) {
+      // locked profiles
+      let unlockCondition = a.profile[key].split("]")[1].replace("[", "");
+      document.getElementById('pf-profile-' + key).innerHTML = unlockCondition;
+      document.getElementById('pf-profile-' + key).style.color = "gold";
+
+    } else {
+      // unlocked profiles
+      document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];      
+    }
   }
+
   // turn character sheet URL into a hyperlink instead of the full URL
   let sheetLink = document.createElement("a");
   sheetLink.setAttribute('href', a.profile.sheet);

@@ -179,7 +179,9 @@ function loadServantProfile(a) {
       let unlockCondition = a.profile[key].split("]")[1].replace("[", "");
       document.getElementById('pf-profile-' + key).innerHTML = unlockCondition;
       document.getElementById('pf-profile-' + key).style.color = "gold";
-      document.getElementById('pf-profile-profile1').previousElementSibling.previousElementSibling.src = 'assets/profile-infopanel-top-mid-locked.png';
+      document.getElementById('pf-profile-profile1').previousElementSibling
+                                                    .previousElementSibling
+                                                    .previousElementSibling.src = 'assets/profile-infopanel-top-mid-locked.png';
 
     } else {
       // unlocked profiles

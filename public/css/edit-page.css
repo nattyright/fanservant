@@ -184,3 +184,6 @@
 .edit-nav:nth-child(12) {
   left: calc(var(--edit-nav-button-width) * 11 - var(--edit-nav-button-left-margin));
 }
+.edit-nav:nth-child(14) {
+  left: calc(var(--edit-nav-button-width) * 13 - var(--edit-nav-button-left-margin));
+}

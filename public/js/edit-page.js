@@ -11,7 +11,8 @@ $("#edit-page-cancel").on("click", function (e) {
     $(":input").each(function (index, element) {
         if ($(this).attr("id") != "submit" && 
             $(this).attr("id") != "delete" && 
-            $(this).attr("id") != "edit-page-cancel") {
+            $(this).attr("id") != "edit-page-cancel" &&
+            $(this).attr("id") != "edit-page-unlock") {
             $(this).val("");
         }
     });
@@ -27,8 +28,9 @@ $("#button-edit-page").on("click", function (e) {
     } else {
         populateEditPage($("#pf-servantID").html());
         $("#edit-info-cardURL").attr("readonly", true);
-        $("#edit-password-label").text("To submit your edit, input the password you created for this page.");
+        $("#edit-password-label").text("To unlock all fields, input the password you created for this profile.");
         $("#edit-page").removeClass("create");
+        $("#edit-page-unlock").show();
         initEditMenu();
     }
 });
@@ -36,9 +38,10 @@ $("#button-edit-page").on("click", function (e) {
 // '''edit''' nonexistent profile aka create new profile
 $("#button-create-page").on("click", function (e) {
     if ($("#origin-list").hasClass("active")) {
-        populateEditPage('_empty');
+        populateEditPageUNLOCK('_empty');
         $("#edit-info-cardURL").attr("readonly", false);
         $("#edit-page").addClass("create");
+        $("#edit-page-unlock").hide();
         initEditMenu();
     } else {
         alert("Please go back to Spirit Origin List first!");
@@ -51,9 +54,10 @@ $("#button-create-page").on("click", function (e) {
  **********************************/
 function initEditMenu() {
     $("#edit-page").addClass("active");
+    $("#edit-nav").removeClass("active");
     $(".edit-page-wrapper").hide();
-    $("#edit-wrapper-info").show();
-    $("#edit-nav-info").addClass("active");
+    $("#edit-wrapper-unlock").show();
+    $("#edit-nav-unlock").addClass("active");
 }
 
 $(".edit-nav").on("click", function(e) {
@@ -119,7 +123,8 @@ function populateEditPage(servantURL) {
     $(":input").each(function (index, element) {
         if ($(this).attr("id") != "submit" && 
             $(this).attr("id") != "delete" && 
-            $(this).attr("id") != "edit-page-cancel") {
+            $(this).attr("id") != "edit-page-cancel" &&
+            $(this).attr("id") != "edit-page-unlock") {
             $(this).val("");
         }
     });
@@ -150,6 +155,7 @@ async function populateEditPageUNLOCK(servantURL) {
         if ($(this).attr("id") != "submit" && 
             $(this).attr("id") != "delete" && 
             $(this).attr("id") != "edit-page-cancel" && 
+            $(this).attr("id") != "edit-page-unlock" &&
             $(this).attr("id") != "edit-password") {
             let keys = $(this).attr("id").split("-");
             let item = a;
@@ -222,7 +228,6 @@ $(document).ready(function() {
     $("#edit-page-unlock").click(function(){
         let id = $("#edit-info-cardURL").val();
         let pw = $("#edit-password").val();
-        console.log(id, pw);
 
         $.post("/unlockprofile", {id: id, pw: pw}, function(data){
             if (data === 'error') {
@@ -249,7 +254,8 @@ $(document).ready(function() {
         $(":input").each(function() {
             if ($(this).attr("id") != "submit" && 
                 $(this).attr("id") != "delete" &&
-                $(this).attr("id") != "edit-page-cancel") {
+                $(this).attr("id") != "edit-page-cancel" &&
+                $(this).attr("id") != "edit-page-unlock") {
                 // [id, val]
                 keys.push([$(this).attr("id").replace("edit-", ""), $(this).val()]);
             }

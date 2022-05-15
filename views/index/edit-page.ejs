@@ -1,9 +1,23 @@
 <div id="edit-nav-bottom-border"></div>
-<div class="edit-nav" id="edit-nav-info">Basic Info</div>
+<div class="edit-nav" id="edit-nav-unlock">UNLOCK PAGE</div>
+<div class="edit-page-wrapper" id="edit-wrapper-unlock">
+    
+    <div>
+      <label for="edit-password" id="edit-password-label">Password (Save this, as you will need to input this password to edit this page in the future. Cannot be empty.)</label><br>
+    <input type="text" id="edit-password" name="edit-password" value=""><br>
+    </div>
 
+    <div class="flex-break"></div>
+
+    <div><input id="edit-page-unlock" type="button" value="Unlock" /></div>
+
+</div>
+<div class="edit-nav" id="edit-nav-info">Basic Info</div>
 <div class="edit-page-wrapper" id="edit-wrapper-info">
+
+
     <div class="one-row-item">
-        <label class="edit-title" for="edit-info-cardURL">Unique Servant Name</label><br>
+        <label class="edit-title" for="edit-info-cardURL">Unique Servant ID</label><br>
         <span>(Only lowercase letters, numbers, and the hypen "-" are accepted. This is the ID we use to identify your Servant.)<br>(e.g. artoria, artoria-archer, artoria-rider-alter-69</span><br>
         <input type="text" id="edit-info-cardURL" name="edit-info-cardURL" value=""><br>
     </div>
@@ -258,20 +272,16 @@
 
 
 </div>
-<div class="edit-nav" id="edit-nav-submit">Submit</div>
+<div class="edit-nav" id="edit-nav-submit">SUBMIT</div>
 <div class="edit-page-wrapper" id="edit-wrapper-submit">
 
 
-    <div class="flex-break"></div>
-    <div>
-    <label for="edit-password" id="edit-password-label">Password (Save this, as you will need to input this password to edit this page in the future. Cannot be empty.)</label><br>
-    <input type="text" id="edit-password" name="edit-password" value=""><br>
-    </div>
+    
     <div class="flex-break"></div>
 
     <div><input id="delete" type="button" value="Delete" /></div>
     <div><input id="submit" type="button" value="Submit" /></div>
     <div><input id="edit-page-cancel" type="button" value="Cancel" /></div>
-    <div><input id="edit-page-unlock" type="button" value="Unlock" /></div>
+    
 
 </div>

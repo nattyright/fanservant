@@ -332,6 +332,7 @@ body:before {
     color: white;
 
     background-color: rgba(28, 28, 28, 0.87);
+    max-width: 484px;
     margin: -15px 0 -0.2px 4px;
     padding: 25px 2px 5px 170px;
     border-left: 1px solid #d1d1d1;
@@ -608,7 +609,8 @@ body:before {
     padding: 19px 10px 8px 66px;
     font-size: 23px;
 }
-.panel-img {
+.panel-img,
+.panel-img-locked {
     max-width: 510px;
 }
 .panel-img-voice-bot {

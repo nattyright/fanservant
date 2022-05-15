@@ -189,10 +189,13 @@ function loadServantProfile(a) {
       // unlocked profiles
       document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];  
       document.getElementById('pf-profile-' + key).removeAttribute('style');
-      document.getElementById('pf-profile-' + key).previousElementSibling
+      if (key.startsWith("profile")) {
+        document.getElementById('pf-profile-' + key).previousElementSibling
                                                     .previousElementSibling
                                                     .previousElementSibling.src = '';
-      document.getElementById('pf-profile-' + key).nextElementSibling.src = 'assets/profile-infopanel-bot.png';    
+        document.getElementById('pf-profile-' + key).nextElementSibling.src = 'assets/profile-infopanel-bot.png';
+      }
+          
     }
   }
 

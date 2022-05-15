@@ -180,7 +180,10 @@ function loadServantProfile(a) {
         document.getElementById('pf-param-' + key).innerHTML = "EX";
         document.getElementById('pf-param-' + key).style.color = "gold";
     }
-    document.getElementById('pf-param-' + key + '-img').src = "assets/param-" + a.param[key].slice(0,1) + '.png';
+    if (a.param[key] != null) {
+      document.getElementById('pf-param-' + key + '-img').src = "assets/param-" + a.param[key].slice(0,1) + '.png';
+    }
+    
   }
 
   // load profiles

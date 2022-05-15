@@ -113,8 +113,28 @@ $("#edit-gallery-add").on("click", function (e) {
 
 
 // edit page populate with current servant profile
-async function populateEditPage(servantURL) {
+function populateEditPage(servantURL) {
 
+    // clear input fields
+    $(":input").each(function (index, element) {
+        if ($(this).attr("id") != "submit" && 
+            $(this).attr("id") != "delete" && 
+            $(this).attr("id") != "edit-page-cancel") {
+            $(this).val("");
+        }
+    });
+    // remove voiceover and gallery entirely since they're auto generated
+    $("#edit-voice").html("");
+    $("#edit-gallery").html("");
+
+    // popular servant ID field ONLY since profile is locked
+    $("#edit-info-cardURL").val(servantURL);
+
+}
+
+
+
+async function populateEditPageUNLOCK(servantURL) {
     let a = {};
 
     await $.get("/loadprofile", servantURL, function(data, status) {
@@ -169,7 +189,6 @@ async function populateEditPage(servantURL) {
         count += 1;
     }
     document.getElementById("edit-gallery").innerHTML = tempHTML;
-
 }
 
 
@@ -194,6 +213,28 @@ $(document).ready(function() {
         });
     });
 });
+
+
+
+// edit page unlock page POST request
+$(document).ready(function() {
+
+    $("#edit-page-unlock").click(function(){
+        let id = $("#edit-info-cardURL").val();
+        let pw = $("#edit-password").val();
+
+        $.post("/unlockprofile", {id: id, pw: pw}, function(data){
+            if (data === 'error') {
+                alert("Unlock failed! Try again.");
+            } else if (data === 'password') {
+                alert("Invalid Password!");
+            } else {
+                populateEditPageUNLOCK(id);
+            }
+        });
+    });
+});
+
 
 
 // edit page submit POST request

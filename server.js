@@ -206,6 +206,29 @@ router.post('/deleteprofile', urlencodedParser, async function(req, res) {
 });
 
 
+router.post('/unlockprofile', urlencodedParser, async function(req, res) {
+    try {
+        var id_to_delete = req.body.id;
+        var pw_to_delete = req.body.pw;
+        var queryResult = await Servants.findOne({_id: id_to_delete}, {password: 1, _id: 1});
+        var pw = null;
+        
+        if (queryResult != null) {
+            pw = JSON.parse(JSON.stringify(queryResult)).password;
+        }
+
+        if (pw_to_delete != pw) {
+            // wrong password on EXISTING sheets
+            res.end("password");
+
+        } else {
+            res.end("yes");
+            
+        }
+    } catch (err) {
+        res.end("error");
+    }
+});
 
 
 router.post('/editprofile', urlencodedParser, async function(req, res) {

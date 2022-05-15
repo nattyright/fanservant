@@ -222,6 +222,7 @@ $(document).ready(function() {
     $("#edit-page-unlock").click(function(){
         let id = $("#edit-info-cardURL").val();
         let pw = $("#edit-password").val();
+        console.log(id, pw);
 
         $.post("/unlockprofile", {id: id, pw: pw}, function(data){
             if (data === 'error') {

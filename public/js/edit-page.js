@@ -150,6 +150,11 @@ async function populateEditPageUNLOCK(servantURL) {
         }
     });
 
+    if (a.password != $("#edit-password").val()) {
+        alert("Invalid password!");
+        return;
+    }
+
 
     $(":input").each(function (index, element) {
         if ($(this).attr("id") != "submit" && 

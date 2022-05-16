@@ -85,7 +85,7 @@ app.get('/', (req, res) => {
                        'Moon Cancer',
                        'Shielder'];
     var names_skill = name_npgauge = ['1', '2', '3'];
-    var names_skillrank = names_nprank = ['EX', 'A', 'B', 'C', 'D', 'E'];
+    var names_skillrank = names_nprank = ['E', 'D', 'C', 'B', 'A', 'EX'];
     var names_skilllv = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
     var names_cc = names_rarity = names_nplv = ['1', '2', '3', '4', '5'];
     var names_cardtype = ['Buster', 'Arts', 'Quick'];
@@ -104,13 +104,13 @@ app.get('/', (req, res) => {
                             {name: 'E', value: 'E'},
                             {name: '?', value: 'X'}];
                             */
-    var names_paramrank = [ {name: 'EX', value: 'O'},
-                            {name: 'A', value: 'A'},
-                            {name: 'B', value: 'B'},
-                            {name: 'C', value: 'C'},
-                            {name: 'D', value: 'D'},
+    var names_paramrank = [ {name: '?', value: 'X'},
                             {name: 'E', value: 'E'},
-                            {name: '?', value: 'X'}];
+                            {name: 'D', value: 'D'},
+                            {name: 'C', value: 'C'},
+                            {name: 'B', value: 'B'},
+                            {name: 'A', value: 'A'},
+                            {name: 'EX', value: 'O'}];
 
     var names_profile = ['1', '2', '3', '4', '5', '6'];
 

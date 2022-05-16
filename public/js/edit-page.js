@@ -205,7 +205,7 @@ $("#edit-gallery-add").on("click", function (e) {
  *          submit page           *
  **********************************/
 
-// edit page delete POST request
+// delete button - delete POST request
 $(document).ready(function() {
 
     $("#delete").click(function(){
@@ -296,8 +296,8 @@ $(document).ready(function() {
 
 
         // checked whether we have too many unfilled fields 
-        // if too many (> 10), servant is unsummoned
-        if (unfilled_fields_count > 10) {
+        // if too many (> 6), servant is unsummoned
+        if (unfilled_fields_count > 6 || result.voice == null) {
             result.info["summonedStatus"] = "unsummoned";
         } else {
             result.info["summonedStatus"] = "summoned";

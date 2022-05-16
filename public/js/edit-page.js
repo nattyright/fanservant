@@ -297,7 +297,7 @@ $(document).ready(function() {
 
         // checked whether we have too many unfilled fields 
         // if too many (> 6), servant is unsummoned
-        if (unfilled_fields_count > 6 || result.voice == null || result.voice.voice1.desc == null) {
+        if (unfilled_fields_count > 6 || result.voice == null || result.voice.voice1.desc == "") {
             result.info["summonedStatus"] = "unsummoned";
         } else {
             result.info["summonedStatus"] = "summoned";

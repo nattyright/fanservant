@@ -162,7 +162,7 @@ $("#edit-voice-add").on("click", function (e) {
                                                             .find("input")
                                                             .attr("id")
                                                             .split("-")[2]
-                                                            .replace("voice", "") + 1 : 1;
+                                                            .replace("voice", "")) + 1 : 1);
     let tempHTML =  '<label for="edit-voice-voice' + count.toString() + '-name">Voice ' + count.toString() + ' Title</label><br>' +
                     '<input type="text" id="edit-voice-voice' + count.toString() + '-name" name="edit-voice-voice' + count.toString() + '-name" value=""><br>' + 
                     '<label for="edit-voice-voice' + count.toString() + '-desc">Voice ' + count.toString() + ' Dialogue</label><br>' +

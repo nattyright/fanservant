@@ -352,7 +352,7 @@ body:before {
 
 
 .panel-text.status-panel {
-    height: 232px;
+    height: 240px;
     font-family: Calibri;
     letter-spacing: 0;
     padding-left: 146px;
@@ -387,12 +387,12 @@ body:before {
 
     position: absolute;
     left: 160px;
-    top: 82px;
+    top: 85px;
 }
 .pf-status-blue-content {
     position: absolute;
     right: 32px;
-    top: 81px;
+    top: 83px;
     font-size: 19px;
     letter-spacing: 1px;
 }
@@ -421,12 +421,12 @@ body:before {
 
     position: absolute;
     left: 160px;
-    top: 104px;
+    top: 108px;
 }
 .pf-status-gold-content {
     position: absolute;
     right: 135px;
-    top: 103px;
+    top: 107px;
     font-size: 19px;
     letter-spacing: 1px;
 }
@@ -445,14 +445,14 @@ body:before {
 #pf-status-linebreak {
     position: absolute;
     left: 184px;
-    top: 132px;
+    top: 137px;
     border-bottom: 1px dotted darkgray;
     width: 286px;
 }
 #pf-status-bondlv-title {
     position: absolute;
     left: 157px;
-    top: 165px;
+    top: 170px;
     font-size: 18px;
     color: gold;
     letter-spacing: -1px;
@@ -461,27 +461,27 @@ body:before {
 #pf-status-bondlv-content {
     position: absolute;
     left: 218px;
-    top: 146px;
+    top: 150px;
     font-size: 40px;
 }
 #pf-status-bondlv-tail {
     position: absolute;
     left: 241px;
-    top: 166px;
+    top: 170px;
     font-size: 19px;
     font-weight: 300;
 }
 #pf-status-bondnext-title {
     position: absolute;
     left: 302px;
-    top: 230px;
+    top: 240px;
     color: gold;
     font-size: 14px;
 }
 #pf-status-bondnext-content {
     position: absolute;
     right: 34px;
-    top: 224px;
+    top: 234px;
     font-size: 21px;
     letter-spacing: 2px;
 }
@@ -489,7 +489,7 @@ body:before {
 #pf-status-ascension-count {
     position: absolute;
     left: 167px;
-    top: 64px;
+    top: 65px;
     height: 19px;
 }
 
@@ -501,7 +501,7 @@ progress,
 progress[role] {
     position: absolute;
     right: 25px;
-    top: 140px;
+    top: 145px;
     height: 40px;
     width: 200px;
 
@@ -517,7 +517,7 @@ progress[role] {
     background-size: auto;
 }
 #pf-status-bondlv-count2{
-    top: 177px;
+    top: 185px;
 }
 /* Polyfill */
 progress[role]:after {

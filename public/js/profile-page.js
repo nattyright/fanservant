@@ -2,6 +2,7 @@
  *          profile page          *
  **********************************/
 
+
 // profile tabs
   $(".profile-nav").on("click", function (e) {
     e.preventDefault();
@@ -29,6 +30,7 @@
     }
   });
 
+
 // voiceovers 
 function bindVoiceoverPanels() {
     $(".voice-img").on("click", function (e) {
@@ -55,28 +57,11 @@ function bindVoiceoverPanels() {
   });
 }
 
+
 function changeGalleryImage(newSrc) {
     document.getElementById("pf-gallery-img").src = newSrc;
 }
   
-
-// load servant profile from origin list
-$(".ol-icon").on("click", async function (e) {
-    let servantURL = $(this).find(".ol-icon-servant").attr("id").substring(3);
-
-    await $.get("/loadprofile", servantURL, function(data, status) {
-        if(status === 'success') {
-            loadServantProfile(JSON.parse(data));
-        } else {
-            alert("Error loading profile! Try again later.");
-        }
-    });
-
-    $("#origin-list").removeClass("active");
-    
-  });
-
-
 
 function loadServantProfile(a) {
 

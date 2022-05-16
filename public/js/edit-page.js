@@ -1,122 +1,8 @@
-/**********************************
- *           page toggle          *
- **********************************/
+/*********************************
+ *              util             *
+ *********************************/
 
-
-// edit page CANCEL (clear edit page & remove active status)
-$("#edit-page-cancel").on("click", function (e) {
-    $("#edit-page").removeClass("active");
-
-    // clear input fields
-    $(":input").each(function (index, element) {
-        if ($(this).attr("id") != "submit" && 
-            $(this).attr("id") != "delete" && 
-            $(this).attr("id") != "edit-page-cancel" &&
-            $(this).attr("id") != "edit-page-unlock") {
-            $(this).val("");
-        }
-    });
-    // remove voiceover and gallery entirely since they're auto generated
-    $("#edit-voice").html("");
-    $("#edit-gallery").html("");
-});
-
-// edit existing profile (remove "create" status)
-$("#button-edit-page").on("click", function (e) {
-    if ($("#origin-list").hasClass("active")) {
-        alert("Please go to a Servant profile page first!");
-    } else {
-        populateEditPage($("#pf-servantID").html());
-        $("#edit-info-cardURL").attr("readonly", true);
-        $("#edit-password-label").text("To unlock all fields, input the password you created for this profile.");
-        $("#edit-page").removeClass("create");
-        $("#edit-page-unlock").show();
-        initEditMenu();
-    }
-});
-
-// '''edit''' nonexistent profile aka create new profile
-$("#button-create-page").on("click", function (e) {
-    if ($("#origin-list").hasClass("active")) {
-        populateEditPageUNLOCK('new');
-        $("#edit-info-cardURL").attr("readonly", false);
-        $("#edit-page").addClass("create");
-        $("#edit-page-unlock").hide();
-        initEditMenu();
-    } else {
-        alert("Please go back to Spirit Origin List first!");
-    }
-});
-
-
-/**********************************
- *            nav menu            *
- **********************************/
-function initEditMenu() {
-    $("#edit-page").addClass("active");
-    $("#edit-nav").removeClass("active");
-    $(".edit-page-wrapper").hide();
-    $("#edit-wrapper-unlock").show();
-    $("#edit-nav-unlock").addClass("active");
-}
-
-$(".edit-nav").on("click", function(e) {
-    $(".edit-page-wrapper").hide();
-    $(".edit-nav").removeClass("active");
-    $(this).addClass("active");
-    $(this).next().toggle();
-});
-
-
-
-
-
-// add new voice line
-$("#edit-voice-add").on("click", function (e) {
-    var newDiv = document.createElement("div");
-    let count = parseInt($("#edit-voice")
-            .children(":nth-last-child(2)")
-            .find("input")
-            .attr("id")
-            .split("-")[2]
-            .replace("voice", "")) + 1;
-    let tempHTML =  '<label for="edit-voice-voice' + count.toString() + '-name">Voice ' + count.toString() + ' Title</label><br>' +
-                    '<input type="text" id="edit-voice-voice' + count.toString() + '-name" name="edit-voice-voice' + count.toString() + '-name" value=""><br>' + 
-                    '<label for="edit-voice-voice' + count.toString() + '-desc">Voice ' + count.toString() + ' Dialogue</label><br>' +
-                    '<textarea id="edit-voice-voice' + count.toString() + '-desc" name="edit-voice-voice' + count.toString() + '-desc" rows="5" cols="30"></textarea>';
-    newDiv.innerHTML = tempHTML;
-    document.getElementById("edit-voice").appendChild(newDiv);
-    var newDiv2 = document.createElement("div");
-    newDiv2.className = 'flex-break';
-    document.getElementById("edit-voice").appendChild(newDiv2);
-});
-
-
-
-// add new gallery image
-$("#edit-gallery-add").on("click", function (e) {
-    var newDiv = document.createElement("div");
-    let count = parseInt($("#edit-gallery")
-            .children(":nth-last-child(2)")
-            .find("input")
-            .attr("id")
-            .split("-")[2]
-            .replace("image", "")) + 1;
-    let tempHTML =  '<label for="edit-gallery-image' + count.toString() + '-name">Image ' + count.toString() + ' Title</label><br>' + 
-                    '<input type="text" id="edit-gallery-image' + count.toString() + '-name" name="edit-gallery-image' + count.toString() + '-name" value=""><br>' +
-                    '<label for="edit-gallery-image' + count.toString() + '-url">Image ' + count.toString() + ' URL</label><br>' + 
-                    '<input type="text" id="edit-gallery-image' + count.toString() + '-url" name="edit-gallery-image' + count.toString() + '-url" value=""><br>';
-    newDiv.innerHTML = tempHTML;
-    document.getElementById("edit-gallery").appendChild(newDiv);
-    var newDiv2 = document.createElement("div");
-    newDiv2.className = 'flex-break';
-    document.getElementById("edit-gallery").appendChild(newDiv2);
-});
-
-
-
-
-// edit page populate with current servant profile
+// no password - populate EMPTY edit page
 function populateEditPage(servantURL) {
 
     // clear input fields
@@ -141,7 +27,7 @@ function populateEditPage(servantURL) {
 }
 
 
-
+// password checked - populate edit page (including create new profile)
 async function populateEditPageUNLOCK(servantURL) {
 
     // if creating new page, don't read anything
@@ -216,6 +102,106 @@ async function populateEditPageUNLOCK(servantURL) {
 }
 
 
+/**********************************
+ *            nav menu            *
+ **********************************/
+
+// initialize the edit page from profile page
+function initEditMenu() {
+    $("#edit-page").addClass("active");
+    $("#edit-nav").removeClass("active");
+    $(".edit-page-wrapper").hide();
+    $("#edit-wrapper-unlock").show();
+    $("#edit-nav-unlock").addClass("active");
+}
+
+
+// nav menu buttons at the top
+$(".edit-nav").on("click", function(e) {
+    $(".edit-page-wrapper").hide();
+    $(".edit-nav").removeClass("active");
+    $(this).addClass("active");
+    $(this).next().toggle();
+});
+
+
+/**********************************
+ *           unlock tab           *
+ **********************************/
+
+// edit page unlock page POST request
+$(document).ready(function() {
+
+    $("#edit-page-unlock").click(function(){
+        let id = $("#edit-info-cardURL").val();
+        let pw = $("#edit-password").val();
+
+        $.post("/unlockprofile", {id: id, pw: pw}, function(data){
+            if (data === 'error') {
+                alert("Unlock failed! Try again.");
+            } else if (data === 'password') {
+                alert("Invalid Password!");
+            } else {
+                populateEditPageUNLOCK(id);
+            }
+        });
+    });
+});
+
+
+/**********************************
+ *            voice tab           *
+ **********************************/
+
+// add new voice line
+$("#edit-voice-add").on("click", function (e) {
+    var newDiv = document.createElement("div");
+    let count = parseInt($("#edit-voice")
+            .children(":nth-last-child(2)")
+            .find("input")
+            .attr("id")
+            .split("-")[2]
+            .replace("voice", "")) + 1;
+    let tempHTML =  '<label for="edit-voice-voice' + count.toString() + '-name">Voice ' + count.toString() + ' Title</label><br>' +
+                    '<input type="text" id="edit-voice-voice' + count.toString() + '-name" name="edit-voice-voice' + count.toString() + '-name" value=""><br>' + 
+                    '<label for="edit-voice-voice' + count.toString() + '-desc">Voice ' + count.toString() + ' Dialogue</label><br>' +
+                    '<textarea id="edit-voice-voice' + count.toString() + '-desc" name="edit-voice-voice' + count.toString() + '-desc" rows="5" cols="30"></textarea>';
+    newDiv.innerHTML = tempHTML;
+    document.getElementById("edit-voice").appendChild(newDiv);
+    var newDiv2 = document.createElement("div");
+    newDiv2.className = 'flex-break';
+    document.getElementById("edit-voice").appendChild(newDiv2);
+});
+
+
+/**********************************
+ *           gallery tab          *
+ **********************************/
+
+// add new gallery image
+$("#edit-gallery-add").on("click", function (e) {
+    var newDiv = document.createElement("div");
+    let count = parseInt($("#edit-gallery")
+            .children(":nth-last-child(2)")
+            .find("input")
+            .attr("id")
+            .split("-")[2]
+            .replace("image", "")) + 1;
+    let tempHTML =  '<label for="edit-gallery-image' + count.toString() + '-name">Image ' + count.toString() + ' Title</label><br>' + 
+                    '<input type="text" id="edit-gallery-image' + count.toString() + '-name" name="edit-gallery-image' + count.toString() + '-name" value=""><br>' +
+                    '<label for="edit-gallery-image' + count.toString() + '-url">Image ' + count.toString() + ' URL</label><br>' + 
+                    '<input type="text" id="edit-gallery-image' + count.toString() + '-url" name="edit-gallery-image' + count.toString() + '-url" value=""><br>';
+    newDiv.innerHTML = tempHTML;
+    document.getElementById("edit-gallery").appendChild(newDiv);
+    var newDiv2 = document.createElement("div");
+    newDiv2.className = 'flex-break';
+    document.getElementById("edit-gallery").appendChild(newDiv2);
+});
+
+
+/**********************************
+ *          submit page           *
+ **********************************/
 
 // edit page delete POST request
 $(document).ready(function() {
@@ -239,26 +225,23 @@ $(document).ready(function() {
 });
 
 
+// cancel button - clear edit page & remove active status
+$("#edit-page-cancel").on("click", function (e) {
+    $("#edit-page").removeClass("active");
 
-// edit page unlock page POST request
-$(document).ready(function() {
-
-    $("#edit-page-unlock").click(function(){
-        let id = $("#edit-info-cardURL").val();
-        let pw = $("#edit-password").val();
-
-        $.post("/unlockprofile", {id: id, pw: pw}, function(data){
-            if (data === 'error') {
-                alert("Unlock failed! Try again.");
-            } else if (data === 'password') {
-                alert("Invalid Password!");
-            } else {
-                populateEditPageUNLOCK(id);
-            }
-        });
+    // clear input fields
+    $(":input").each(function (index, element) {
+        if ($(this).attr("id") != "submit" && 
+            $(this).attr("id") != "delete" && 
+            $(this).attr("id") != "edit-page-cancel" &&
+            $(this).attr("id") != "edit-page-unlock") {
+            $(this).val("");
+        }
     });
+    // remove voiceover and gallery entirely since they're auto generated
+    $("#edit-voice").html("");
+    $("#edit-gallery").html("");
 });
-
 
 
 // edit page submit POST request

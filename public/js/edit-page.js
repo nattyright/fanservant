@@ -182,12 +182,13 @@ $("#edit-voice-add").on("click", function (e) {
 // add new gallery image
 $("#edit-gallery-add").on("click", function (e) {
     var newDiv = document.createElement("div");
-    let count = parseInt($("#edit-gallery")
-            .children(":nth-last-child(2)")
-            .find("input")
-            .attr("id")
-            .split("-")[2]
-            .replace("image", "")) + 1;
+    let count = (($("#edit-gallery").children().length > 0) ? 
+                                                            parseInt($("#edit-gallery")
+                                                            .children(":nth-last-child(2)")
+                                                            .find("input")
+                                                            .attr("id")
+                                                            .split("-")[2]
+                                                            .replace("image", "")) + 1 : 1);
     let tempHTML =  '<label for="edit-gallery-image' + count.toString() + '-name">Image ' + count.toString() + ' Title</label><br>' + 
                     '<input type="text" id="edit-gallery-image' + count.toString() + '-name" name="edit-gallery-image' + count.toString() + '-name" value=""><br>' +
                     '<label for="edit-gallery-image' + count.toString() + '-url">Image ' + count.toString() + ' URL</label><br>' + 

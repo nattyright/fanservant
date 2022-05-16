@@ -64,7 +64,26 @@ function changeGalleryImage(newSrc) {
   
 
 function loadServantProfile_status(a) {
+  let status_maxlv = [60, 65, 70, 80, 90];
+  let status_cost =  [ 3,  4,  7, 12, 16];
+  console.log(a.info.servantRarity);
+  document.getElementById('pf-status-portraitURL').src = a.status.portraitURL;
   document.getElementById('pf-status-ascension-count').src = "assets/status/ascension_4.png";
+  document.getElementById('pf-status-lv-content').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
+  document.getElementById('pf-status-lv-tail').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
+  document.getElementById('pf-status-atk-content').innerHTML = document.getElementById('pf-status-atk').innerHTML;
+  document.getElementById('pf-status-hp-content').innerHTML = document.getElementById('pf-status-hp').innerHTML;
+  document.getElementById('pf-status-cost-content').innerHTML = status_cost[parseInt(a.info.servantRarity) - 1];
+  let bond_lv = 6.9
+  document.getElementById('pf-status-bondlv-content').innerHTML = Math.floor(bond_lv);
+  if (bond_lv <= 5) {
+    document.getElementById('pf-status-bondlv-count1').value = bond_lv * 20;
+  } else {
+    document.getElementById('pf-status-bondlv-count1').value = 5 * 20;
+    document.getElementById('pf-status-bondlv-count2').value = (bond_lv - 5) * 20;
+  }
+  
+  //document.getElementById('').innerHTML = ;
 }
 
 

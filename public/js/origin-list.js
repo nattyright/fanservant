@@ -14,8 +14,18 @@ $(".ol-icon").on("click", async function (e) {
         }
     });
 
+    // close Origin List
     $("#origin-list").removeClass("active");
-    
+
+
+    // reset profile page nav bar, then active the first one
+    $(".profile-nav").removeClass("active");
+    $(".profile-nav:nth-child(1)").addClass("active");
+    $(".profile-nav").css('background-image','url(../assets/button-profile-nav.png)');
+    $(".profile-nav.active").css('background-image','url(../assets/button-profile-nav-red.png)');
+    $("#profile-content").find(".profile-content").removeClass("active");
+    $("#profile-content").find(".profile-content[data-slide=1]").addClass("active");
+   
   });
 
 
@@ -31,12 +41,8 @@ $(".ol-icon").on("click", async function (e) {
         $("#origin-list").addClass("active");
     }
   });
-  $("#button-close-origin-list").on("click", function (e) {
-    $("#origin-list").removeClass("active");
-  });
-  $("#button-servant-icon").on("click", function (e) {
-    $("#origin-list").removeClass("active");
-  });
+
+
 
 
 

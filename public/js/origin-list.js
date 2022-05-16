@@ -24,7 +24,7 @@ $(".ol-icon").on("click", async function (e) {
     $(".profile-nav").css('background-image','url(../assets/button-profile-nav.png)');
     $(".profile-nav.active").css('background-image','url(../assets/button-profile-nav-red.png)');
     $("#profile-content").find(".profile-content").removeClass("active");
-    $("#profile-content").find(".profile-content[data-slide=1]").addClass("active");
+    $("#profile-content").find(".profile-content[data-slide=0]").addClass("active");
    
   });
 

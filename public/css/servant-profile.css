@@ -193,7 +193,8 @@ body:before {
 #pf-info-servantName,
 #pf-info-servantClass-underline,
 #pf-status-atk,
-#pf-status-hp {
+#pf-status-hp,
+#pf-charagraph-arrow {
     position: absolute;
     z-index: 500;
     color: white;
@@ -252,7 +253,10 @@ body:before {
 #pf-status-hp {
     text-align: right;
 }
-
+#pf-charagraph-arrow {
+    width: 25px !important;
+    left: -6px;
+}
 
 
 

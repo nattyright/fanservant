@@ -75,14 +75,6 @@ function loadServantProfile(a) {
   document.getElementById('pf-info-servantClass').innerHTML = a.info.servantClass;
   document.getElementById('pf-info-servantName').innerHTML = a.info.servantName;
 
-  
-
-  // load servant name, servant class, servant id
-  document.getElementById('pf-servantName').innerHTML = a.info.servantName;
-  document.getElementById('pf-servantClass').innerHTML = a.info.servantClass;
-  document.getElementById('pf-servantID').innerHTML = a._id;
-
-
   // load servant status (optional)
   if ('status' in a) {
     if (a.status.atk != "") {
@@ -93,6 +85,16 @@ function loadServantProfile(a) {
     }
   }
   
+  // load charagraph arrows
+  document.getElementById('pf-charagraph-arrow').src = "assets/charagraph/left_arrow.png";
+  
+
+
+
+  // load servant name, servant class, servant id
+  document.getElementById('pf-servantName').innerHTML = a.info.servantName;
+  document.getElementById('pf-servantClass').innerHTML = a.info.servantClass;
+  document.getElementById('pf-servantID').innerHTML = a._id;
   
 
   // load personal skills

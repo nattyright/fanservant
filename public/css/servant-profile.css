@@ -114,8 +114,9 @@ body:before {
     cursor: pointer;
 }
 #col-left > div span {
-    margin: 35px 0px 0px -18px;
+    margin: 35px 0px 0px -16px;
     width: 50px;
+    letter-spacing: 0;
 }
 #col-left > div:first-child {
     background-image: url("../assets/button-side-close-short.png");
@@ -141,10 +142,22 @@ body:before {
 #col-left > div:nth-child(4) span {
     font-size: 13px;
     line-height: 8px;
+    margin-left: -18px;
+    -webkit-transform: scale(0.7,1);
+    -moz-transform: scale(0.7,1);
+    -ms-transform: scale(0.7,1);
+    -o-transform: scale(0.7,1);
+    transform: scale(0.7,1);
 }
 #col-left > div:nth-child(4) span.button-smoltext {
     font-size: 15px;
     line-height: 18px;
+    margin-left: -17px;
+    -webkit-transform: scale(0.84,1);
+    -moz-transform: scale(0.84,1);
+    -ms-transform: scale(0.84,1);
+    -o-transform: scale(0.84,1);
+    transform: scale(0.84,1);
 }
 
 
@@ -305,7 +318,19 @@ body:before {
     
     cursor: pointer;
 }
-
+#profile-nav > div:nth-child(3) {
+    font-size: 20px;
+    font-family: Arial Narrow;
+    letter-spacing: -1px;
+}
+#profile-nav > div:nth-child(3) > div {
+    -webkit-transform: scale(1,1.3);
+    -moz-transform: scale(1,1.3);
+    -ms-transform: scale(1,1.3);
+    -o-transform: scale(1,1.3);
+    transform: scale(1,1.3);
+    margin-top: 1px;
+}
 
 #profile-content {
     height: 400px;

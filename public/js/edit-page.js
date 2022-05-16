@@ -156,12 +156,13 @@ $(document).ready(function() {
 // add new voice line
 $("#edit-voice-add").on("click", function (e) {
     var newDiv = document.createElement("div");
-    let count = parseInt($("#edit-voice")
-            .children(":nth-last-child(2)")
-            .find("input")
-            .attr("id")
-            .split("-")[2]
-            .replace("voice", "")) + 1;
+    let count = parseInt($("#edit-voice").children().length == 0 ? 
+                parseInt($("#edit-voice")
+                .children(":nth-last-child(2)")
+                .find("input")
+                .attr("id")
+                .split("-")[2]
+                .replace("voice", "")) + 1 : 1;
     let tempHTML =  '<label for="edit-voice-voice' + count.toString() + '-name">Voice ' + count.toString() + ' Title</label><br>' +
                     '<input type="text" id="edit-voice-voice' + count.toString() + '-name" name="edit-voice-voice' + count.toString() + '-name" value=""><br>' + 
                     '<label for="edit-voice-voice' + count.toString() + '-desc">Voice ' + count.toString() + ' Dialogue</label><br>' +

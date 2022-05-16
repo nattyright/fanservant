@@ -63,6 +63,11 @@ function changeGalleryImage(newSrc) {
 }
   
 
+function loadServantProfile_status(a) {
+  document.getElementById('pf-status-ascension-count').src = "assets/status/ascension_4.png";
+}
+
+
 function loadServantProfile(a) {
 
   // load card art
@@ -84,6 +89,8 @@ function loadServantProfile(a) {
       document.getElementById('pf-status-hp').innerHTML = a.status.hp;
     }
   }
+
+  loadServantProfile_status(a);
   
   // load charagraph arrows
   document.getElementById('pf-charagraph-arrow').src = "assets/charagraph/left_arrow.png";

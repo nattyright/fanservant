@@ -43,39 +43,50 @@
     <div id="profile-content">
 
         <div class="profile-content active" data-slide="0">
-            <!--
+            
             <%- html_panel.short_top %>
             <div class="status-title">Status</div>
             <div class="panel-text status-panel">
                 <table>
                     <tr>
                         <td>
-                            <div>Lv.</div>
+                            <img id="pf-status-portraitURL" src="https://cdn.discordapp.com/attachments/919921281388924978/975712735658655824/dXpIGiM.png">
+                        </td>
+                        <td>
                             <div>
-                                <span>HP</span>
-                                <span>ATK</span>
-                                <span>COST</span>
+                                <span id="pf-status-lv-title">Lv.</span><span id="pf-status-lv-content">90</span><span class="pf-status-lv-tail" >/</span><span class="pf-status-lv-tail" id="pf-status-lv-tail">90</span>
+                            </div>
+                            <img id="pf-status-ascension-count" src="">
+                            <div>
+                                <span class="pf-status-blue" id="pf-status-hp-title">HP</span><span class="pf-status-blue-content" id="pf-status-hp-content">69696</span>
+                                <span class="pf-status-blue" id="pf-status-atk-title">ATK</span><span class="pf-status-blue-content" id="pf-status-atk-content">96969</span>
+                                <span class="pf-status-blue" id="pf-status-cost-title">COST</span><span class="pf-status-blue-content" id="pf-status-cost-content">12</span>
                             </div>
                             <div>
-                                <span>Pt.</span>
-                                <span>Pt.</span>
+                                <span class="pf-status-gold" id="pf-status-fou1-title">Pt.</span><span class="pf-status-gold-content" id="pf-status-fou1-content">0/2000</span>
+                                <span class="pf-status-gold" id="pf-status-fou2-title">Pt.</span><span class="pf-status-gold-content" id="pf-status-fou2-content">0/2000</span>
                             </div>
-                            <div></div>
+                            <div id="pf-status-linebreak"></div>
+                            
                             <div>
-                                <div>Bond Lv.</div>
-                                <div></div>
                                 <div>
-                                    <div></div>
-                                    <div>NEXT <span></span></div>
+                                    <span id="pf-status-bondlv-title">Bond Lv.</span><span id="pf-status-bondlv-content">5</span><span id="pf-status-bondlv-tail">/ 10</span>
+
+                                    <progress value="50" max="100" id="pf-status-bondlv-count1"></progress>
+                                    <progress value="30" max="100" id="pf-status-bondlv-count2"></progress>
+
+                                </div>
+                                <div>
+                                    <span id ="pf-status-bondnext-title">NEXT</span><span id="pf-status-bondnext-content">6969</span>
                                 </div>
                             </div>
+                    
                         </td>
-                        <td></td>
                     </tr>
                 </table>
             </div>
             <%- html_panel.mid_bot %>
-            -->
+            
 
 
             <%- html_panel.short_top %>

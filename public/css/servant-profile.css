@@ -349,6 +349,246 @@ body:before {
 
 
 
+
+
+.panel-text.status-panel {
+    height: 232px;
+    font-family: Calibri;
+    letter-spacing: 0;
+    padding-left: 146px;
+    padding-top: 4px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#pf-status-portraitURL {
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    width: 140px;
+}
+#pf-status-lv-title {
+    color: gold;
+    font-size: 24px;
+    padding-right: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+#pf-status-lv-content {
+    font-size: 40px;
+}
+.pf-status-lv-tail {
+    font-size: 19px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    padding-left: 3px;
+}
+.pf-status-blue {
+    color: #6bb3a3;
+    font-size: 17px;
+
+    position: absolute;
+    left: 160px;
+    top: 82px;
+}
+.pf-status-blue-content {
+    position: absolute;
+    right: 32px;
+    top: 81px;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+#pf-status-hp-title {
+    margin-left: 0px;
+}
+#pf-status-hp-content {
+    margin-right: 220px;
+}
+#pf-status-atk-title {
+    margin-left: 110px;
+}
+#pf-status-atk-content {
+    margin-right: 103px;
+}
+#pf-status-cost-title {
+    margin-left: 230px;
+}
+#pf-status-cost-content {
+
+}
+.pf-status-gold {
+    color: gold;
+    padding-right: 18px;
+    font-size: 18px;
+
+    position: absolute;
+    left: 160px;
+    top: 104px;
+}
+.pf-status-gold-content {
+    position: absolute;
+    right: 135px;
+    top: 103px;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+#pf-status-fou1-title {
+
+}
+#pf-status-fou1-content {
+    margin-right: 117px;
+}
+#pf-status-fou2-title {
+    margin-left: 110px;
+}
+#pf-status-fou2-content {
+
+}
+#pf-status-linebreak {
+    position: absolute;
+    left: 184px;
+    top: 132px;
+    border-bottom: 1px dotted darkgray;
+    width: 286px;
+}
+#pf-status-bondlv-title {
+    position: absolute;
+    left: 157px;
+    top: 165px;
+    font-size: 18px;
+    color: gold;
+    letter-spacing: -1px;
+    font-family: Arial Narrow;
+}
+#pf-status-bondlv-content {
+    position: absolute;
+    left: 218px;
+    top: 146px;
+    font-size: 40px;
+}
+#pf-status-bondlv-tail {
+    position: absolute;
+    left: 241px;
+    top: 166px;
+    font-size: 19px;
+    font-weight: 300;
+}
+#pf-status-bondnext-title {
+    position: absolute;
+    left: 302px;
+    top: 230px;
+    color: gold;
+    font-size: 14px;
+}
+#pf-status-bondnext-content {
+    position: absolute;
+    right: 34px;
+    top: 224px;
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+#pf-status-ascension-count {
+    position: absolute;
+    left: 167px;
+    top: 64px;
+    height: 19px;
+}
+
+
+
+
+
+progress,
+progress[role] {
+    position: absolute;
+    right: 25px;
+    top: 140px;
+    height: 40px;
+    width: 200px;
+
+    /* Turns off styling - not usually needed, but good to know. */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    /* gets rid of default border in Firefox and Opera. */ 
+    border: none;
+
+    /* Needs to be in here for Safari polyfill so background images work as expected. */
+    background-size: auto;
+}
+#pf-status-bondlv-count2{
+    top: 177px;
+}
+/* Polyfill */
+progress[role]:after {
+    background-image: none; /* removes default background from polyfill */
+}
+/* Ensure fallback text doesn't appear in polyfill */
+progress[role] strong {
+    display: none;
+}
+
+/* ----- progress bar bg ------ */
+progress,
+progress[role][aria-valuenow],
+progress::-webkit-progress-bar {
+    background-size: contain;
+}
+
+progress#pf-status-bondlv-count1,                          /* Firefox  */ 
+progress[role][aria-valuenow]#pf-status-bondlv-count1 {    /* Polyfill */
+   background: url("../assets/status/bond_0.png") transparent !important; /* !important is needed by the polyfill */
+}
+progress#pf-status-bondlv-count2,                          /* Firefox  */ 
+progress[role][aria-valuenow]#pf-status-bondlv-count2 {    /* Polyfill */
+   background: url("../assets/status/bond_0.png") transparent !important; /* !important is needed by the polyfill */
+}
+/* Chrome */
+progress::-webkit-progress-bar {
+    background: transparent;
+}
+
+/* ------progress bar value -----*/
+progress,
+progress::-moz-progress-bar,
+progress::-webkit-progress-value,
+progress[aria-valuenow]:before {
+    background-size: contain;
+}
+/* IE10 */
+progress {
+    color: transparent;
+}
+/* Firefox */
+progress::-moz-progress-bar { 
+    background: url("../assets/status/bond_5.png") transparent;  
+}
+/* Chrome */
+progress::-webkit-progress-value {
+    background: url("../assets/status/bond_5.png") transparent;
+}
+/* Polyfill */
+progress[aria-valuenow]:before  {
+    background: url("../assets/status/bond_5.png") transparent;
+}
+progress#pf-status-bondlv-count2::-moz-progress-bar { 
+    background: url("../assets/status/bond_10.png") transparent;  
+}
+/* Chrome */
+progress#pf-status-bondlv-count2::-webkit-progress-value {
+    background: url("../assets/status/bond_10.png") transparent;
+}
+/* Polyfill */
+progress#pf-status-bondlv-count2[aria-valuenow]:before  {
+    background: url("../assets/status/bond_10.png") transparent;
+}
+
+
+
+
+
+
+
 .status-title,
 .np-title, 
 .pskill-title,

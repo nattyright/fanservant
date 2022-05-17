@@ -69,6 +69,8 @@ body:before {
   background-repeat: no-repeat, repeat;
   background-size: 100% 68px, cover;
   width: 900px;
+
+  box-shadow:  0px 0px 2px 1px rgb(0, 0, 0, 0.3);
 }
 
 

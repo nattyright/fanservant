@@ -143,6 +143,11 @@ body:before {
     font-size: 13px;
     line-height: 8px;
     margin-left: -18px;
+    -webkit-transform: scale(0.74,1);
+    -moz-transform: scale(0.74,1);
+    -ms-transform: scale(0.74,1);
+    -o-transform: scale(0.74,1);
+    transform: scale(0.74,1);
 }
 #col-left > div:nth-child(4) span.button-smoltext {
     font-size: 15px;
@@ -735,8 +740,11 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
     letter-spacing: -2px;
     font-size: 20px;
     font-weight: 600;
-    color: #262626;
     margin: -21px 0 0 12px;
+
+    background: -webkit-linear-gradient(#999, #777, #555, #444, #111);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .panel-text {
     font-size: 16px;
@@ -756,7 +764,6 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 .np-name {
     font-size: 23px;
     margin-bottom: 20px;
-    height: 27px;
 }
 .np-table {
     font-size: 19px;

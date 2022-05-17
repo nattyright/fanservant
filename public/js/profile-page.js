@@ -71,9 +71,11 @@ function loadServantProfile_status(a) {
   document.getElementById('pf-status-ascension-count').src = "assets/status/ascension_4.png";
   document.getElementById('pf-status-lv-content').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
   document.getElementById('pf-status-lv-tail').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
-  document.getElementById('pf-status-atk-content').innerHTML = document.getElementById('pf-status-atk').innerHTML;
-  document.getElementById('pf-status-hp-content').innerHTML = document.getElementById('pf-status-hp').innerHTML;
+
+  document.getElementById('pf-status-atk-content').innerHTML = document.getElementById('pf-status-atk').innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+  document.getElementById('pf-status-hp-content').innerHTML = document.getElementById('pf-status-hp').innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
   document.getElementById('pf-status-cost-content').innerHTML = status_cost[parseInt(a.info.servantRarity) - 1];
+
   let bond_lv = 6.9
   document.getElementById('pf-status-bondlv-content').innerHTML = Math.floor(bond_lv);
   if (bond_lv <= 5) {
@@ -82,6 +84,8 @@ function loadServantProfile_status(a) {
     document.getElementById('pf-status-bondlv-count1').value = 5 * 20;
     document.getElementById('pf-status-bondlv-count2').value = (bond_lv - 5) * 20;
   }
+  document.getElementById('pf-status-bondnext-content').innerHTML = "6969".replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+  
   
   //document.getElementById('').innerHTML = ;
 }
@@ -174,6 +178,14 @@ function loadServantProfile(a) {
   if (a.np.level == 5) {
     document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-3.png";
   }
+
+  // fit np name to 1 row
+  fitty('#pf-np-name', {
+    minSize: 15,
+    maxSize: 23,
+    multiLine: true,
+  });
+
 
   // load command cards
   for (let key in a.cc) {

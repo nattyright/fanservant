@@ -205,24 +205,19 @@ function loadServantProfile(a) {
       // locked profiles
       let unlockCondition = a.profile[key].split("]")[1].replace("[", "");
       document.getElementById('pf-profile-' + key).innerHTML = unlockCondition;
-      document.getElementById('pf-profile-' + key).style.color = "gold";
-      document.getElementById('pf-profile-' + key).style.borderColor = "#555555";
-      document.getElementById('pf-profile-' + key).previousElementSibling
-                                                    .previousElementSibling
-                                                    .previousElementSibling.src = 'assets/profile-infopanel-top-mid-locked.png';
-      document.getElementById('pf-profile-' + key).nextElementSibling.src = 'assets/profile-infopanel-bot-locked.png';
+      document.getElementById('pf-profile-' + key).classList.add("locked");
+      $('#pf-profile-' + key).parent().find(".panel-bg-top").addClass("locked");
+      $('#pf-profile-' + key).parent().find(".panel-bg-top-wrapper").addClass("locked");
+      $('#pf-profile-' + key).parent().find(".panel-bg-wrapper").addClass("locked");
 
     } else {
       // unlocked profiles
       document.getElementById('pf-profile-' + key).innerHTML = a.profile[key];  
-      document.getElementById('pf-profile-' + key).removeAttribute('style');
-      if (key.startsWith("profile")) {
-        document.getElementById('pf-profile-' + key).previousElementSibling
-                                                    .previousElementSibling
-                                                    .previousElementSibling.src = '';
-        document.getElementById('pf-profile-' + key).nextElementSibling.src = 'assets/profile-infopanel-bot.png';
-      }
-          
+      document.getElementById('pf-profile-' + key).classList.remove("locked");
+            $('#pf-profile-' + key).parent().find(".panel-bg-top").removeClass("locked");
+      $('#pf-profile-' + key).parent().find(".panel-bg-top-wrapper").removeClass("locked");
+      $('#pf-profile-' + key).parent().find(".panel-bg-wrapper").removeClass("locked");       
+    
     }
   }
 
@@ -239,11 +234,11 @@ function loadServantProfile(a) {
   var voiceHTML = '<div class="voice-tip">Tap an entry to play a voice.</div>';
   var count = 0;
   for (let key in a.voice) {
-    var voicetemp = '<div class="voice-img" data-slide="1' + count.toString() + '">' + 
-                    '<img class="panel-img" src="assets/profile-voicepanel-top.png">' + 
+    var voicetemp = '<div class="panel-wrapper"><div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top short"></div></div><div class="panel-bg"></div></div>' + 
+                    '<div class="voice-img" data-slide="1' + count.toString() + '">' + 
                     '<div class="voice-title">My Room</div>' + 
-                    '<div class="panel-text voice-panel" id="pf-voice-' + key + '">' + a.voice[key].name + '</div>' + 
-                    '<img class="panel-img panel-img-voice-bot" src="assets/profile-voicepanel-bot.png"></div>' + 
+                    '<div class="panel-text voice-panel" id="pf-voice-' + key + '"><img class="voice-icon" src="assets/profile-voicepanel-icon.png">' + a.voice[key].name + '</div>' + 
+                    '</div></div>' + 
                     '<div class="voice-text" data-slide="1' + count.toString() + '">' + a.voice[key].desc + '</div>';
     count++;
 

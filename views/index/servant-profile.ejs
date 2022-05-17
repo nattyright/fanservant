@@ -44,7 +44,8 @@
 
         <div class="profile-content active" data-slide="0">
             
-            <%- html_panel.short_top %>
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top short"></div></div><div class="panel-bg"></div></div>   
             <div class="status-title">Status</div>
             <div class="panel-text status-panel">
                 <table>
@@ -85,11 +86,13 @@
                     </tr>
                 </table>
             </div>
-            <%- html_panel.mid_bot %>
+            </div>
             
 
 
-            <%- html_panel.short_top %>
+
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top short"></div></div><div class="panel-bg"></div></div>   
             <div class="pskill-title">Skills</div>
             <div class="panel-text pskill-panel">
                 <div class="pskill-tip">These skills can be used anytime during battle.</div>
@@ -114,9 +117,11 @@
                   <% }); %>
                 </table>
             </div>  
-            <%- html_panel.mid_bot %>
+            </div>
 
-            <%- html_panel.short_top %>
+
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top short"></div></div><div class="panel-bg"></div></div>   
             <div class="cskill-title">Class Skills</div>
             <div class="panel-text cskill-panel">
                 <div class="cskill-tip">These skills automatically go into effect in battle.</div>
@@ -133,22 +138,27 @@
                             <p class="cskill-name">
                                 <span id="pf-cskill-skill<%= name %>-name"></span> 
                                 <span id="pf-cskill-skill<%= name %>-rank"></span>
+                            </p>
                             <p class="cskill-description" id="pf-cskill-skill<%= name %>-desc"></p>
                         </td></tr>
                   <% }); %>
                 </table>
             </div>  
-            <%- html_panel.mid_bot %>
+            </div>
 
-            <%- html_panel.mid_top %>
+
+
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top"></div></div><div class="panel-bg"></div></div>   
             <div class="np-title">Noble Phantasm</div>
+            <div class="panel-text">
             <div class="np-type">
                 <img class='pf-np-bot' id="pf-np-bot" src="">
                 <img class='pf-np-servant' id="pf-np-servant" src="">
                 <img class='pf-np-mid' id="pf-np-mid" src="">
                 <img class='pf-np-top' id="pf-np-top" src="">
             </div>
-            <div class="panel-text">
+            <div class="np-detail">
                 <div class="np-name" id="pf-np-name"></div>
                 <table class="np-table">
                     <tr><td class="np-category">Rank</td><td id="pf-np-rank"></td></tr>
@@ -164,12 +174,15 @@
                 </table>
                 <div class="np-text" id="pf-np-desc"></div>
             </div>  
-            <%- html_panel.mid_bot %>
+            </div>
+            </div>
 
-            <%- html_panel.mid_top %>
+
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top"></div></div><div class="panel-bg"></div></div>   
             <div class="cc-title">Command Card</div>
             <div class="panel-text cc">
-                <table class="np-table">
+                <table class="cc-table">
                     <tr>
                       <% names_cc.forEach(function(name) { %>
                         <td class="cc-type" id="pf-cc-cc<%= name %>" style="flex: 20%">
@@ -182,24 +195,27 @@
                         </tr>
                 </table>
             </div>  
-            <%- html_panel.mid_bot %>
+            </div>
         </div>
 
         <div class="profile-content" data-slide="1">
-            <%- html_panel.long_top %>
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top long"></div></div><div class="panel-bg"></div></div>  
             <div class="profile-title">Face Claim/Character Sheet</div>
             <div class="panel-text profile-panel" id="pf-fc-sheet">
               <div class="pf-profile-fc">FC: <span id="pf-profile-fc"></span></div>
               <div class="pf-profile-sheet">Sheet: <span id="pf-profile-sheet"></span></div>
             </div> 
-            <%- html_panel.mid_bot %>
+            </div>
 
-            <%- html_panel.mid_top %>
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top"></div></div><div class="panel-bg"></div></div>  
             <div class="profile-title">Character Info</div>
             <div class="panel-text profile-panel" id="pf-profile-charinfo"></div>  
-            <%- html_panel.mid_bot %>
+            </div>
 
-            <%- html_panel.mid_top %>
+            <div class="panel-wrapper">
+            <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top"></div></div><div class="panel-bg"></div></div>  
             <div class="profile-title">Parameters</div>
             <div class="panel-text profile-panel" id="pf-parameter">
                 <table id="param-table">
@@ -214,14 +230,14 @@
                         <td>NP</td><td><img class="pf-param-img" id="pf-param-np-img" src=""></td><td><span id="pf-param-np"></span></td></tr>
                 </table>
             </div>  
-            <%- html_panel.mid_bot %>
+            </div>
 
             <% names_profile.forEach(function(name) { %>
-              <img class="panel-img-locked" src="" style="position:absolute;">
-              <%- html_panel.mid_top %>
+              <div class="panel-wrapper">
+              <div class="panel-bg-wrapper"><div class="panel-bg-top-wrapper"><div class="panel-bg-top"></div></div><div class="panel-bg"></div></div>  
               <div class="profile-title">Profile <%= name %></div>
               <div class="panel-text profile-panel" id="pf-profile-profile<%= name %>"></div>  
-              <%- html_panel.mid_bot %>
+              </div> 
             <% }); %>  
         </div>
 

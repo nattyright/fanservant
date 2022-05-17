@@ -375,9 +375,121 @@ body:before {
 
 
 
+.panel-wrapper {
+    position: relative;
+    margin: 25px 0 30px 4px;
+    max-width: 506px;
+}
+.panel-bg,
+.panel-bg-wrapper {
+    --notchSize:  8px;
+    position: absolute;
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    opacity: 0.92;
+
+    clip-path: 
+        polygon(
+            0% var(--notchSize), 
+            var(--notchSize) 0%, 
+            calc(100% - var(--notchSize)) 0%, 
+            100% var(--notchSize), 
+            100% calc(100% - var(--notchSize)), 
+            calc(100% - var(--notchSize)) 100%, 
+            var(--notchSize) 100%, 
+            0% calc(100% - var(--notchSize))
+        );
+}
+.panel-bg-top-wrapper {
+    filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.3));
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.panel-bg-top {
+    --notchSize:  8px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    clip-path: 
+        polygon(
+            -1px var(--notchSize), 
+            var(--notchSize) -1px, 
+            calc(100% - var(--notchSize)) -1px, 
+            100% var(--notchSize), 
+
+            150px var(--notchSize), 
+            140px calc(var(--notchSize) + 13px),
+            -1px calc(var(--notchSize) + 13px),
+
+
+
+            -1px calc(100% - var(--notchSize))
+        );
+    background: white;
+    z-index: 3;
+}
+.panel-bg-top.short {
+    clip-path: 
+        polygon(
+            -1px var(--notchSize), 
+            var(--notchSize) -1px, 
+            calc(100% - var(--notchSize)) -1px, 
+            100% var(--notchSize), 
+
+            90px var(--notchSize), 
+            80px calc(var(--notchSize) + 13px),
+            -1px calc(var(--notchSize) + 13px),
+
+
+
+            -1px calc(100% - var(--notchSize))
+        );
+}
+.panel-bg-top.long {
+    clip-path: 
+        polygon(
+            -1px var(--notchSize), 
+            var(--notchSize) -1px, 
+            calc(100% - var(--notchSize)) -1px, 
+            100% var(--notchSize), 
+
+            370px var(--notchSize), 
+            360px calc(var(--notchSize) + 13px),
+            -1px calc(var(--notchSize) + 13px),
+
+
+
+            -1px calc(100% - var(--notchSize))
+        );
+}
+
+.panel-bg {
+    padding: 0;
+    background: #101010;
+    z-index: -1;
+}
+.panel-bg-wrapper {
+    padding: 1px;
+    background: white;
+    z-index: -2;
+}
+.panel-bg-wrapper.locked,
+.panel-bg-top.locked {
+    background: gray;
+}
+.panel-bg-top-wrapper.locked {
+    filter: none;
+}
+
+
+
+
+
 
 .panel-text.status-panel {
-    height: 240px;
+    height: 235px;
     font-family: Calibri;
     letter-spacing: 0;
     padding-left: 146px;
@@ -632,13 +744,11 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
     font-size: 16px;
     color: white;
 
-    background-color: rgba(28, 28, 28, 0.87);
     max-width: 484px;
-    margin: -15px 0 -0.2px 4px;
-    padding: 25px 2px 5px 170px;
-    border-left: 1px solid #d1d1d1;
-    border-right: 1px solid #d1d1d1;
-    box-shadow: 0px 0px 3px 0px black;
+    padding: 15px 2px 15px 10px;
+}
+.np-detail {
+    margin-left: 160px;
 }
 .np-category {
     padding-right: 30px;
@@ -664,6 +774,7 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 .np-type {
     position: relative;
     padding: 0 5px;
+    margin-left: -5px;
 }
 .pf-np-bot {
     position: absolute;
@@ -708,16 +819,13 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 
 
 
-.panel-text.pskill-panel,
-.panel-text.cskill-panel {
-    padding: 5px 10px 5px 10px;
-}
+
 .pskill-tip,
 .cskill-tip,
 .voice-tip {
     --border-blue: black;
     color: #46dee3;
-    margin-top: 5px;
+    margin-top: -23px;
     font-size: 15px;
     padding-left: 120px;
     text-shadow:
@@ -729,6 +837,9 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 .voice-tip {
     margin-left: 50px;
     margin-top: -2px;
+}
+table {
+    margin-top: -15px;
 }
 .pskill-l,
 .cskill-l {
@@ -785,15 +896,17 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 .cskill-description {
     font-size: 16px;
     margin-top: -20px;
+    margin-bottom: 0px;
 }
 
 
 
 
-.panel-text.cc {
-    padding: 42px 10px 8px 10px;
-    display: flex;
-    align-items: stretch;
+
+.cc-table {
+    font-size: 19px;
+    letter-spacing: 0;
+    margin: 15px 0 5px 0;
 }
 .cc-type {
     position: relative;
@@ -836,10 +949,11 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 
 
 .panel-text.profile-panel {
-    padding: 22px 10px 5px 10px;
     white-space: pre-wrap;
 }
-
+.panel-text.profile-panel.locked {
+    color: gold;
+}
 #pf-parameter,
 #pf-fc-sheet {
     white-space: normal;
@@ -847,6 +961,7 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 #param-table {
     width: 100%;
     font-size: 20px;
+    margin-top: -5px;
 }
 #param-table td:nth-child(1),
 #param-table td:nth-child(4) {
@@ -896,17 +1011,10 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
 
 
 .voice-img {
-    margin-bottom: -1px;
     cursor: pointer;
-    max-width: 510px;
-    height: 80px;
-
-}
-.voice-title {
-    margin-top: -64px;
 }
 .panel-text.voice-panel {
-    padding: 19px 10px 8px 66px;
+    padding: 7px 2px 12px 77px;
     font-size: 23px;
 }
 .panel-img,
@@ -923,6 +1031,13 @@ progress#pf-status-bondlv-count2[aria-valuenow]:before  {
     line-height: 36px;
     color: #f3f3f3;
     white-space: pre-wrap;
+}
+.voice-icon {
+    position: absolute;
+    left: 22px;
+    top: 28px;
+    width: 38px;
+
 }
 
 

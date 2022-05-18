@@ -247,6 +247,7 @@
     align-items: stretch;
 
     height: 55px;
+    width: 102%;
 }
 #profile-nav > div {
     background-image: url("../assets/button-profile-nav.png");

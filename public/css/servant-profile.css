@@ -1059,7 +1059,7 @@ table {
     padding: 0;
 }
 #pf-gallery-nav ul li {
-    height: 50px;
+    height: 45px;
     background-image: url("../assets/button-gallery.png");
     background-repeat: no-repeat;
     backgroun-size: cover;

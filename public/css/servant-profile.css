@@ -1,54 +1,3 @@
-@font-face {
-    font-family: 'Optima'; /*a name to be used later*/
-    src: url('../assets/Optima.ttf'); /*URL to font*/
-}
-
-@font-face {
-    font-family: 'Matisse'; /*a name to be used later*/
-    src: url('../assets/MatissePro.otf'); /*URL to font*/
-}
-
-::-webkit-scrollbar {
-    -webkit-appearance:  none;
-    width: 22px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-  box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.8);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
-
-::-webkit-scrollbar-thumb:vertical {
-    background: url('../assets/ui-scrollbar-thumb-top.png') left top no-repeat,
-                url('../assets/ui-scrollbar-thumb-mid.png') left center no-repeat,
-                url('../assets/ui-scrollbar-thumb-bot.png') left bottom no-repeat;
-    background-size: 22px 10px, 22px calc(100% - 20px), 22px 10px;
-}
-
-body {
-      overflow: hidden;
-      background-color: dimgray;
-      font-family: Optima;
-      letter-spacing: -1px;
-}
-body:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.6;
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
-}
-
-
-
-
 .flex-container {
   position: absolute;
   left: 50%;
@@ -72,11 +21,6 @@ body:before {
 
   box-shadow:  0px 0px 2px 1px rgb(0, 0, 0, 0.3);
 }
-
-
-
-
-
 .flex-container > div {
   padding: 0px;
   font-size: 30px;
@@ -87,6 +31,7 @@ body:before {
 #col-right, #col-left {
     margin: 2px 0px 4px 0px;
 }
+
 
 
 
@@ -244,7 +189,7 @@ body:before {
     letter-spacing: 0;
     width: 100%;
     text-align: center;
-    bottom: 49px;
+    bottom: 50px;
 }
 #pf-status-atk,
 #pf-status-hp {
@@ -315,10 +260,13 @@ body:before {
     font-family: Tahoma;
     letter-spacing: 0px;
     font-size: 23px;
-    color: white;
+    color: #edf3f5;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     
     cursor: pointer;
+}
+.profile-nav.active {
+    color: #fff1eb !important
 }
 #profile-nav > div:nth-child(3) {
     font-size: 20px;
@@ -334,7 +282,6 @@ body:before {
     margin-top: 1px;
     white-space: nowrap;
 }
-
 #profile-content {
     height: 400px;
     overflow-y: auto;
@@ -441,8 +388,8 @@ body:before {
             calc(100% - var(--notchSize)) -1px, 
             100% var(--notchSize), 
 
-            90px var(--notchSize), 
-            80px calc(var(--notchSize) + 13px),
+            83px var(--notchSize), 
+            73px calc(var(--notchSize) + 13px),
             -1px calc(var(--notchSize) + 13px),
 
 
@@ -764,11 +711,14 @@ progress#pf-status-level-progressbar[aria-valuenow]:before  {
     letter-spacing: -2px;
     font-size: 20px;
     font-weight: 600;
-    margin: -21px 0 0 12px;
+    margin: -21px 0 0 8px;
 
     background: -webkit-linear-gradient(#888, #777, #555, #222, #000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.cskill-title {
+    margin-left: 5px;
 }
 .panel-text {
     font-size: 16px;

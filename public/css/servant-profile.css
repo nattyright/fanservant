@@ -635,6 +635,13 @@ body:before {
     height: 17px;
 }
 
+#pf-status-level-progressbar {
+    position: absolute;
+    left: 290px;
+    top: 40px;
+    width: 191px;
+    height: 15px;
+}
 
 
 
@@ -685,6 +692,10 @@ progress#pf-status-bondlv-count2,                          /* Firefox  */
 progress[role][aria-valuenow]#pf-status-bondlv-count2 {    /* Polyfill */
    background: url("../assets/status/bond_0.png") transparent !important; /* !important is needed by the polyfill */
 }
+progress#pf-status-level-progressbar,                          /* Firefox  */ 
+progress[role][aria-valuenow]#pf-status-bondlv-count2 {    /* Polyfill */
+   background: url("../assets/status/level_b.png") transparent !important; /* !important is needed by the polyfill */
+}
 /* Chrome */
 progress::-webkit-progress-bar {
     background: transparent;
@@ -724,7 +735,18 @@ progress#pf-status-bondlv-count2::-webkit-progress-value {
 progress#pf-status-bondlv-count2[aria-valuenow]:before  {
     background: url("../assets/status/bond_10.png") transparent;
 }
-
+/* Firefox */
+progress#pf-status-level-progressbar::-moz-progress-bar { 
+    background: url("../assets/status/level_g.png") transparent;  
+}
+/* Chrome */
+progress#pf-status-level-progressbar::-webkit-progress-value {
+    background: url("../assets/status/level_g.png") transparent;
+}
+/* Polyfill */
+progress#pf-status-level-progressbar[aria-valuenow]:before  {
+    background: url("../assets/status/level_g.png") transparent;
+}
 
 
 

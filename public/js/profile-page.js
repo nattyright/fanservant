@@ -186,13 +186,6 @@ function loadServantProfile(a) {
     document.getElementById('pf-np-gauge-3').src = "assets/np-gauge-3.png";
   }
 
-  // fit np name to 1 row
-  fitty('#pf-np-name', {
-    minSize: 15,
-    maxSize: 23,
-    multiLine: true,
-  });
-
 
   // load command cards
   for (let key in a.cc) {
@@ -280,6 +273,13 @@ function loadServantProfile(a) {
     changeGalleryImage(a.gallery.image1.url);
   }
 
+
+  // fit text in relevant elements to 1 row
+  fitty('#pf-np-name', {
+    minSize: 15,
+    maxSize: 23,
+    multiLine: true,
+  });
 
 
 }

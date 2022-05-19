@@ -72,21 +72,24 @@ function loadServantProfile_status(a) {
   document.getElementById('pf-status-lv-content').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
   document.getElementById('pf-status-lv-tail').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
 
+
+  document.getElementById('pf-status-fou-atk').innerHTML = a.status.fou.atk;
+  document.getElementById('pf-status-fou-hp').innerHTML = a.status.fou.hp;
   document.getElementById('pf-status-atk-content').innerHTML = (parseInt(document.getElementById('pf-status-atk').innerHTML) +
-                                                                parseInt(document.getElementById('pf-status-fou2-content').innerHTML))    
+                                                                parseInt(document.getElementById('pf-status-fou-atk').innerHTML))    
                                                                 .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   document.getElementById('pf-status-hp-content').innerHTML = (parseInt(document.getElementById('pf-status-hp').innerHTML) + 
-                                                               parseInt(document.getElementById('pf-status-fou1-content').innerHTML))
+                                                               parseInt(document.getElementById('pf-status-fou-hp').innerHTML))
                                                                .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   // change card hp/atk color if fou
-  if (parseInt(document.getElementById('pf-status-fou1-content').innerHTML) > 0) {
+  if (parseInt(document.getElementById('pf-status-fou-hp').innerHTML) > 0) {
     document.getElementById('pf-status-hp-content').style.color = 'var(--profileyellow)';
     $('#pf-status-hp').addClass('gold');
   } else {
     document.getElementById('pf-status-hp-content').style.color = 'white';
     $('#pf-status-hp').removeClass('gold');
   }
-  if (parseInt(document.getElementById('pf-status-fou2-content').innerHTML) > 0) {
+  if (parseInt(document.getElementById('pf-status-fou-atk').innerHTML) > 0) {
     document.getElementById('pf-status-atk-content').style.color = 'var(--profileyellow)';
     $('#pf-status-atk').addClass('gold');
     

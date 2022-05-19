@@ -12,6 +12,10 @@
   font-family: Optima;
   text-decoration: underline;
 }
+.edit-title.short {
+  width: 100px;
+  white-space: nowrap;
+}
 .one-row-item {
   width: 100%;
 }
@@ -28,6 +32,12 @@
 #edit-page input {
   width: 90%;
   max-width: 500px;
+}
+#edit-status-hp,
+#edit-status-atk,
+#edit-status-bond,
+#edit-status-bondnext {
+  width: 50% !important;
 }
 #edit-page select {
   width: 90%;

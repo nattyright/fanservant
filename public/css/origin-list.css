@@ -193,6 +193,9 @@
 }
 #ol-nav-left-title3 {
     font-family: Arial Narrow;
+    transform: scale(1, 1.1);
+    margin-top: 7px;
+    margin-bottom: 1px;
 }
 .ol-nav-left-bt div:last-child {
     margin-top: -2px;

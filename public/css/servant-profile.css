@@ -1,3 +1,7 @@
+:root {
+    --profileyellow: #fff426
+}
+
 .flex-container {
   position: absolute;
   left: 50%;
@@ -210,8 +214,14 @@
 #pf-status-atk {
     text-align: left;
 }
+#pf-status-atk.gold {
+    background-image: linear-gradient( #fff426 50%, #a68d00 48%, #fff426 72%, #fff426 100%);
+}
 #pf-status-hp {
     text-align: right;
+}
+#pf-status-hp.gold {
+    background-image: linear-gradient( #fff426 50%, #a68d00 48%, #fff426 72%, #fff426 100%);
 }
 #pf-charagraph-arrow {
     width: 25px !important;
@@ -286,6 +296,7 @@
 #profile-content {
     height: 400px;
     overflow-y: auto;
+    overflow-x: hidden;
     margin: 5px 0px 0px 10px;
     padding: 0 8px 0 4px;
 
@@ -514,7 +525,7 @@
 }
 .pf-status-gold-content {
     position: absolute;
-    top: 108px;
+    top: 109px;
     left: 190px;
     font-weight: 300;
     letter-spacing: -0.2px;
@@ -938,7 +949,7 @@ table {
     letter-spacing: -0.5px;
 }
 .panel-text.profile-panel.locked {
-    color: #ede437;
+    color: var(--profileyellow);
 }
 #pf-parameter,
 #pf-fc-sheet {

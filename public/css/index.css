@@ -29,7 +29,8 @@
 
 
 body {
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       background-color: dimgray;
       font-family: Optima;
       letter-spacing: -1px;

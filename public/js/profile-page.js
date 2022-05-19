@@ -72,8 +72,29 @@ function loadServantProfile_status(a) {
   document.getElementById('pf-status-lv-content').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
   document.getElementById('pf-status-lv-tail').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
 
-  document.getElementById('pf-status-atk-content').innerHTML = document.getElementById('pf-status-atk').innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
-  document.getElementById('pf-status-hp-content').innerHTML = document.getElementById('pf-status-hp').innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+  document.getElementById('pf-status-atk-content').innerHTML = (parseInt(document.getElementById('pf-status-atk').innerHTML) +
+                                                                parseInt(document.getElementById('pf-status-fou2-content').innerHTML))    
+                                                                .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  document.getElementById('pf-status-hp-content').innerHTML = (parseInt(document.getElementById('pf-status-hp').innerHTML) + 
+                                                               parseInt(document.getElementById('pf-status-fou1-content').innerHTML))
+                                                               .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // change card hp/atk color if fou
+  if (parseInt(document.getElementById('pf-status-fou1-content').innerHTML) > 0) {
+    document.getElementById('pf-status-hp-content').style.color = 'var(--profileyellow)';
+    $('#pf-status-hp').addClass('gold');
+  } else {
+    document.getElementById('pf-status-hp-content').style.color = 'white';
+    $('#pf-status-hp').removeClass('gold');
+  }
+  if (parseInt(document.getElementById('pf-status-fou2-content').innerHTML) > 0) {
+    document.getElementById('pf-status-atk-content').style.color = 'var(--profileyellow)';
+    $('#pf-status-atk').addClass('gold');
+    
+  } else {
+    document.getElementById('pf-status-atk-content').style.color = 'white';
+    $('#pf-status-atk').removeClass('gold');
+  }
+
   document.getElementById('pf-status-cost-content').innerHTML = status_cost[parseInt(a.info.servantRarity) - 1];
 
   let bond_lv = a.status.bond;
@@ -94,7 +115,7 @@ function loadServantProfile_status(a) {
   
   
   
-  //document.getElementById('').innerHTML = ;
+  
 }
 
 
@@ -203,7 +224,7 @@ function loadServantProfile(a) {
         document.getElementById('pf-param-' + key).innerHTML = "?";
     } else if (a.param[key] == "O") {
         document.getElementById('pf-param-' + key).innerHTML = "EX";
-        document.getElementById('pf-param-' + key).style.color = "gold";
+        document.getElementById('pf-param-' + key).style.color = "var(--profileyellow)";
     }
     if (a.param[key] != null) {
       document.getElementById('pf-param-' + key + '-img').src = "assets/param-" + a.param[key].slice(0,1) + '.png';

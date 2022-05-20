@@ -58,6 +58,8 @@ var starterData = {
   }
 }
 
+doResize(null, starterData);
+
 $(window).resize(function() {
   // update var
   starterData = { 

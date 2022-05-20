@@ -36,7 +36,7 @@ function doResize(event, ui) {
   
   var scale, origin;
   
-  if (ui.size.width < 900) {
+  if (ui.size.width < 900 || ui.size.height < 521) {
       scale = Math.min(
       ui.size.width / elWidth,    
       ui.size.height / elHeight

@@ -308,3 +308,58 @@ function loadServantProfile(a) {
 
 
 }
+
+
+
+
+/************************************
+ * container scaling with jquery ui *
+ ************************************/
+
+var $el = $(".flex-container");
+var elHeight = $el.outerHeight();
+var elWidth = $el.outerWidth();
+
+var $wrapper = $(".scaleable-wrapper");
+
+$wrapper.resizable({
+  resize: doResize,
+});
+
+function doResize(event, ui) {
+  
+  var scale, origin;
+  
+  if (ui.size.width < 900) {
+      scale = Math.min(
+      ui.size.width / elWidth,    
+      ui.size.height / elHeight
+      );
+  }
+
+  
+  
+  $el.css({
+    transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
+  });
+  
+}
+
+var starterData = { 
+  size: {
+    width: $wrapper.width(),
+    height: $wrapper.height(),
+  }
+}
+
+$(window).resize(function() {
+  // update var
+  starterData = { 
+      size: {
+        width: $wrapper.width(),
+        height: $wrapper.height(),
+      }
+  }
+  doResize(null, starterData);
+});
+

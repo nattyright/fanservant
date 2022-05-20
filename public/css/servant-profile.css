@@ -1,5 +1,5 @@
 :root {
-    --profileyellow: #fff426
+    --profileyellow: #f8e567
 }
 
 .flex-container {
@@ -78,7 +78,7 @@
 }
 #col-left > div:first-child span {
     --text-shadow: rgba(40, 57, 106, 0.7);
-    margin-top: 23px;
+    margin-top: 23.3px;
     margin-left: 8px;
     color: var(--text-shadow);
     font-size: 16px;
@@ -215,13 +215,13 @@
     text-align: left;
 }
 #pf-status-atk.gold {
-    background-image: linear-gradient( #fff426 50%, #a68d00 48%, #fff426 72%, #fff426 100%);
+    background-image: linear-gradient( #fae54a 50%, #b89f31 48%, #e5cc50 72%, #fff426 100%);
 }
 #pf-status-hp {
     text-align: right;
 }
 #pf-status-hp.gold {
-    background-image: linear-gradient( #fff426 50%, #a68d00 48%, #fff426 72%, #fff426 100%);
+    background-image: linear-gradient( #fae54a 50%, #b89f31 48%, #e5cc50 72%, #fff426 100%);
 }
 #pf-charagraph-arrow {
     width: 25px !important;
@@ -818,7 +818,7 @@ progress#pf-status-level-progressbar[aria-valuenow]:before  {
 .cskill-tip,
 .voice-tip {
     --border-blue: black;
-    color: #46dee3;
+    color: #6dddde;
     margin-top: -23px;
     font-size: 15px;
     padding-left: 120px;

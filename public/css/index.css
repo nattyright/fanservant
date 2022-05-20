@@ -58,7 +58,7 @@ body:before {
   padding: 0;
   margin: 0;
 }
-@media screen and (max-height: 520px) and (max-width: 899) and (orientation: portrait) {
+@media screen and ((max-height: 520px) or (max-width: 899)) and (orientation: portrait) {
   html {
     transform: rotate(-90deg);
     transform-origin: left top;

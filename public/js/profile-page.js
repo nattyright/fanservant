@@ -137,14 +137,14 @@ function loadServantProfile(a) {
 
 
   loadServantProfile_status(a);
-  
+
   // load servant status (optional)
   if ('status' in a) {
     if (a.status.atk != "") {
-      document.getElementById('pf-status-atk').innerHTML = document.getElementById('pf-status-atk-content').innerHTML;
+      document.getElementById('pf-status-atk').innerHTML = document.getElementById('pf-status-atk-content').innerHTML.remove(",");
     }
     if (a.status.hp != "") {
-      document.getElementById('pf-status-hp').innerHTML = document.getElementById('pf-status-hp-content').innerHTML;
+      document.getElementById('pf-status-hp').innerHTML = document.getElementById('pf-status-hp-content').innerHTML.remove(",");
     }
   }
 

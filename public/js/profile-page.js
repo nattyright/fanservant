@@ -75,10 +75,10 @@ function loadServantProfile_status(a) {
 
   document.getElementById('pf-status-fou-atk').innerHTML = a.status.fou.atk;
   document.getElementById('pf-status-fou-hp').innerHTML = a.status.fou.hp;
-  document.getElementById('pf-status-atk-content').innerHTML = (parseInt(document.getElementById('pf-status-atk').innerHTML) +
+  document.getElementById('pf-status-atk-content').innerHTML = (parseInt(a.status.atk) +
                                                                 parseInt(document.getElementById('pf-status-fou-atk').innerHTML))    
                                                                 .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  document.getElementById('pf-status-hp-content').innerHTML = (parseInt(document.getElementById('pf-status-hp').innerHTML) + 
+  document.getElementById('pf-status-hp-content').innerHTML = (parseInt(a.status.hp) + 
                                                                parseInt(document.getElementById('pf-status-fou-hp').innerHTML))
                                                                .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   // change card hp/atk color if fou
@@ -135,17 +135,20 @@ function loadServantProfile(a) {
   document.getElementById('pf-info-servantClass').innerHTML = a.info.servantClass;
   document.getElementById('pf-info-servantName').innerHTML = a.info.servantName;
 
+
+  loadServantProfile_status(a);
+  
   // load servant status (optional)
   if ('status' in a) {
     if (a.status.atk != "") {
-      document.getElementById('pf-status-atk').innerHTML = a.status.atk;
+      document.getElementById('pf-status-atk').innerHTML = document.getElementById('pf-status-atk-content').innerHTML;
     }
     if (a.status.hp != "") {
-      document.getElementById('pf-status-hp').innerHTML = a.status.hp;
+      document.getElementById('pf-status-hp').innerHTML = document.getElementById('pf-status-hp-content').innerHTML;
     }
   }
 
-  loadServantProfile_status(a);
+  
   
   // load charagraph arrows
   document.getElementById('pf-charagraph-arrow').src = "assets/charagraph/left_arrow.png";

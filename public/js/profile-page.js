@@ -104,6 +104,7 @@ function loadServantProfile_status(a) {
   document.getElementById('pf-status-bondlv-content').innerHTML = Math.floor(bond_lv);
   if (bond_lv <= 5) {
     document.getElementById('pf-status-bondlv-count1').value = bond_lv * 20;
+    document.getElementById('pf-status-bondlv-count2').value = 0;
   } else {
     document.getElementById('pf-status-bondlv-count1').value = 5 * 20;
     document.getElementById('pf-status-bondlv-count2').value = (bond_lv - 5) * 20;

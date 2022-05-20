@@ -308,6 +308,15 @@ function loadServantProfile(a) {
     maxSize: 23,
     multiLine: true,
   });
-
+  fitty('.pskill-name', {
+    minSize: 15,
+    maxSize: 22,
+    multiLine: true,
+  });
+  fitty('.cskill-name', {
+    minSize: 15,
+    maxSize: 22,
+    multiLine: true,
+  });
 
 }

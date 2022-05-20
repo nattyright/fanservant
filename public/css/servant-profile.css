@@ -885,6 +885,7 @@ table {
 .pskill-name,
 .cskill-name {
     font-size: 22px;
+    width: 327px;
 }
 .pskill-description,
 .cskill-description {

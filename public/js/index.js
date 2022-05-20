@@ -36,7 +36,7 @@ function doResize(event, ui) {
   
   var scale, origin;
   
-  if (ui.size.width < 1000) {
+  if (ui.size.width < 900) {
       scale = Math.min(
       ui.size.width / elWidth,    
       ui.size.height / elHeight
@@ -57,7 +57,18 @@ var starterData = {
     height: $wrapper.height(),
   }
 }
-doResize(null, starterData);
+
+$(window).resize(function() {
+  // update var
+  starterData = { 
+      size: {
+        width: $wrapper.width(),
+        height: $wrapper.height(),
+      }
+  }
+  doResize(null, starterData);
+});
+
 
 
 

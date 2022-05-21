@@ -334,6 +334,9 @@
     display: block;
     overflow-y: auto;
 }
+.voice-text > p {
+    margin: 0 0 20px 0;
+}
 
 
 

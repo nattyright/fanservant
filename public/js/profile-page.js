@@ -279,7 +279,7 @@ function loadServantProfile(a) {
                     '<div class="voice-title">My Room</div>' + 
                     '<div class="panel-text voice-panel" id="pf-voice-' + key + '"><img class="voice-icon" src="assets/profile-voicepanel-icon.png">' + a.voice[key].name + '</div>' + 
                     '</div></div>' + 
-                    '<div class="voice-text" data-slide="1' + count.toString() + '">' + a.voice[key].desc + '</div>';
+                    '<div class="voice-text" data-slide="1' + count.toString() + '">' + '<p>' + a.voice[key].desc.replace(/(?:\r\n|\r|\n)/g, "</p><p>") + '</p>' + '</div>';
     count++;
 
 

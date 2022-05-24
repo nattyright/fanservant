@@ -1,11 +1,16 @@
 @font-face {
     font-family: 'Optima'; /*a name to be used later*/
-    src: url('../assets/Optima.ttf'); /*URL to font*/
+    src: url('../assets/fonts/Optima.ttf'); /*URL to font*/
 }
 
 @font-face {
     font-family: 'Matisse'; /*a name to be used later*/
-    src: url('../assets/MatissePro.otf'); /*URL to font*/
+    src: url('../assets/fonts/MatissePro.otf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Carlito Regular'; /*a name to be used later*/
+    src: url('../assets/fonts/Carlito-Regular.ttf'); /*URL to font*/
 }
 
 ::-webkit-scrollbar {

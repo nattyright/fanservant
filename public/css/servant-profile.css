@@ -260,20 +260,20 @@
     width: 102%;
 }
 #profile-nav > div {
-    background-image: url("../assets/button-profile-nav.png");
+    background-image: url(../assets/button-profile-nav.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
-    margin: 9px 11px -1px 13px;
-    padding-top: 2px;
+    margin: 12px 11px -1px 13px;
     text-align: center;
-    line-height: 44px;
+    height: 43px;
+    line-height: 43px;
     font-family: Tahoma;
     letter-spacing: 0px;
     font-size: 23px;
     color: #edf3f5;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    
+
     cursor: pointer;
 }
 .profile-nav.active {
@@ -456,7 +456,7 @@
 
 .panel-text.status-panel {
     height: 235px;
-    font-family: Calibri;
+    font-family: Carlito Regular;
     letter-spacing: 0;
     padding-left: 146px;
     padding-top: 4px;
@@ -764,6 +764,7 @@ progress#pf-status-level-progressbar[aria-valuenow]:before  {
 .np-text {
     margin-top: 8px;
     letter-spacing: -0.3px;
+    line-height: 19px;
 }
 #pf-np-gaugetext {
     margin-left: 13px;
@@ -952,6 +953,9 @@ table {
     white-space: pre-wrap;
     font-size: 19px;
     letter-spacing: -0.5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    line-height: 23px;
 }
 .panel-text.profile-panel.locked {
     color: var(--profileyellow);
@@ -1001,6 +1005,7 @@ table {
 }
 #pf-profile-fc {
     padding-left: 70px;
+    line-height: 35px;
 }
 #pf-profile-sheet {
 }

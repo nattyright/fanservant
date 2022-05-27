@@ -495,6 +495,7 @@
     color: #6bb3a3;
     font-family: Skip B;
     font-size: 15px;
+    letter-spacing: -1px;
 
     position: absolute;
     left: 155px;
@@ -503,9 +504,10 @@
 .pf-status-blue-content {
     position: absolute;
     top: 82px;
-    left: 190px;
+    left: 182px;
     font-size: 15px;
-    letter-spacing: -0.1px;
+    letter-spacing: 1px;
+    transform: scale(0.9, 1);
 }
 #pf-status-hp-title {
     margin-left: 0px;
@@ -530,6 +532,7 @@
     padding-right: 18px;
     font-family: Skip B;
     font-size: 15px;
+    letter-spacing: 0.5px;
 
     position: absolute;
     left: 155px;
@@ -538,9 +541,10 @@
 .pf-status-gold-content {
     position: absolute;
     top: 108px;
-    left: 190px;
+    left: 180px;
     font-size: 15px;
-    letter-spacing: -0.2px;
+    letter-spacing: 1px;
+    transform: scale(0.9, 1);
 }
 #pf-status-fou1-title {
 
@@ -552,7 +556,7 @@
     margin-left: 130px;
 }
 #pf-status-fou-atk {
-    margin-left: 138px;
+    margin-left: 146px;
 }
 #pf-status-linebreak {
     position: absolute;
@@ -762,9 +766,19 @@ progress#pf-status-level-progressbar[aria-valuenow]:before  {
     width: 333px;
 }
 .np-category {
-    padding: 3px 30px 3px 1px;
-
+    padding: 0px 30px 0px 1px;
     color: gold;
+    font-size: 15px;
+    font-family: 'NewRodin M';
+    font-weight: 700;
+    text-shadow: 2px 0 0 #000, 
+                -2px 0 0 #000, 
+                 0 2px 0 #000, 
+                 0 -2px 0 #000, 
+                 1px 1px #000, 
+                -1px -1px 0 #000, 
+                 1px -1px 0 #000, 
+                -1px 1px 0 #000;
 }
 .np-name {
     font-size: 23px;
@@ -837,9 +851,11 @@ progress#pf-status-level-progressbar[aria-valuenow]:before  {
 .voice-tip {
     --border-blue: black;
     color: #6dddde;
-    margin-top: -23px;
-    font-size: 15px;
-    padding-left: 120px;
+    margin-top: -24px;
+    font-family: Skip D;
+    letter-spacing: 0.2px;
+    font-size: 13px;
+    padding-left: 85px;
     text-shadow:
         -1px -1px 0 var(--border-blue),  
         1px -1px 0 var(--border-blue),
@@ -855,7 +871,7 @@ table {
 }
 .pskill-l,
 .cskill-l {
-    padding: 10px 10px 0 0;
+    padding: 5px 10px 0 0;
     min-width: 50px;
     display: inline-block;
     vertical-align: top;
@@ -883,7 +899,7 @@ table {
     margin-left: -20px;
     width: 85px;
     vertical-align: top;
-    padding-top: 25px;
+    padding-top: 20px;
 }
 .pskill-m img,
 .cskill-m img {
@@ -904,6 +920,7 @@ table {
 .cskill-name {
     font-size: 22px;
     width: 327px;
+    margin-top: 15px;
 }
 .pskill-description,
 .cskill-description {

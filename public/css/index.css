@@ -9,9 +9,41 @@
 }
 
 @font-face {
-    font-family: 'Carlito Regular'; /*a name to be used later*/
-    src: url('../assets/fonts/Carlito-Regular.ttf'); /*URL to font*/
+    font-family: 'NewRodin M'; /*a name to be used later*/
+    src: url('../assets/fonts/FOT-NewRodinPro-M.otf'); /*URL to font*/
 }
+
+@font-face {
+    font-family: 'Palatino'; /*a name to be used later*/
+    src: url('../assets/fonts/Palatino.ttf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'Palatino Bold'; /*a name to be used later*/
+    src: url('../assets/fonts/Palatino-Bold.ttf'); /*URL to font*/
+}
+
+
+@font-face {
+    font-family: 'Skip B'; /*a name to be used later*/
+    src: url('../assets/fonts/FOT-SkipStd-B.otf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'Skip D'; /*a name to be used later*/
+    src: url('../assets/fonts/FOT-SkipStd-D.otf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'Skip M'; /*a name to be used later*/
+    src: url('../assets/fonts/FOT-SkipStd-M.otf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'Skip L'; /*a name to be used later*/
+    src: url('../assets/fonts/FOT-SkipStd-L.otf'); /*URL to font*/
+}
+
+
+
+
+
 
 ::-webkit-scrollbar {
     -webkit-appearance:  none;

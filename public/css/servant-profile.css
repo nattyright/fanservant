@@ -162,7 +162,6 @@
     position: absolute;
     z-index: 500;
     color: white;
-    font-family: Matisse;
     margin-left: 3px;
     
     text-shadow:
@@ -172,11 +171,13 @@
          1px  1px 0 black;
 }
 #pf-info-servantClass {
-    font-size: 26px;
-    letter-spacing: 1px;
+    font-size: 30px;
+    letter-spacing: 4px;
+    font-family: Palatino;
+    font-weight: 700;
     left: 50%;
-    bottom: 32px;
-    transform: translate(-50%, -50%);
+    bottom: 46px;
+    transform: translate(-50%, -50%) scale(0.75, 1);
 }
 #pf-info-servantClass-underline {
     width: 200px;
@@ -189,27 +190,32 @@
     z-index: 499;
 }
 #pf-info-servantName {
-    font-size: 13px;
-    letter-spacing: 0;
+    font-family: Matisse;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transform: scale(0.9, 1);
     width: 100%;
     text-align: center;
-    bottom: 50px;
+    bottom: 49px;
 }
 #pf-status-atk,
 #pf-status-hp {
-    font-family: Optima;
+    font-family: Palatino;
     width: 222px;
-    font-size: 30px;
-    bottom: 2px;
+    font-size: 28px;
+    bottom: 2.5px;
     left: 33px;
     font-weight: 700;
 
+    letter-spacing: 1px;
     text-shadow: none;
     background-color: #CA4246;
     background-color: white;
     background-image: linear-gradient( white 50%, #dcc 48%, white 72%, white 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.5px #ffd70000;
+}
 }
 #pf-status-atk {
     text-align: left;
@@ -234,19 +240,21 @@
 #profile-name {
     height: 55px;
     color: white;
-    padding-right: 22px;
+    padding-right: 15px;
     text-align: right;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 #pf-servantName {
-    font-size: 50px;
-    line-height: 34px;
-    letter-spacing: -2px;
+    font-family: Skip B;
+    font-size: 37px;
+    line-height: 23px;
+    letter-spacing: -0.5px;
 }
 #pf-servantClass {
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.3px;
+    font-family: Skip B;
+    font-size: 13px;
+    line-height: 42px;
+    letter-spacing: 1px;
 }
 
 
@@ -268,7 +276,8 @@
     text-align: center;
     height: 43px;
     line-height: 43px;
-    font-family: Tahoma;
+    font-family: NewRodin M;
+    font-weight: 700;
     letter-spacing: 0px;
     font-size: 23px;
     color: #edf3f5;
@@ -276,22 +285,19 @@
 
     cursor: pointer;
 }
+#profile-nav > div > div {
+    transform: scale(0.75, 1);
+}
 .profile-nav.active {
     color: #fff1eb !important
 }
-#profile-nav > div:nth-child(3) {
-    font-size: 20px;
-    font-family: Arial Narrow;
-    letter-spacing: -1px;
-}
 #profile-nav > div:nth-child(3) > div {
-    -webkit-transform: scale(1,1.3);
-    -moz-transform: scale(1,1.3);
-    -ms-transform: scale(1,1.3);
-    -o-transform: scale(1,1.3);
-    transform: scale(1,1.3);
-    margin-top: 1px;
+    font-size: 13px;
+    letter-spacing: 0px;
+
+    transform: scale(0.92,1.7);
     white-space: nowrap;
+    margin-left: -2px;
 }
 #profile-content {
     height: 400px;
@@ -455,8 +461,8 @@
 
 
 .panel-text.status-panel {
-    height: 235px;
-    font-family: Carlito Regular;
+    height: 220px;
+    font-family: Skip M;
     letter-spacing: 0;
     padding-left: 146px;
     padding-top: 4px;
@@ -471,33 +477,33 @@
 #pf-status-lv-title {
     color: gold;
     font-size: 24px;
-    padding-right: 10px;
     font-weight: 600;
     letter-spacing: 1px;
 }
 #pf-status-lv-content {
-    font-size: 40px;
+    font-size: 31px;
+    line-height: 45px;
 }
 .pf-status-lv-tail {
-    font-size: 19px;
+    font-size: 17px;
     letter-spacing: 1px;
     font-weight: 300;
     padding-left: 3px;
 }
 .pf-status-blue {
     color: #6bb3a3;
-    font-size: 17px;
+    font-family: Skip B;
+    font-size: 15px;
 
     position: absolute;
-    left: 160px;
-    top: 85px;
+    left: 155px;
+    top: 82px;
 }
 .pf-status-blue-content {
     position: absolute;
-    top: 84px;
+    top: 82px;
     left: 190px;
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 15px;
     letter-spacing: -0.1px;
 }
 #pf-status-hp-title {
@@ -507,31 +513,32 @@
     margin-right: 212px;
 }
 #pf-status-atk-title {
-    margin-left: 120px;
+    margin-left: 130px;
 }
 #pf-status-atk-content {
-    margin-left: 128px;
+    margin-left: 138px;
 }
 #pf-status-cost-title {
-    margin-left: 240px;
+    margin-left: 255px;
 }
 #pf-status-cost-content {
-    margin-left: 260px;
+    margin-left: 275px;
 }
 .pf-status-gold {
     color: gold;
     padding-right: 18px;
-    font-size: 18px;
+    font-family: Skip B;
+    font-size: 15px;
 
     position: absolute;
-    left: 160px;
+    left: 155px;
     top: 108px;
 }
 .pf-status-gold-content {
     position: absolute;
-    top: 109px;
+    top: 108px;
     left: 190px;
-    font-weight: 300;
+    font-size: 15px;
     letter-spacing: -0.2px;
 }
 #pf-status-fou1-title {
@@ -541,52 +548,53 @@
 
 }
 #pf-status-fou2-title {
-    margin-left: 120px;
+    margin-left: 130px;
 }
 #pf-status-fou-atk {
-    margin-left: 128px;
+    margin-left: 138px;
 }
 #pf-status-linebreak {
     position: absolute;
-    left: 184px;
-    top: 137px;
-    border-bottom: 1px dotted darkgray;
-    width: 295px;
+    left: 162px;
+    top: 145px;
+    border-bottom: 2px dotted darkgray;
+    width: 320px;
 }
 #pf-status-bondlv-title {
     position: absolute;
-    left: 157px;
+    left: 138px;
     top: 170px;
     font-size: 18px;
     color: gold;
-    letter-spacing: -1px;
-    font-family: Arial Narrow;
+    letter-spacing: 0px;
+    font-family: Skip B;
+    transform: scale(0.6, 1);
 }
 #pf-status-bondlv-content {
     position: absolute;
-    left: 218px;
+    left: 240px;
     top: 150px;
-    font-size: 40px;
+    font-size: 35px;
 }
 #pf-status-bondlv-tail {
     position: absolute;
-    left: 241px;
-    top: 170px;
-    font-size: 19px;
+    left: 270px;
+    top: 177px;
+    font-size: 17px;
     font-weight: 300;
 }
 #pf-status-bondnext-title {
     position: absolute;
-    left: 302px;
-    top: 240px;
+    left: 307px;
+    top: 226px;
     color: gold;
-    font-size: 14px;
+    font-size: 11px;
 }
 #pf-status-bondnext-content {
     position: absolute;
-    right: 34px;
-    top: 235px;
-    font-size: 19px;
+    right: 25px;
+    top: 222px;
+    font-size: 15px;
     letter-spacing: 0.5px;
     font-weight: 300;
 }
@@ -600,10 +608,10 @@
 
 #pf-status-level-progressbar {
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 40px;
-    width: 191px;
-    height: 15px;
+    width: 165px;
+    height: 12px;
 }
 
 
@@ -612,10 +620,10 @@
 progress,
 progress[role] {
     position: absolute;
-    right: 25px;
-    top: 145px;
-    height: 40px;
-    width: 200px;
+    right: 20px;
+    top: 155px;
+    height: 33px;
+    width: 165px;
 
     /* Turns off styling - not usually needed, but good to know. */
     appearance: none;
@@ -629,7 +637,7 @@ progress[role] {
     background-size: auto;
 }
 #pf-status-bondlv-count2{
-    top: 185px;
+    top: 190px;
 }
 /* Polyfill */
 progress[role]:after {
@@ -723,18 +731,22 @@ progress#pf-status-level-progressbar[aria-valuenow]:before  {
 .cc-title,
 .profile-title,
 .voice-title {
-    font-family: Arial Narrow;
-    letter-spacing: -2px;
-    font-size: 20px;
-    font-weight: 600;
-    margin: -21px 0 0 8px;
+    font-family: NewRodin M;
+    letter-spacing: 0;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    margin: -21px 0 0 -80px;
 
-    background: -webkit-linear-gradient(#888, #777, #555, #222, #000);
+    background: -webkit-linear-gradient(#666, #555, #444, #111, #000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.1px transparent;
+    transform: scale(0.7, 1);
 }
 .cskill-title {
-    margin-left: 5px;
+    transform: scale(0.6, 1);
+    margin-left: -117px;
 }
 .panel-text {
     font-size: 16px;
@@ -897,6 +909,7 @@ table {
     font-size: 16px;
     margin-top: -20px;
     margin-bottom: 0px;
+    letter-spacing: -0.5px;
 }
 
 
@@ -951,11 +964,13 @@ table {
 
 .panel-text.profile-panel {
     white-space: pre-wrap;
-    font-size: 19px;
-    letter-spacing: -0.5px;
+    font-family: Skip D;
+    font-size: 17px;
+    letter-spacing: 0.3px;
     padding-top: 5px;
     padding-bottom: 10px;
-    line-height: 23px;
+    line-height: 22px;
+    
 }
 .panel-text.profile-panel.locked {
     color: var(--profileyellow);
@@ -966,7 +981,7 @@ table {
 }
 #param-table {
     width: 100%;
-    font-size: 20px;
+    font-size: 19px;
     margin-top: -5px;
 }
 #param-table td:nth-child(1),
@@ -996,7 +1011,7 @@ table {
 
 .pf-profile-fc,
 .pf-profile-sheet {
-    font-size: 30px;
+    font-size: 23px;
     padding-left: 15px !important;
     overflow-wrap: anywhere;
 }
@@ -1004,7 +1019,7 @@ table {
     margin-top: 0px !important;
 }
 #pf-profile-fc {
-    padding-left: 70px;
+    padding-left: 63px;
     line-height: 35px;
 }
 #pf-profile-sheet {
@@ -1034,10 +1049,13 @@ table {
 .voice-text {
     z-index: 39999;
     padding: 25px 75px;
-    font-size: 25px;
-    line-height: 36px;
+    font-family: Skip D;
+    font-size: 21px;
+    line-height: 33px;
+    letter-spacing: -0.3px;
     color: #f3f3f3;
     white-space: pre-wrap;
+    text-shadow: 1px 2px black;
 }
 .voice-icon {
     position: absolute;

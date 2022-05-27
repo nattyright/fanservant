@@ -298,6 +298,7 @@
     transform: scale(0.92,1.7);
     white-space: nowrap;
     margin-left: -2px;
+    text-shadow: -1px 0 black, 0 0.5px black, 1px 0 black, 0 -0.5px black;
 }
 #profile-content {
     height: 400px;

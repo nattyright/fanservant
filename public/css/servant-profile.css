@@ -742,7 +742,7 @@ progress#pf-status-level-progressbar[aria-valuenow]:before  {
     background: -webkit-linear-gradient(#666, #555, #444, #111, #000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 0.1px transparent;
+    -webkit-text-stroke: 0.4px transparent;
     transform: scale(0.7, 1);
 }
 .cskill-title {

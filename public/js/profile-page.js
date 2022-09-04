@@ -73,8 +73,8 @@ function loadServantProfile_status(a) {
   document.getElementById('pf-status-lv-tail').innerHTML = status_maxlv[parseInt(a.info.servantRarity) - 1];
 
 
-  document.getElementById('pf-status-fou-atk').innerHTML = a.status.fou.atk;
-  document.getElementById('pf-status-fou-hp').innerHTML = a.status.fou.hp;
+  document.getElementById('pf-status-fou-atk').innerHTML = parseInt(a.status.fou.atk).toLocaleString();
+  document.getElementById('pf-status-fou-hp').innerHTML = parseInt(a.status.fou.hp).toLocaleString();
 
   let temp_num_hp = parseInt(a.status.atk) + parseInt(document.getElementById('pf-status-fou-atk').innerHTML);
   document.getElementById('pf-status-atk-content').innerHTML = temp_num_hp.toLocaleString();

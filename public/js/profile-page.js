@@ -241,7 +241,7 @@ function loadServantProfile(a) {
 
   // load profiles
   for (let key in a.profile) {
-    if (a.profile[key].startsWith("[LOCK]")) {
+    if (a.profile[key].startsWith("[LOCKED]")) {
       // locked profiles
       let unlockCondition = a.profile[key].split("]")[1].replace("[", "");
       document.getElementById('pf-profile-' + key).innerHTML = unlockCondition;

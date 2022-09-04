@@ -77,10 +77,10 @@ function loadServantProfile_status(a) {
   document.getElementById('pf-status-fou-hp').innerHTML = a.status.fou.hp;
   document.getElementById('pf-status-atk-content').innerHTML = (parseInt(a.status.atk) +
                                                                 parseInt(document.getElementById('pf-status-fou-atk').innerHTML))    
-                                                                .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                                .toLocaleString();
   document.getElementById('pf-status-hp-content').innerHTML = (parseInt(a.status.hp) + 
                                                                parseInt(document.getElementById('pf-status-fou-hp').innerHTML))
-                                                               .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                               .toLocaleString();
   // change card hp/atk color if fou
   if (parseInt(document.getElementById('pf-status-fou-hp').innerHTML) > 0) {
     document.getElementById('pf-status-hp-content').style.color = 'var(--profileyellow)';

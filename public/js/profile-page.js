@@ -101,8 +101,13 @@ function loadServantProfile_status(a) {
 
   document.getElementById('pf-status-cost-content').innerHTML = status_cost[parseInt(a.info.servantRarity) - 1];
 
-  let bond_lv = parseFloat(a.status.bond.replace(',','.').replace(' ',''));
-  document.getElementById('pf-status-bondlv-content').innerHTML = Math.floor(bond_lv);
+  if (a.status.bond) {
+    let bond_lv = parseFloat(a.status.bond.replace(',','.').replace(' ',''));
+    document.getElementById('pf-status-bondlv-content').innerHTML = Math.floor(bond_lv);
+  } else {
+    let bond_lv = 0;
+  }
+  
   if (bond_lv <= 5) {
     document.getElementById('pf-status-bondlv-count1').value = bond_lv * 20;
     document.getElementById('pf-status-bondlv-count2').value = 0;

@@ -314,6 +314,10 @@ $(document).ready(function() {
                 alert("Invalid Password!");
             } else if (data === 'dupid') {
                 alert("Servant ID already in use!");
+            } else if (data === 'class') {
+                alert("Choose a Servant class!");
+            } else if (data === 'rarity') {
+                alert("Choose a Servant rarity!");
             }
         });
     });

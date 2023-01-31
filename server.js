@@ -263,6 +263,14 @@ router.post('/editprofile', urlencodedParser, async function(req, res) {
             // cannot set empty password
             res.end("password");
 
+        } else if (queryResult != null && result.servantClass == "") {
+            // cannot set empty password
+            res.end("class");
+
+        } else if (queryResult != null && result.servantRarity == "") {
+            // cannot set empty password
+            res.end("rarity");
+
         } else {
 
             if (result.info.time == 0) {
